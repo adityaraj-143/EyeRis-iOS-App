@@ -8,17 +8,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Blink Rate View Controller-->
+        <!--Blink Rate Test-->
         <scene sceneID="hQ2-XL-1va">
             <objects>
                 <viewController id="BBO-6O-vdk" customClass="BlinkRateViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lng-dh-dSh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZR-oK-crF">
+                                <rect key="frame" x="16" y="160" width="361" height="564"/>
+                                <string key="text">Arjun always took his eyesight for granted. He spent hours scrolling on his phone, studying on his laptop, and gaming late in the night. Slowly, his eyes began to ache, and everything looked slightly hazy. He ignored it at first, thinking it was just tiredness. But one day, while driving, he realized he couldn’t read a road sign clearly. That scared him enough to finally visit an eye specialist. The doctor told him his vision had weakened and warned him about screen strain. Arjun started following the 20-20-20 rule—every 20 minutes, look 20 feet away for 20 seconds. He reduced screen brightness, ate more greens, and even started wearing protective glasses. Within weeks, his eyes felt lighter and healthier. He learned that caring for your eyes isn’t optional—it’s essential.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3Jz-9x-HN1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YZR-oK-crF" firstAttribute="top" secondItem="Lng-dh-dSh" secondAttribute="top" constant="160" id="Em3-FI-vCe"/>
+                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="bottom" secondItem="YZR-oK-crF" secondAttribute="bottom" constant="60" id="JYY-fk-zlx"/>
+                            <constraint firstItem="YZR-oK-crF" firstAttribute="leading" secondItem="3Jz-9x-HN1" secondAttribute="leading" constant="16" id="WZG-LZ-VBe"/>
+                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="trailing" secondItem="YZR-oK-crF" secondAttribute="trailing" constant="16" id="qUs-yH-b11"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zk8-1X-Gfn"/>
+                    <navigationItem key="navigationItem" title="Blink Rate Test" id="zk8-1X-Gfn"/>
+                    <connections>
+                        <outlet property="Passage" destination="YZR-oK-crF" id="BkT-VQ-Tx1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddR-aR-3j0" sceneMemberID="firstResponder"/>
             </objects>
