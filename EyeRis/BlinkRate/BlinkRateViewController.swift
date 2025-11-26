@@ -27,7 +27,9 @@ class BlinkRateViewController: UIViewController, ARSessionDelegate {
     var blinkCount = 0
     
     var timer: Timer?
-    var timeRemaining = 120   // 2 minutes = 120 seconds
+    var timeRemaining = 120
+//    BlinkRateTest.duration
+//    2 minutes = 120 seconds
 
     
 

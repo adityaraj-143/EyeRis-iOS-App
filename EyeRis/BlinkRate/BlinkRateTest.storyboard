@@ -37,14 +37,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc4-nU-LWw">
+                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="IjG-3i-e3b"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="N36-V1-R5o"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Jz-9x-HN1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dc4-nU-LWw" firstAttribute="top" secondItem="3Jz-9x-HN1" secondAttribute="top" id="0c3-nr-AlK"/>
+                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="bottom" secondItem="dc4-nU-LWw" secondAttribute="bottom" id="9Fl-Dp-f7z"/>
                             <constraint firstItem="YZR-oK-crF" firstAttribute="top" secondItem="Lng-dh-dSh" secondAttribute="top" constant="160" id="Em3-FI-vCe"/>
+                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="trailing" secondItem="dc4-nU-LWw" secondAttribute="trailing" id="I2W-YR-zcN"/>
                             <constraint firstItem="3Jz-9x-HN1" firstAttribute="bottom" secondItem="YZR-oK-crF" secondAttribute="bottom" constant="60" id="JYY-fk-zlx"/>
+                            <constraint firstItem="dc4-nU-LWw" firstAttribute="trailing" secondItem="3Jz-9x-HN1" secondAttribute="trailing" id="Mzr-jd-6DG"/>
                             <constraint firstItem="YZR-oK-crF" firstAttribute="leading" secondItem="3Jz-9x-HN1" secondAttribute="leading" constant="16" id="WZG-LZ-VBe"/>
+                            <constraint firstItem="dc4-nU-LWw" firstAttribute="leading" secondItem="3Jz-9x-HN1" secondAttribute="leading" id="Xoa-F9-T3u"/>
+                            <constraint firstItem="dc4-nU-LWw" firstAttribute="top" secondItem="3Jz-9x-HN1" secondAttribute="top" id="dDH-ZS-7r7"/>
+                            <constraint firstItem="dc4-nU-LWw" firstAttribute="bottom" secondItem="3Jz-9x-HN1" secondAttribute="bottom" id="lo0-hX-mBK"/>
                             <constraint firstItem="3Jz-9x-HN1" firstAttribute="trailing" secondItem="YZR-oK-crF" secondAttribute="trailing" constant="16" id="qUs-yH-b11"/>
+                            <constraint firstItem="dc4-nU-LWw" firstAttribute="leading" secondItem="3Jz-9x-HN1" secondAttribute="leading" id="wUN-H0-wAm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Blink Rate Test" id="zk8-1X-Gfn"/>
