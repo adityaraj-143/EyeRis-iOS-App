@@ -16,24 +16,64 @@ class BlinkRateViewController: UIViewController, ARSessionDelegate {
     let session = ARSession()
 
 
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var Passage: UILabel!
+    
+    
+    
     
     // Blink state variables
     var isBlinking = false
     var blinkCount = 0
     
+    var timer: Timer?
+    var timeRemaining = 120   // 2 minutes = 120 seconds
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        Passage.text = "\(BlinkRateTest.passages[1])"
 
         requestCameraPermission { granted in
             if granted {
                 self.startFaceTracking()
+                self.startTimer()
             } else {
                 self.showPermissionAlert()
             }
         }
     }
+
+    
+    func startTimer() {
+        timerLabel.text = "02:00"
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.updateTimer()
+        }
+    }
+    
+    func updateTimer() {
+        if timeRemaining > 0 {
+            timeRemaining -= 1
+
+            let minutes = timeRemaining / 60
+            let seconds = timeRemaining % 60
+
+            timerLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        } else {
+            timer?.invalidate()
+            timer = nil
+
+            // Stop the AR session
+            session.pause()
+
+            timerLabel.text = "00:00"
+            
+        }
+    }
+
 
     // MARK: - CAMERA PERMISSION
     func requestCameraPermission(completion: @escaping (Bool) -> Void) {
