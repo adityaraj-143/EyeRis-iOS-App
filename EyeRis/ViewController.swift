@@ -30,6 +30,10 @@ class ViewController: UIViewController {
         CollectionView.register(UINib(nibName: "PracTestCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "pracTest_cell")
         
         CollectionView.register(UINib(nibName: "BlinkRateCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "blinkRate_cell")
+        
+        CollectionView.register(UINib(nibName: "LastExerciseCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "lastExercise_cell")
+        
+        CollectionView.register(UINib(nibName: "LastTestCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "lastTest_cell")
     }
     
     
@@ -139,6 +143,56 @@ class ViewController: UIViewController {
                 return section
             }
             
+            else if section == 4 {
+
+                let item = NSCollectionLayoutItem(
+                    layoutSize: NSCollectionLayoutSize(
+                        widthDimension: .fractionalWidth(1.0),
+                        heightDimension: .absolute(165)                    )
+                )
+
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .absolute(165)
+                )
+
+                let group = NSCollectionLayoutGroup.vertical(
+                    layoutSize: groupSize,
+                    subitems: [item]
+                )
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(
+                    top: 0, leading: 20, bottom: 20, trailing: 20
+                )
+
+                return section
+            }
+            else if section == 5{
+                let item = NSCollectionLayoutItem(
+                    layoutSize: NSCollectionLayoutSize(
+                        widthDimension: .fractionalWidth(1.0),
+                        heightDimension: .absolute(165)                    )
+                )
+
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .absolute(165)
+                )
+
+                let group = NSCollectionLayoutGroup.vertical(
+                    layoutSize: groupSize,
+                    subitems: [item]
+                )
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(
+                    top: 0, leading: 20, bottom: 20, trailing: 20
+                )
+
+                return section
+            }
+            
             return nil
         }
         
@@ -152,7 +206,7 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -173,11 +227,19 @@ extension ViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pracTest_cell", for: indexPath) as! PracTestCollectionViewCell
             
             return cell
-        } else {
+        } else if indexPath.section == 3{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "blinkRate_cell", for: indexPath) as! BlinkRateCollectionViewCell
             
             cell.blinkRateSliderView.value = 9
             cell.blinkRateSliderView.maxValue = 22
+            
+            return cell
+        } else if indexPath.section == 4{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lastExercise_cell", for: indexPath) as! LastExerciseCollectionViewCell
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lastTest_cell", for: indexPath) as! LastTestCollectionViewCell
             
             return cell
         }
