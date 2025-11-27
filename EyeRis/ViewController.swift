@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         
         CollectionView.register(UINib(nibName: "PracTestCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "pracTest_cell")
         
-        CollectionView.register(UINib(nibName: "SummaryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "summary_cell")
+        CollectionView.register(UINib(nibName: "BlinkRateCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "blinkRate_cell")
     }
     
     
@@ -113,6 +113,32 @@ class ViewController: UIViewController {
                 return section
             }
             
+            else if section == 3 {
+
+                let item = NSCollectionLayoutItem(
+                    layoutSize: NSCollectionLayoutSize(
+                        widthDimension: .fractionalWidth(1.0),
+                        heightDimension: .absolute(165)                    )
+                )
+
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .absolute(165)
+                )
+
+                let group = NSCollectionLayoutGroup.vertical(
+                    layoutSize: groupSize,
+                    subitems: [item]
+                )
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(
+                    top: 0, leading: 20, bottom: 20, trailing: 20
+                )
+
+                return section
+            }
+            
             return nil
         }
         
@@ -126,7 +152,7 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -143,13 +169,18 @@ extension ViewController: UICollectionViewDataSource {
             
             return cell
         }
-        else {
+        else if indexPath.section == 2{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pracTest_cell", for: indexPath) as! PracTestCollectionViewCell
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "blinkRate_cell", for: indexPath) as! BlinkRateCollectionViewCell
+            
+            cell.blinkRateSliderView.value = 9
+            cell.blinkRateSliderView.maxValue = 22
             
             return cell
         }
     }
-    
-    
+        
 }
-
