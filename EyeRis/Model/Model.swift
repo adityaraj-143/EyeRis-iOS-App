@@ -17,8 +17,15 @@ struct User{
 
 struct UserEyeHealthData{
     // Store all the onboarding data
-    // also extra data if needed
+    
+    
+    // the eye conditions that the user is facing
     var condition: [Conditions] // think about this, if this has to be here on in userdata
+    
+    func getUserEyeConditions() -> [Conditions]{
+        var conditions: [Conditions] = []
+        return conditions
+    }
 }
 
 struct Exercise{
@@ -26,7 +33,17 @@ struct Exercise{
     var name: String
     var duration: Int
     var instructions: ExerciseInstruction
-    var condition : [Conditions]
+    var targetedConditions : [Conditions]
+    
+    // to see if the exercise is recommended on the basis of userEyeConditions
+    func isRecommended(for user: User) -> Bool {
+        // Convert both arrays to Sets for fast intersection
+        let userConditions = Set(user.eyeHealthData.condition)
+        let exerciseConditions = Set(targetedConditions)
+
+        // If intersection is not empty → recommended
+        return !userConditions.intersection(exerciseConditions).isEmpty
+    }
 }
 
 struct ExerciseInstruction{
