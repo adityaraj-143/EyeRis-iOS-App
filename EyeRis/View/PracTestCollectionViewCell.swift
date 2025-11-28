@@ -17,9 +17,17 @@ class PracTestCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         mainView.layer.cornerRadius = 17
-        cellCardView.layer.cornerRadius = 17
-        cellCardView1.layer.cornerRadius = 17
-        cellCardView2.layer.cornerRadius = 17
+        
+        let temp = [cellCardView, cellCardView1, cellCardView2]
+        
+        for i in 0...temp.count-1{
+            temp[i]?.layer.cornerRadius = 17
+            temp[i]?.layer.shadowColor = UIColor.black.cgColor
+            temp[i]?.layer.shadowOpacity = 0.1
+            temp[i]?.layer.shadowRadius = 10
+            temp[i]?.layer.shadowOffset = .zero
+            temp[i]?.layer.masksToBounds = false
+        }
     }
-
+    
 }
