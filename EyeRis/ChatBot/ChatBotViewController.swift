@@ -12,12 +12,11 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var ChatBotIcon: UIImageView!
     
+    
+    @IBOutlet weak var InputBarBottom: NSLayoutConstraint!
+        
+    
     @IBOutlet weak var TextField: UITextField!
-    
-    @IBOutlet weak var InputBarBottomConstraint: NSLayoutConstraint!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +55,7 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
     if let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
         let height = frame.height
         
-        InputBarBottomConstraint.constant = -height + view.safeAreaInsets.bottom
+        InputBarBottom.constant = -height + view.safeAreaInsets.bottom
         
         UIView.animate(withDuration: 0.25) {
             self.view.layoutIfNeeded()
@@ -65,7 +64,7 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
 }
 
     @objc func keyboardWillHide(_ notification: Notification) {
-    InputBarBottomConstraint.constant = 0
+    InputBarBottom.constant = 0
     
     UIView.animate(withDuration: 0.25) {
         self.view.layoutIfNeeded()
