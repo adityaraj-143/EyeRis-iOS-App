@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6kH-6Q-10Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MS3-bA-vJY">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
@@ -8,16 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ChatBot-->
-        <scene sceneID="sxm-9N-jAn">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ChatBot" id="HDy-aI-K2n" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="gHz-8G-Xlq"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Tz-rr-WkP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="459" y="117"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="X5d-DP-XBA">
             <objects>
@@ -32,25 +22,52 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Open Chatbot"/>
                                 <connections>
-                                    <segue destination="HDy-aI-K2n" kind="show" id="sqK-QK-5ve"/>
+                                    <segue destination="MNn-Uc-nHA" kind="show" id="t61-w0-AGC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N5a-zi-pPJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" style="editor" id="HVd-Vb-5xA"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="CollectionView" destination="VdG-cA-bfb" id="DWm-ZD-FSz"/>
-                        <segue destination="7Wc-Fy-gFn" kind="show" id="zoI-H2-spH"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="9ds-Xy-4DZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odl-U3-FPk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-201" y="146"/>
+            <point key="canvasLocation" x="724.4274809160305" y="145.77464788732394"/>
+        </scene>
+        <!--Chat Bot View Controller-->
+        <scene sceneID="JlW-RS-1uW">
+            <objects>
+                <viewController storyboardIdentifier="ChatBotViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MNn-Uc-nHA" customClass="ChatBotViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dNV-RJ-wP2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KXt-rj-9qy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ySB-Xq-fA1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ruz-ku-qP9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1477" y="146"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GTV-po-jPn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MS3-bA-vJY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="faK-n4-R2n">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6kH-6Q-10Q" kind="relationship" relationship="rootViewController" id="tQi-fl-Z7a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvD-kP-vmA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-202.29007633587784" y="145.77464788732394"/>
         </scene>
     </scenes>
     <resources>
