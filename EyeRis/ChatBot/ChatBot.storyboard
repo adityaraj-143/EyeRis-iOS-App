@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
@@ -39,85 +39,72 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="I have irritation in my eyes"/>
-                                <connections>
-                                    <action selector="FAQ1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mAd-Ni-ibS"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKK-9q-q9j">
                                 <rect key="frame" x="83" y="450.33333333333331" width="224" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Suggestions for dry eyes"/>
-                                <connections>
-                                    <action selector="FAQ2:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HW6-GG-pmX"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-lD-rnU">
                                 <rect key="frame" x="52" y="506.33333333333331" width="286" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Explain the result of my last test"/>
-                                <connections>
-                                    <action selector="FAQ3:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ELe-Ht-HtN"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gch-jH-FiX">
                                 <rect key="frame" x="75" y="566" width="241" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Healthy diet for my eyes"/>
-                                <connections>
-                                    <action selector="FAQ4:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Msr-Sx-6N2"/>
-                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yJ-t4-Aag">
-                                <rect key="frame" x="0.0" y="696" width="390" height="80"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKD-Lb-qQU">
+                                <rect key="frame" x="0.0" y="706" width="390" height="70"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask EyeRis" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-2h-oGW">
-                                        <rect key="frame" x="10" y="23" width="319" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask EyeRis" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lrr-pw-RSF">
+                                        <rect key="frame" x="8" y="18" width="306" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="306" id="buD-co-pxk"/>
+                                            <constraint firstAttribute="height" constant="34" id="r26-wW-KFt"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcK-7x-HRY">
-                                        <rect key="frame" x="337" y="18" width="45" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvb-Hh-ow7">
+                                        <rect key="frame" x="331" y="15" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="6nu-BG-8rV"/>
-                                            <constraint firstAttribute="width" constant="45" id="i6d-3r-BwY"/>
+                                            <constraint firstAttribute="width" constant="40" id="1Wv-kV-BlC"/>
+                                            <constraint firstAttribute="height" constant="40" id="yd2-Hz-Cql"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system" cornerStyle="capsule"/>
-                                        <connections>
-                                            <action selector="MessageButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ffa-OR-gG1"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="HEb-2h-oGW" firstAttribute="top" secondItem="9yJ-t4-Aag" secondAttribute="top" constant="23" id="1zb-eo-Kcj"/>
-                                    <constraint firstItem="HEb-2h-oGW" firstAttribute="leading" secondItem="9yJ-t4-Aag" secondAttribute="leading" constant="10" id="LEg-dS-HL9"/>
-                                    <constraint firstAttribute="trailing" secondItem="RcK-7x-HRY" secondAttribute="trailing" constant="8" id="Mkt-e1-cb3"/>
-                                    <constraint firstAttribute="bottom" secondItem="RcK-7x-HRY" secondAttribute="bottom" constant="17" id="TZy-jf-qh7"/>
-                                    <constraint firstItem="RcK-7x-HRY" firstAttribute="leading" secondItem="HEb-2h-oGW" secondAttribute="trailing" constant="8" symbolic="YES" id="cCK-yY-scF"/>
-                                    <constraint firstItem="RcK-7x-HRY" firstAttribute="leading" secondItem="HEb-2h-oGW" secondAttribute="trailing" constant="8" symbolic="YES" id="t9i-u9-lXb"/>
-                                    <constraint firstAttribute="bottom" secondItem="HEb-2h-oGW" secondAttribute="bottom" constant="23" id="vNr-5Y-7GR"/>
-                                    <constraint firstItem="RcK-7x-HRY" firstAttribute="top" secondItem="9yJ-t4-Aag" secondAttribute="top" constant="18" id="wxd-8K-J7i"/>
+                                    <constraint firstItem="Vvb-Hh-ow7" firstAttribute="top" secondItem="DKD-Lb-qQU" secondAttribute="top" constant="17" id="NgN-dc-RD1"/>
+                                    <constraint firstItem="lrr-pw-RSF" firstAttribute="leading" secondItem="DKD-Lb-qQU" secondAttribute="leading" constant="8" id="WWd-sP-QCo"/>
+                                    <constraint firstAttribute="height" constant="70" id="cY2-xf-Ush"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vvb-Hh-ow7" secondAttribute="trailing" constant="19" id="cc5-TZ-0RR"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrr-pw-RSF" secondAttribute="trailing" constant="76" id="d7r-aW-ejB"/>
+                                    <constraint firstAttribute="bottom" secondItem="lrr-pw-RSF" secondAttribute="bottom" constant="18" id="jYC-kz-7zw"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9yJ-t4-Aag" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="XGi-Jd-xdY"/>
-                            <constraint firstItem="9yJ-t4-Aag" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oo0-YD-5Ef"/>
-                            <constraint firstItem="9yJ-t4-Aag" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="u02-Y1-qQD"/>
+                            <constraint firstItem="DKD-Lb-qQU" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="0up-BG-gWp"/>
+                            <constraint firstItem="DKD-Lb-qQU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="CaN-Vd-bWB"/>
+                            <constraint firstItem="DKD-Lb-qQU" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ZO1-w4-9gi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="EyeRis" id="ft7-kS-rs3"/>
                     <connections>
-                        <outlet property="ChatBotIcon" destination="REV-8i-IdK" id="srV-rH-rYT"/>
-                        <outlet property="GreetText" destination="dei-wG-h5J" id="JEe-0v-ftF"/>
-                        <outlet property="InputBarBottom" destination="u02-Y1-qQD" id="6na-aT-MLS"/>
-                        <outlet property="TextField" destination="HEb-2h-oGW" id="ruW-xQ-YyC"/>
+                        <outlet property="ChatBotIcon" destination="REV-8i-IdK" id="U63-WQ-J5d"/>
+                        <outlet property="GreetText" destination="dei-wG-h5J" id="Icj-uj-ElP"/>
+                        <outlet property="InputBarBottom" destination="0up-BG-gWp" id="kgt-PI-WJC"/>
+                        <outlet property="TextField" destination="lrr-pw-RSF" id="7f7-YF-nSo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -134,9 +121,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="DxE-1B-3qM"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVv-Ia-87G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

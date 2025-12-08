@@ -19,6 +19,7 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var TextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
