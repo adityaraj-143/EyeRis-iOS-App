@@ -122,6 +122,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1995.3846153846152" y="90.995260663507111"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="urA-0a-TDQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sQv-uQ-S86" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aEd-c4-SXQ">
+                        <rect key="frame" x="0.0" y="94" width="390" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="DxE-1B-3qM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVv-Ia-87G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1066.1538461538462" y="90.995260663507111"/>
         </scene>
     </scenes>
