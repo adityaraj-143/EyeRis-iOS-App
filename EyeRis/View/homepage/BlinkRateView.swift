@@ -42,7 +42,7 @@ class BlinkRateView: UIView {
         layer.addSublayer(pointer)
 
         // BPM Label
-        bpmLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        bpmLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         bpmLabel.textColor = .systemRed
         bpmLabel.textAlignment = .center
         addSubview(bpmLabel)

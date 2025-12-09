@@ -6,8 +6,12 @@ class ViewController: UIViewController {
     
     private let headerKind = "header-kind"
     
+    @IBOutlet weak var profileIconView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        profileIconView.layer.cornerRadius = 50÷
         
         CollectionView.setCollectionViewLayout(generateLayout(), animated: false)
         CollectionView.dataSource = self
@@ -57,14 +61,14 @@ extension ViewController {
             case 0:
                 return Self.makeFullWidthSection(
                     height: 84,
-                    top: 20, bottom: 12
+                    top: 0, bottom: 0
                 )
                 
                 // MARK: Section 1 — Today's Exercise
             case 1:
                 let section = Self.makeFullWidthSection(
                     height: 71,
-                    top: 0, bottom: 20
+                    top: 0, bottom: 10
                 )
                 section.boundarySupplementaryItems = [headerItem]
                 
@@ -87,14 +91,14 @@ extension ViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 12
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
                 return section
                 
                 // MARK: Section 3 — Blink Rate
             case 3:
                 let section = Self.makeFullWidthSection(
                     height: 165,
-                    top: 0, bottom: 20
+                    top: 0, bottom: 10
                 )
                 section.boundarySupplementaryItems = [headerItem]
                 return section
@@ -102,14 +106,14 @@ extension ViewController {
             case 4:
                 return Self.makeFullWidthSection(
                     height: 165,
-                    top: 0, bottom: 20
+                    top: 0, bottom: 10
                 )
                 
                 // MARK: Section 5 — Last Test
             case 5:
                 return Self.makeFullWidthSection(
                     height: 216,
-                    top: 0, bottom: 20
+                    top: 0, bottom: 10
                 )
                 
             default:

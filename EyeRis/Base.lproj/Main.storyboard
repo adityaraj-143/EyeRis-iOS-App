@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Df-uR-RME">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-cA-bfb">
-                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="802"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WfI-FW-9rt">
                                     <size key="itemSize" width="267" height="184"/>
@@ -39,40 +39,25 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.9609375" green="0.9609375" blue="0.9750976562" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="VdG-cA-bfb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="24P-yP-0fc"/>
+                            <constraint firstItem="VdG-cA-bfb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="68" id="04a-Yt-6jR"/>
+                            <constraint firstItem="VdG-cA-bfb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="24P-yP-0fc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VdG-cA-bfb" secondAttribute="trailing" id="4Ux-Lf-SZQ"/>
                             <constraint firstItem="VdG-cA-bfb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MPD-Fg-Gpo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VdG-cA-bfb" secondAttribute="bottom" id="rPU-fJ-TLB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="M5r-c9-0jZ"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" style="editor" id="HVd-Vb-5xA"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="CollectionView" destination="VdG-cA-bfb" id="DWm-ZD-FSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011.4503816793892" y="132.3943661971831"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Q4B-hO-N2Y">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Df-uR-RME" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ugn-Ya-6m8">
-                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Os8-uw-EKX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gyf-TT-IXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="84.732824427480907" y="132.3943661971831"/>
+            <point key="canvasLocation" x="1938.1679389312976" y="132.3943661971831"/>
         </scene>
     </scenes>
 </document>
