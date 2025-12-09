@@ -1,13 +1,13 @@
 //
-//  TestResultInfoViewController.swift
+//  TestResultInfoCalendarViewController.swift
 //  EyeRis
 //
-//  Created by SDC-USER on 08/12/25.
+//  Created by SDC-USER on 09/12/25.
 //
 
 import UIKit
 
-class TestResultInfoViewController: UIViewController {
+class TestResultCalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +15,8 @@ class TestResultInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func cancelButton(_ sender: Any) {
+    
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     

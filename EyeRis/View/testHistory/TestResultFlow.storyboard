@@ -11,13 +11,13 @@
         <!--Test History-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="TestResultFlowViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="TestResultViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wFQ-3u-Aks">
-                                <rect key="frame" x="32" y="232" width="329" height="514.33333333333337"/>
+                                <rect key="frame" x="32" y="212" width="329" height="514.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="o34-kX-Y9N">
                                         <rect key="frame" x="34.666666666666686" y="0.0" width="260" height="30"/>
@@ -58,8 +58,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW3-GR-XKk" userLabel="NVAView">
                                                         <rect key="frame" x="0.0" y="0.0" width="293" height="124"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distant Vision Acuity Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8q-j4-BuB">
-                                                                <rect key="frame" x="13" y="12.999999999999998" width="198.33333333333334" height="20.333333333333329"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Near Vision Acuity Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8q-j4-BuB">
+                                                                <rect key="frame" x="13" y="12.999999999999998" width="180" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -135,7 +135,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Eye" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2r-oQ-yLO">
-                                                                <rect key="frame" x="13" y="89.666666666666629" width="64.666666666666671" height="18"/>
+                                                                <rect key="frame" x="13" y="89.666666666666686" width="64.666666666666671" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -147,7 +147,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15/25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp0-4P-cjm">
-                                                                <rect key="frame" x="242" y="89.666666666666629" width="38" height="18"/>
+                                                                <rect key="frame" x="242" y="89.666666666666686" width="38" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -173,7 +173,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9C4-qR-Ejk" userLabel="CommentView">
                                                         <rect key="frame" x="0.0" y="278" width="293" height="92"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYy-rX-Rqe">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYy-rX-Rqe" userLabel="CommentLabel">
                                                                 <rect key="frame" x="5" y="5" width="283" height="82"/>
                                                                 <string key="text">Overall, your vision is fairly good, but a routine eye check-up or corrective lens may help improve clarity, especially for distance vision.</string>
                                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
@@ -225,7 +225,7 @@
                         <constraints>
                             <constraint firstItem="wFQ-3u-Aks" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="RHJ-3N-oUx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wFQ-3u-Aks" secondAttribute="trailing" constant="32" id="ebc-7P-BAs"/>
-                            <constraint firstItem="wFQ-3u-Aks" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="z99-Gg-mUv"/>
+                            <constraint firstItem="wFQ-3u-Aks" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="z99-Gg-mUv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Test History" id="a7v-nD-oq2">
@@ -267,7 +267,7 @@
             </objects>
             <point key="canvasLocation" x="1064.885496183206" y="130.98591549295776"/>
         </scene>
-        <!--Test Result Info View Controller-->
+        <!--Test Details-->
         <scene sceneID="x4A-sX-A5d">
             <objects>
                 <viewController storyboardIdentifier="TestResultFlowViewController" id="Vlc-LJ-xou" customClass="TestResultInfoViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
@@ -333,16 +333,10 @@
                             <constraint firstItem="p27-hZ-crM" firstAttribute="trailing" secondItem="nvh-Jf-ZIj" secondAttribute="trailing" constant="20" id="fkA-ld-gOQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7Pc-J4-XB7">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="oD5-j7-MgS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="o07-7x-Xbb">
-                                <rect key="frame" x="20.000000000000004" y="4.6666666666666687" width="46.333333333333343" height="34.666666666666664"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
-                            </button>
+                    <navigationItem key="navigationItem" title="Test Details" id="7Pc-J4-XB7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="APy-UQ-RNy">
                             <connections>
-                                <action selector="cancelButton:" destination="Vlc-LJ-xou" id="FMQ-6f-T86"/>
+                                <action selector="cancelButton:" destination="Vlc-LJ-xou" id="iP8-38-7iU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -390,7 +384,7 @@
         <!--All Previous Tests-->
         <scene sceneID="JSF-Yu-iFh">
             <objects>
-                <viewController id="JdJ-a4-2Ti" customClass="TestResultCalendarViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tes" id="JdJ-a4-2Ti" customClass="TestResultCalendarViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yD1-1c-vqe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,13 +392,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="All Previous Tests" id="OLc-tz-8i9">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="jFW-m7-YF1">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="p7N-p5-gCY">
-                                <rect key="frame" x="20.000000000000004" y="4.6666666666666687" width="46.333333333333343" height="34.666666666666664"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5sH-ng-l1d">
+                            <connections>
+                                <action selector="cancelButton:" destination="JdJ-a4-2Ti" id="Xwv-Qo-zEH"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -436,12 +427,11 @@
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

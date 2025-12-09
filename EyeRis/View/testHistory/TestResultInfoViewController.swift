@@ -1,13 +1,13 @@
 //
-//  TestResultFlowViewController.swift
+//  TestResultInfoViewController.swift
 //  EyeRis
 //
-//  Created by SDC-USER on 03/12/25.
+//  Created by SDC-USER on 09/12/25.
 //
 
 import UIKit
 
-class TestResultFlowViewController: UIViewController {
+class TestResultInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +15,10 @@ class TestResultFlowViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
