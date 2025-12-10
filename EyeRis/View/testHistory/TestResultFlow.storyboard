@@ -29,6 +29,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="chevron.left" catalog="system"/>
+                                                <connections>
+                                                    <action selector="prevTestTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Fdt-v8-adW"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr 25, 2025" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdJ-97-gV4">
                                                 <rect key="frame" x="68" y="5" width="124" height="20.333333333333332"/>
@@ -46,6 +49,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" image="chevron.right" catalog="system"/>
+                                                <connections>
+                                                    <action selector="nextTestTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="E5X-qM-SAX"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -96,7 +102,7 @@
                                                             </label>
                                                         </subviews>
                                                         <viewLayoutGuide key="safeArea" id="OOU-AH-dBo"/>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="6TT-9l-NEm" firstAttribute="top" secondItem="9mj-vd-xoN" secondAttribute="bottom" constant="13" id="0Wv-NB-Mgn"/>
                                                             <constraint firstAttribute="trailing" secondItem="hfn-tz-rtI" secondAttribute="trailing" constant="13" id="2nZ-Qh-PjW"/>
@@ -153,7 +159,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="oAw-kf-xQZ" firstAttribute="top" secondItem="PY7-Nq-Ves" secondAttribute="bottom" constant="13" id="5hK-PF-LPI"/>
                                                             <constraint firstItem="PY7-Nq-Ves" firstAttribute="leading" secondItem="8Ae-px-sv5" secondAttribute="leading" constant="13" id="6Mm-64-LIq"/>
@@ -254,6 +260,21 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="DVAHealthyScore" destination="PY7-Nq-Ves" id="v4Z-b9-flU"/>
+                        <outlet property="DVALeftEyeScore" destination="oAw-kf-xQZ" id="KR1-bE-edO"/>
+                        <outlet property="DVARightEyeScore" destination="mp0-4P-cjm" id="jY5-0X-QTy"/>
+                        <outlet property="DVAView" destination="8Ae-px-sv5" id="P8h-tZ-gbd"/>
+                        <outlet property="NVAHealthyScore" destination="9mj-vd-xoN" id="DJ1-ef-7UZ"/>
+                        <outlet property="NVALeftEyeScore" destination="zQZ-Lc-EWQ" id="66G-Il-hhr"/>
+                        <outlet property="NVARightEyeScore" destination="hfn-tz-rtI" id="d8g-LW-VDf"/>
+                        <outlet property="NVAView" destination="FW3-GR-XKk" id="xte-lI-CHR"/>
+                        <outlet property="commentView" destination="9C4-qR-Ejk" id="NGQ-aB-Q6b"/>
+                        <outlet property="mainView" destination="KJZ-CP-JI3" id="mUW-SM-Hfx"/>
+                        <outlet property="nextTest" destination="F0f-Gs-BAz" id="TTd-Oz-kNH"/>
+                        <outlet property="prevTest" destination="bIY-b2-qDk" id="WyB-Kc-WDW"/>
+                        <outlet property="testDate" destination="jdJ-97-gV4" id="ugb-zG-5rV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -375,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d48-L1-Tlz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="908"/>
+            <point key="canvasLocation" x="1992" y="908"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BZV-LE-ctk">
@@ -421,9 +442,6 @@
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
