@@ -9,11 +9,13 @@ import UIKit
 
 class DailyTipCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var mainView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        mainView.layer.cornerRadius = 17
+        setCornerRadius(mainView)
+        headingLabel.font = .systemFont(ofSize: 15, weight: .semibold)
     }
 
 }

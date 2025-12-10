@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,20 +21,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxK-0l-GoN">
                         <rect key="frame" x="0.0" y="0.0" width="354" height="216"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Acuity Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fa-ec-6Tj">
-                                <rect key="frame" x="20" y="12" width="121" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="152-Ak-rkz">
-                                <rect key="frame" x="309" y="13.999999999999998" width="20" height="12.33333333333333"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="EZJ-Jt-W9M"/>
-                                    <constraint firstAttribute="width" constant="20" id="VXe-YY-SIv"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxa-Gf-5kZ">
                                 <rect key="frame" x="20" y="43" width="150" height="95"/>
                                 <subviews>
@@ -197,24 +184,32 @@
                                     <constraint firstAttribute="width" constant="324" id="vr0-0p-F3F"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Yr-hL-ebx">
+                                <rect key="frame" x="5" y="0.0" width="344" height="34.333333333333336"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Last Acuity Test" titleAlignment="trailing">
+                                    <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonToNavAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ik8-Gy-1Nt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="gYG-Ie-sAs" secondAttribute="trailing" constant="20" id="0hM-Be-EDL"/>
                             <constraint firstItem="hfp-Ce-5cG" firstAttribute="leading" secondItem="FxK-0l-GoN" secondAttribute="leading" constant="15" id="3oN-l7-6pw"/>
-                            <constraint firstItem="xxa-Gf-5kZ" firstAttribute="top" secondItem="1fa-ec-6Tj" secondAttribute="bottom" constant="15" id="8WN-Hy-PPe"/>
                             <constraint firstAttribute="height" constant="216" id="8tB-sK-cOi"/>
                             <constraint firstAttribute="bottom" secondItem="hfp-Ce-5cG" secondAttribute="bottom" constant="15" id="9tY-Kz-Cw7"/>
                             <constraint firstItem="xxa-Gf-5kZ" firstAttribute="leading" secondItem="FxK-0l-GoN" secondAttribute="leading" constant="20" id="Cdz-6I-tJT"/>
-                            <constraint firstItem="gYG-Ie-sAs" firstAttribute="top" secondItem="152-Ak-rkz" secondAttribute="bottom" constant="15" id="DZh-fO-gDf"/>
                             <constraint firstAttribute="width" constant="354" id="Mkp-kv-bLb"/>
                             <constraint firstItem="hfp-Ce-5cG" firstAttribute="top" secondItem="gYG-Ie-sAs" secondAttribute="bottom" constant="15" id="Ndm-dj-fHS"/>
-                            <constraint firstItem="1fa-ec-6Tj" firstAttribute="leading" secondItem="FxK-0l-GoN" secondAttribute="leading" constant="20" id="R3b-LH-WWJ"/>
-                            <constraint firstAttribute="trailing" secondItem="152-Ak-rkz" secondAttribute="trailing" constant="25" id="REy-cf-en2"/>
-                            <constraint firstItem="152-Ak-rkz" firstAttribute="top" secondItem="FxK-0l-GoN" secondAttribute="top" constant="12" id="SJ7-W8-RiC"/>
+                            <constraint firstAttribute="trailing" secondItem="8Yr-hL-ebx" secondAttribute="trailing" constant="5" id="U2B-Vm-FQe"/>
                             <constraint firstItem="hfp-Ce-5cG" firstAttribute="top" secondItem="xxa-Gf-5kZ" secondAttribute="bottom" constant="15" id="ZyA-YN-GtU"/>
                             <constraint firstAttribute="trailing" secondItem="hfp-Ce-5cG" secondAttribute="trailing" constant="15" id="hkk-cd-65N"/>
-                            <constraint firstItem="1fa-ec-6Tj" firstAttribute="top" secondItem="FxK-0l-GoN" secondAttribute="top" constant="12" id="kZX-lg-nQv"/>
+                            <constraint firstItem="8Yr-hL-ebx" firstAttribute="leading" secondItem="FxK-0l-GoN" secondAttribute="leading" constant="5" id="vqx-Zc-CFD"/>
+                            <constraint firstItem="8Yr-hL-ebx" firstAttribute="top" secondItem="FxK-0l-GoN" secondAttribute="top" id="wDg-t9-yu7"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -236,6 +231,9 @@
     <resources>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="message" catalog="system" width="128" height="106"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every 20 minutes, look 20 feet away for 20 seconds." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o46-z0-LvM">
-                                <rect key="frame" x="30" y="32.666666666666657" width="314" height="41.333333333333343"/>
+                                <rect key="frame" x="35" y="30.666666666666668" width="301" height="41.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,14 +45,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="o46-z0-LvM" secondAttribute="bottom" constant="10" id="Jsh-nO-IJd"/>
+                            <constraint firstAttribute="bottom" secondItem="o46-z0-LvM" secondAttribute="bottom" constant="12" id="Jsh-nO-IJd"/>
                             <constraint firstItem="ncu-4E-c66" firstAttribute="top" secondItem="TK4-Af-sQq" secondAttribute="top" constant="10" id="L3d-hb-InV"/>
                             <constraint firstItem="Oii-bI-h1g" firstAttribute="top" secondItem="TK4-Af-sQq" secondAttribute="top" constant="10" id="RUJ-IV-eZJ"/>
-                            <constraint firstAttribute="trailing" secondItem="o46-z0-LvM" secondAttribute="trailing" constant="10" id="fxZ-vx-gSU"/>
+                            <constraint firstAttribute="trailing" secondItem="o46-z0-LvM" secondAttribute="trailing" constant="18" id="fxZ-vx-gSU"/>
                             <constraint firstItem="Oii-bI-h1g" firstAttribute="leading" secondItem="TK4-Af-sQq" secondAttribute="leading" constant="10" id="gFn-RA-Ybc"/>
-                            <constraint firstItem="o46-z0-LvM" firstAttribute="leading" secondItem="TK4-Af-sQq" secondAttribute="leading" constant="30" id="iFw-NJ-0zw"/>
+                            <constraint firstItem="o46-z0-LvM" firstAttribute="leading" secondItem="TK4-Af-sQq" secondAttribute="leading" constant="35" id="iFw-NJ-0zw"/>
                             <constraint firstItem="ncu-4E-c66" firstAttribute="leading" secondItem="Oii-bI-h1g" secondAttribute="trailing" constant="5" id="ozu-EY-cd0"/>
-                            <constraint firstItem="o46-z0-LvM" firstAttribute="top" secondItem="ncu-4E-c66" secondAttribute="bottom" constant="5" id="rdD-4j-zS5"/>
+                            <constraint firstItem="o46-z0-LvM" firstAttribute="top" secondItem="ncu-4E-c66" secondAttribute="bottom" constant="2.9999999999999858" id="rdD-4j-zS5"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -66,9 +66,10 @@
             </constraints>
             <size key="customSize" width="299" height="134"/>
             <connections>
-                <outlet property="mainView" destination="TK4-Af-sQq" id="QJ1-S1-VHY"/>
+                <outlet property="headingLabel" destination="ncu-4E-c66" id="Q3F-7u-NR9"/>
+                <outlet property="mainView" destination="ncu-4E-c66" id="FyJ-Vm-Ogx"/>
             </connections>
-            <point key="canvasLocation" x="29.770992366412212" y="81.690140845070431"/>
+            <point key="canvasLocation" x="29.007633587786259" y="81.690140845070431"/>
         </collectionViewCell>
     </objects>
     <resources>

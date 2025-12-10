@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,20 +52,6 @@
                                     <constraint firstAttribute="bottom" secondItem="cMY-5M-woY" secondAttribute="bottom" constant="5" id="yEr-5p-l16"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM0-s1-JDm">
-                                <rect key="frame" x="20" y="10" width="101" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-Wa-seJ">
-                                <rect key="frame" x="309" y="11.999999999999998" width="20" height="12.33333333333333"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="3F1-v9-gOP"/>
-                                    <constraint firstAttribute="height" constant="16" id="PmS-cw-D1d"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="90" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGu-fB-nqg">
                                 <rect key="frame" x="214" y="53" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -121,18 +108,25 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-Ig-x97">
+                                <rect key="frame" x="5" y="0.0" width="344" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Last Exercise">
+                                    <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8Kz-Wa-seJ" firstAttribute="top" secondItem="YxL-gS-rXN" secondAttribute="top" constant="10" id="1qM-RE-pyw"/>
-                            <constraint firstItem="gM0-s1-JDm" firstAttribute="top" secondItem="YxL-gS-rXN" secondAttribute="top" constant="10" id="HQT-Dl-2eQ"/>
+                            <constraint firstAttribute="trailing" secondItem="hfK-Ig-x97" secondAttribute="trailing" constant="5" id="Dkw-Vr-XBs"/>
                             <constraint firstItem="wjP-6R-MmY" firstAttribute="leading" secondItem="YxL-gS-rXN" secondAttribute="leading" constant="15" id="HbY-G5-48B"/>
                             <constraint firstAttribute="trailing" secondItem="wjP-6R-MmY" secondAttribute="trailing" constant="15" id="IPM-Cx-5NS"/>
                             <constraint firstAttribute="bottom" secondItem="wjP-6R-MmY" secondAttribute="bottom" constant="15" id="JS3-8A-kau"/>
                             <constraint firstAttribute="height" constant="165" id="MT9-QX-yvE"/>
                             <constraint firstAttribute="width" constant="354" id="MTA-t1-BCX"/>
-                            <constraint firstItem="gM0-s1-JDm" firstAttribute="leading" secondItem="YxL-gS-rXN" secondAttribute="leading" constant="20" id="vwl-9y-YQM"/>
-                            <constraint firstAttribute="trailing" secondItem="8Kz-Wa-seJ" secondAttribute="trailing" constant="25" id="wl2-Vx-cGY"/>
+                            <constraint firstItem="hfK-Ig-x97" firstAttribute="top" secondItem="YxL-gS-rXN" secondAttribute="top" id="YRs-uI-Me2"/>
+                            <constraint firstItem="hfK-Ig-x97" firstAttribute="leading" secondItem="YxL-gS-rXN" secondAttribute="leading" constant="5" id="ul9-MM-Q6b"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -152,6 +146,9 @@
     <resources>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="message" catalog="system" width="128" height="106"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -15,8 +15,7 @@ class BlinkRateCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        MainView.layer.cornerRadius = 17
-        commentView.layer.cornerRadius = 17
+        setCornerRadius([MainView, commentView])
     }
 
 }

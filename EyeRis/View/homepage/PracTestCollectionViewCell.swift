@@ -18,16 +18,9 @@ class PracTestCollectionViewCell: UICollectionViewCell {
         // Initialization code
         mainView.layer.cornerRadius = 17
         
-        let temp = [cellCardView, cellCardView1, cellCardView2]
+        let allViews: [UIView] = [cellCardView, cellCardView1, cellCardView2]
+        setCornerRadius(allViews)
+        setShadows(allViews)
         
-        for i in 0...temp.count-1{
-            temp[i]?.layer.cornerRadius = 17
-            temp[i]?.layer.shadowColor = UIColor.black.cgColor
-            temp[i]?.layer.shadowOpacity = 0.1
-            temp[i]?.layer.shadowRadius = 10
-            temp[i]?.layer.shadowOffset = .zero
-            temp[i]?.layer.masksToBounds = false
-        }
     }
-    
 }
