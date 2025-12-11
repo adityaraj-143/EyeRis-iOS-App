@@ -17,8 +17,15 @@ struct User{
 
 struct UserEyeHealthData{
     // Store all the onboarding data
-    // also extra data if needed
+    
+    
+    // the eye conditions that the user is facing
     var condition: [Conditions] // think about this, if this has to be here on in userdata
+    
+    func getUserEyeConditions() -> [Conditions]{
+        var conditions: [Conditions] = []
+        return conditions
+    }
 }
 
 struct Exercise{
@@ -26,7 +33,16 @@ struct Exercise{
     var name: String
     var duration: Int
     var instructions: ExerciseInstruction
-    var condition : [Conditions]
+    var targetedConditions : [Conditions]
+    // to see if the exercise is recommended on the basis of userEyeConditions
+    func isRecommended(for user: User) -> Bool {
+        // Convert both arrays to Sets for fast intersection
+        let userConditions = Set(user.eyeHealthData.condition)
+        let exerciseConditions = Set(targetedConditions)
+
+        // If intersection is not empty → recommended
+        return !userConditions.intersection(exerciseConditions).isEmpty
+    }
 }
 
 struct ExerciseInstruction{
@@ -78,10 +94,19 @@ struct AcuityScore{ // need to change this (research needed)
     }
 }
 
-struct AcuityTest{
-    // put the details for the snellen chart, and respective score details in the score struct
-//    var id: Int
-//    var leftEyeScore: AcuityScore
+enum acuityTestType{
+    case NearVision
+    case DistantVision
+}
+
+struct AcuityTestResult{
+//     put the details for the snellen chart, and respective score details in the score struct
+    var id: Int
+    var testType: acuityTestType
+    var testDate: Date
+    var heathyScore: String
+    var leftEyeScore: String // the format of scores would later change, kept it string for dummy data
+    var rightEyeScore: String
 }
 
 struct BlinkRateTest{
@@ -94,6 +119,16 @@ struct TestInstruction{
 //    var title: String
     var description: [String]
     var images: [String]
+}
+
+
+// Helper to create a Date like makeDate(year: 2025, month: 5, day: 8)
+func makeDate(year: Int, month: Int, day: Int) -> Date {
+    var components = DateComponents()
+    components.year = year
+    components.month = month
+    components.day = day
+    return Calendar.current.date(from: components) ?? Date()
 }
 
 

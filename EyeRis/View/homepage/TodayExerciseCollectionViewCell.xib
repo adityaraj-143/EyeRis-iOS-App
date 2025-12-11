@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TodayExerciseCollectionViewCell" customModule="EyeRis" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="354" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWL-eH-1m5">
+                        <rect key="frame" x="0.0" y="0.0" width="354" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Exercise Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MI2-Bv-P7S">
+                                <rect key="frame" x="15" y="15" width="157" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" id="1Rn-Ta-hrU">
+                                <rect key="frame" x="15" y="37.666666666666686" width="15" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="4min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-fJ-dBJ">
+                                <rect key="frame" x="32" y="37" width="35" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyy-Ph-mnA">
+                                <rect key="frame" x="294" y="15" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system" cornerStyle="capsule"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Gkp-fJ-dBJ" secondAttribute="bottom" constant="15" id="8fE-tM-YfB"/>
+                            <constraint firstItem="1Rn-Ta-hrU" firstAttribute="top" secondItem="MI2-Bv-P7S" secondAttribute="bottom" constant="2" id="FhA-I0-PmP"/>
+                            <constraint firstItem="MI2-Bv-P7S" firstAttribute="top" secondItem="PWL-eH-1m5" secondAttribute="top" constant="15" id="ROl-wB-W02"/>
+                            <constraint firstItem="Gkp-fJ-dBJ" firstAttribute="leading" secondItem="1Rn-Ta-hrU" secondAttribute="trailing" constant="2" id="XTC-1B-P8S"/>
+                            <constraint firstItem="MI2-Bv-P7S" firstAttribute="leading" secondItem="PWL-eH-1m5" secondAttribute="leading" constant="15" id="aQl-SC-RBG"/>
+                            <constraint firstItem="Gkp-fJ-dBJ" firstAttribute="top" secondItem="MI2-Bv-P7S" secondAttribute="bottom" constant="2" id="vbz-wu-8wF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="PWL-eH-1m5" secondAttribute="trailing" id="5d2-Y3-fY2"/>
+                <constraint firstAttribute="bottom" secondItem="PWL-eH-1m5" secondAttribute="bottom" id="bws-Bu-nN1"/>
+                <constraint firstItem="PWL-eH-1m5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rmg-3d-QJm"/>
+                <constraint firstItem="PWL-eH-1m5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yEK-sY-XNe"/>
+            </constraints>
+            <size key="customSize" width="299" height="186"/>
+            <connections>
+                <outlet property="mainView" destination="PWL-eH-1m5" id="JtV-Zt-EDf"/>
+            </connections>
+            <point key="canvasLocation" x="300.76335877862596" y="204.92957746478874"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="clock" catalog="system" width="128" height="123"/>
+        <image name="play.fill" catalog="system" width="120" height="128"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
