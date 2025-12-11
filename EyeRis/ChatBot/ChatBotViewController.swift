@@ -18,7 +18,16 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var TextField: UITextField!
     override func viewDidLoad() {
-        super.viewDidLoad()
+               TextField.borderStyle = .none
+               TextField.backgroundColor = .white
+               TextField.layer.borderWidth = 1
+               TextField.layer.borderColor = UIColor.systemGray4.cgColor
+               TextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 0))
+               TextField.leftViewMode = .always
+
+               // Text field delegate + keyboard return
+               TextField.delegate = self
+               TextField.returnKeyType = .send
       
         
         
@@ -48,6 +57,18 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
        
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidLayoutSubviews() {
+         super.viewDidLayoutSubviews()
+         TextField.layer.cornerRadius = TextField.frame.height / 2
+         TextField.layer.masksToBounds = true
+     }
+
+     deinit {
+         NotificationCenter.default.removeObserver(self)
+     }
+    
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }

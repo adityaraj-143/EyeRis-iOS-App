@@ -61,16 +61,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKD-Lb-qQU">
                                 <rect key="frame" x="0.0" y="706" width="390" height="70"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask EyeRis" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lrr-pw-RSF">
-                                        <rect key="frame" x="8" y="18" width="306" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="306" id="buD-co-pxk"/>
-                                            <constraint firstAttribute="height" constant="34" id="r26-wW-KFt"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvb-Hh-ow7">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvb-Hh-ow7">
                                         <rect key="frame" x="331" y="15" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="1Wv-kV-BlC"/>
@@ -79,15 +70,24 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system" cornerStyle="capsule"/>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask EyeRis" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lrr-pw-RSF">
+                                        <rect key="frame" x="15" y="13" width="306" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="5Sp-Cc-kBL"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="K4U-99-h9w"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Vvb-Hh-ow7" firstAttribute="top" secondItem="DKD-Lb-qQU" secondAttribute="top" constant="17" id="NgN-dc-RD1"/>
-                                    <constraint firstItem="lrr-pw-RSF" firstAttribute="leading" secondItem="DKD-Lb-qQU" secondAttribute="leading" constant="8" id="WWd-sP-QCo"/>
+                                    <constraint firstItem="Vvb-Hh-ow7" firstAttribute="top" secondItem="DKD-Lb-qQU" secondAttribute="top" constant="15" id="NgN-dc-RD1"/>
+                                    <constraint firstItem="lrr-pw-RSF" firstAttribute="leading" secondItem="DKD-Lb-qQU" secondAttribute="leading" constant="15" id="WWd-sP-QCo"/>
                                     <constraint firstAttribute="height" constant="70" id="cY2-xf-Ush"/>
                                     <constraint firstAttribute="trailing" secondItem="Vvb-Hh-ow7" secondAttribute="trailing" constant="19" id="cc5-TZ-0RR"/>
-                                    <constraint firstAttribute="trailing" secondItem="lrr-pw-RSF" secondAttribute="trailing" constant="76" id="d7r-aW-ejB"/>
-                                    <constraint firstAttribute="bottom" secondItem="lrr-pw-RSF" secondAttribute="bottom" constant="18" id="jYC-kz-7zw"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrr-pw-RSF" secondAttribute="trailing" constant="69" id="d7r-aW-ejB"/>
+                                    <constraint firstAttribute="bottom" secondItem="lrr-pw-RSF" secondAttribute="bottom" constant="12" id="jYC-kz-7zw"/>
                                 </constraints>
                             </view>
                         </subviews>
