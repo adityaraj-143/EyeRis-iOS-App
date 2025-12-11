@@ -86,6 +86,16 @@ struct PerformedExerciseStat {
     var speed: Int
 }
 
+struct ExerciseHistory{
+//    func avgSpeed() -> Int {}
+//    func avgAccuracy() -> Int{}
+    var date: Date // these would be replaced by functions when the data is dynamic
+    var avgSpeed: Int
+    var avgAccuracy: Int
+    var comment: String = "Your eye coordination looks good. Regular exercise and care will maintain your eye health."
+    var exercisesDetails: [PerformedExerciseStat]
+}
+
 struct AcuityScore{ // need to change this (research needed)
     var temp: String
     
@@ -107,6 +117,7 @@ struct AcuityTestResult{
     var heathyScore: String
     var leftEyeScore: String // the format of scores would later change, kept it string for dummy data
     var rightEyeScore: String
+    var comment: String = "Overall, your vision is fairly good, but a routine eye check-up or corrective lens may help improve clarity, especially for distance vision."
 }
 
 struct BlinkRateTest{
