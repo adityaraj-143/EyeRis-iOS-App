@@ -9,6 +9,7 @@ import UIKit
 
 class LastTestCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var navigatorButton: UIButton!
     @IBOutlet weak var resultView: UIView!
     @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var mainView: UIView!
@@ -21,7 +22,7 @@ class LastTestCollectionViewCell: UICollectionViewCell {
         
         setShadows([resultView, resultView1])
 
-
+        navigatorButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
     }
         
     var onTapNavigation: (() -> Void)?

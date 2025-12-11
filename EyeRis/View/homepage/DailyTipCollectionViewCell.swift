@@ -16,6 +16,7 @@ class DailyTipCollectionViewCell: UICollectionViewCell {
         // Initialization code
         setCornerRadius(mainView)
         headingLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+        
     }
 
 }
