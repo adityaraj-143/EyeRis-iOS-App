@@ -159,7 +159,7 @@ class BlinkRateViewController: UIViewController, ARSessionDelegate {
         if !isClosed && isBlinking {
             blinkCount += 1
             isBlinking = false
-
+            print("\(blinkCount)")
             
         }
     }
