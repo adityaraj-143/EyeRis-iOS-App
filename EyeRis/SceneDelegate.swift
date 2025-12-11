@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 
         // Load ChatBot storyboard
-        let storyboard = UIStoryboard(name: "ChatBot", bundle: nil)
+        let storyboard = UIStoryboard(name: "BlinkRateTest", bundle: nil)
         let initialVC = storyboard.instantiateInitialViewController()!
 
         // Set root controller
