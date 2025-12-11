@@ -187,8 +187,16 @@
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Yr-hL-ebx">
                                 <rect key="frame" x="5" y="0.0" width="344" height="34.333333333333336"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Last Acuity Test" titleAlignment="trailing">
+                                <buttonConfiguration key="configuration" style="plain" titleAlignment="trailing">
                                     <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Last Acuity Test">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="SFPro-Regular"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -222,6 +230,7 @@
             <connections>
                 <outlet property="commentView" destination="hfp-Ce-5cG" id="og7-nm-bWU"/>
                 <outlet property="mainView" destination="FxK-0l-GoN" id="5Wb-O7-M4n"/>
+                <outlet property="navigatorButton" destination="8Yr-hL-ebx" id="cwX-py-g2o"/>
                 <outlet property="resultView" destination="xxa-Gf-5kZ" id="LWg-Ah-8ab"/>
                 <outlet property="resultView1" destination="gYG-Ie-sAs" id="gtt-1j-yob"/>
             </connections>
