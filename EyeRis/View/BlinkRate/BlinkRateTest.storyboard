@@ -16,47 +16,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZR-oK-crF">
-                                <rect key="frame" x="16" y="160" width="361" height="564"/>
-                                <string key="text">Arjun always took his eyesight for granted. He spent hours scrolling on his phone, studying on his laptop, and gaming late in the night. Slowly, his eyes began to ache, and everything looked slightly hazy. He ignored it at first, thinking it was just tiredness. But one day, while driving, he realized he couldn’t read a road sign clearly. That scared him enough to finally visit an eye specialist. The doctor told him his vision had weakened and warned him about screen strain. Arjun started following the 20-20-20 rule—every 20 minutes, look 20 feet away for 20 seconds. He reduced screen brightness, ate more greens, and even started wearing protective glasses. Within weeks, his eyes felt lighter and healthier. He learned that caring for your eyes isn’t optional—it’s essential.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc4-nU-LWw">
+                                <rect key="frame" x="0.0" y="205" width="393" height="579"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOp-AO-JI6">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="612"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZR-oK-crF">
+                                                <rect key="frame" x="16" y="8" width="361" height="576"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <string key="text">Arjun always took his eyesight for granted. He spent hours scrolling on his phone, studying on his laptop, and gaming late in the night. Slowly, his eyes began to ache, and everything looked slightly hazy. He ignored it at first, thinking it was just tiredness. But one day, while driving, he realized he couldn’t read a road sign clearly. That scared him enough to finally visit an eye specialist. The doctor told him his vision had weakened and warned him about screen strain. Arjun started following the 20-20-20 rule—every 20 minutes, look 20 feet away for 20 seconds. He reduced screen brightness, ate more greens, and even started wearing protective glasses. Within weeks, his eyes felt lighter and healthier. He learned that caring for your eyes isn’t optional—it’s essential.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dhy-zR-cR0">
+                                                <rect key="frame" x="76" y="456" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="N36-V1-R5o" firstAttribute="trailing" secondItem="VOp-AO-JI6" secondAttribute="trailing" id="9GG-9G-230"/>
+                                    <constraint firstItem="VOp-AO-JI6" firstAttribute="leading" secondItem="N36-V1-R5o" secondAttribute="leading" id="HjB-BD-Y70"/>
+                                    <constraint firstItem="N36-V1-R5o" firstAttribute="bottom" secondItem="VOp-AO-JI6" secondAttribute="bottom" id="o75-ZW-cXI"/>
+                                    <constraint firstItem="VOp-AO-JI6" firstAttribute="top" secondItem="N36-V1-R5o" secondAttribute="top" id="pdJ-n5-D1o"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="IjG-3i-e3b"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="N36-V1-R5o"/>
+                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="􀖇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jY-l7-xFR">
-                                <rect key="frame" x="305" y="86" width="21" height="23"/>
+                                <rect key="frame" x="161" y="160" width="21" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teb-NP-f7s">
-                                <rect key="frame" x="334" y="89" width="42" height="18"/>
+                                <rect key="frame" x="190" y="163" width="42" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc4-nU-LWw">
-                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="IjG-3i-e3b"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="N36-V1-R5o"/>
-                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Jz-9x-HN1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dc4-nU-LWw" firstAttribute="top" secondItem="3Jz-9x-HN1" secondAttribute="top" id="0c3-nr-AlK"/>
                             <constraint firstItem="3Jz-9x-HN1" firstAttribute="bottom" secondItem="dc4-nU-LWw" secondAttribute="bottom" id="9Fl-Dp-f7z"/>
-                            <constraint firstItem="YZR-oK-crF" firstAttribute="top" secondItem="Lng-dh-dSh" secondAttribute="top" constant="160" id="Em3-FI-vCe"/>
                             <constraint firstItem="3Jz-9x-HN1" firstAttribute="trailing" secondItem="dc4-nU-LWw" secondAttribute="trailing" id="I2W-YR-zcN"/>
-                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="bottom" secondItem="YZR-oK-crF" secondAttribute="bottom" constant="60" id="JYY-fk-zlx"/>
                             <constraint firstItem="dc4-nU-LWw" firstAttribute="trailing" secondItem="3Jz-9x-HN1" secondAttribute="trailing" id="Mzr-jd-6DG"/>
-                            <constraint firstItem="YZR-oK-crF" firstAttribute="leading" secondItem="3Jz-9x-HN1" secondAttribute="leading" constant="16" id="WZG-LZ-VBe"/>
                             <constraint firstItem="dc4-nU-LWw" firstAttribute="leading" secondItem="3Jz-9x-HN1" secondAttribute="leading" id="Xoa-F9-T3u"/>
                             <constraint firstItem="dc4-nU-LWw" firstAttribute="top" secondItem="3Jz-9x-HN1" secondAttribute="top" id="dDH-ZS-7r7"/>
                             <constraint firstItem="dc4-nU-LWw" firstAttribute="bottom" secondItem="3Jz-9x-HN1" secondAttribute="bottom" id="lo0-hX-mBK"/>
-                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="trailing" secondItem="YZR-oK-crF" secondAttribute="trailing" constant="16" id="qUs-yH-b11"/>
                             <constraint firstItem="dc4-nU-LWw" firstAttribute="leading" secondItem="3Jz-9x-HN1" secondAttribute="leading" id="wUN-H0-wAm"/>
                         </constraints>
                     </view>
@@ -68,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddR-aR-3j0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="131"/>
+            <point key="canvasLocation" x="1974.8091603053435" y="130.98591549295776"/>
         </scene>
         <!--Home-->
         <scene sceneID="8yK-lc-GaB">
