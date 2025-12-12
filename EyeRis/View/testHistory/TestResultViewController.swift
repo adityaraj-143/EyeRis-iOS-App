@@ -71,11 +71,13 @@ class TestResultViewController: UIViewController {
         // 3. Update the labels and buttons for this starting date
         updateUIForCurrentDate()
         
-        setShadows([NVAView, DVAView])
-        setCornerRadius([NVAView, DVAView, commentView, mainView])
-        
+        [NVAView, DVAView].forEach {
+            $0?.applyCornerRadius()
+        }
+        [NVAView, DVAView, commentView, mainView].forEach {
+            $0?.applyShadow()
+        }
     }
-    
     
 }
 

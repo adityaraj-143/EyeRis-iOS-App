@@ -16,7 +16,7 @@ class TestInstructionsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        setCornerRadius(mainView)
+        mainView.applyCornerRadius()
     }
     
 }

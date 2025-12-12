@@ -66,8 +66,8 @@
             </constraints>
             <size key="customSize" width="299" height="134"/>
             <connections>
-                <outlet property="headingLabel" destination="ncu-4E-c66" id="Q3F-7u-NR9"/>
-                <outlet property="mainView" destination="ncu-4E-c66" id="FyJ-Vm-Ogx"/>
+                <outlet property="headingLabel" destination="ncu-4E-c66" id="EFm-Bm-0re"/>
+                <outlet property="mainView" destination="TK4-Af-sQq" id="UM7-ZC-flP"/>
             </connections>
             <point key="canvasLocation" x="29.007633587786259" y="81.690140845070431"/>
         </collectionViewCell>
