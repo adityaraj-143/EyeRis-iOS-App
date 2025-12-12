@@ -36,32 +36,7 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="61h-nO-jru">
                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQt-xA-Tar">
-                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzF-pK-daW" userLabel="weekDay">
-                                                            <rect key="frame" x="15" y="11" width="18" height="24"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="gQt-xA-Tar" secondAttribute="trailing" id="4mo-2P-Fhe"/>
-                                                <constraint firstItem="gQt-xA-Tar" firstAttribute="top" secondItem="61h-nO-jru" secondAttribute="top" id="UCf-sq-NU9"/>
-                                                <constraint firstAttribute="bottom" secondItem="gQt-xA-Tar" secondAttribute="bottom" id="hd6-8f-phH"/>
-                                                <constraint firstItem="gQt-xA-Tar" firstAttribute="leading" secondItem="61h-nO-jru" secondAttribute="leading" id="rze-0y-Xf6"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="cellContainerView" destination="gQt-xA-Tar" id="Y2Y-47-J1Q"/>
-                                            <outlet property="weekDay" destination="dzF-pK-daW" id="u7S-aJ-TfQ"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

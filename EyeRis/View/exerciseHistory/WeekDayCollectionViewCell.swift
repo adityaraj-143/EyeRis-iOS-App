@@ -1,24 +1,24 @@
 //
-//  WeekDayCollectionViewCell.swift
+//  WeekdayCollectionViewCell.swift
 //  EyeRis
 //
-//  Created by SDC-USER on 11/12/25.
+//  Created by SDC-USER on 12/12/25.
 //
 
 import UIKit
 
-class WeekDayCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var cellContainerView: UIView!
-    @IBOutlet weak var weekDay: UILabel!
-    
+class WeekdayCollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var weekdayLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        cellContainerView.layer.masksToBounds = true
+        // Initialization code
+        
+    }
+    
+    func configureCell(letter: String, isSelected: Bool) {
+        
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        cellContainerView.layer.cornerRadius = cellContainerView.bounds.height / 2
-    }
 }

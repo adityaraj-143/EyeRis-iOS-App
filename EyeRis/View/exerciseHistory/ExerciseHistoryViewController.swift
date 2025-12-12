@@ -13,7 +13,9 @@ class ExerciseHistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        weekCollectionView.register(UINib(nibName: "WeekdayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dayCell")
+        
         // datasource & delegate
         weekCollectionView.dataSource = self
         weekCollectionView.delegate = self
@@ -92,13 +94,13 @@ extension ExerciseHistoryViewController: UICollectionViewDataSource, UICollectio
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Dequeue from the passed-in collectionView
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as? WeekDayCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as? WeekdayCollectionViewCell else {
             return UICollectionViewCell()
         }
 
         // Determine weekday label using modulo within the week
         let dayIndexInWeek = indexPath.item % weekDays.count
-        cell.weekDay.text = weekDays[dayIndexInWeek]
+        cell.weekdayLabel.text = weekDays[dayIndexInWeek]
 
         // Make the day circle appear correctly — update corner radius once layout has been applied
         cell.contentView.layer.masksToBounds = true
@@ -118,62 +120,3 @@ extension ExerciseHistoryViewController: UICollectionViewDataSource, UICollectio
     }
 }
 
-// MARK: - Snapping + Directional only horizontal
-extension ExerciseHistoryViewController: UIScrollViewDelegate {
-
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
-                                   withVelocity velocity: CGPoint,
-                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        // Ensure we're working with our collection view
-        guard scrollView == weekCollectionView else { return }
-
-        // One page width == collectionView width
-        let pageWidth = scrollView.bounds.width
-
-        // Current and proposed offsets
-        let currentOffsetX = scrollView.contentOffset.x
-        var proposedOffsetX = targetContentOffset.pointee.x
-
-        // Calculate current and proposed page indexes (floating)
-        let rawProposedPage = proposedOffsetX / pageWidth
-        let rawCurrentPage = currentOffsetX / pageWidth
-
-        // The default rounding might advance on small drags. We'll require a minimum drag distance or velocity.
-        // Distance threshold (fraction of page) and velocity threshold
-        let distanceThreshold: CGFloat = 0.35
-        let velocityThreshold: CGFloat = 0.35
-
-        // Compute the final page we should land on
-        var finalPage = Int(round(rawProposedPage))
-
-        // If user barely moved (small distance & small velocity), prefer snapping back to current page
-        let distanceDragged = proposedOffsetX - currentOffsetX
-        if abs(distanceDragged) < pageWidth * distanceThreshold && abs(velocity.x) < velocityThreshold {
-            finalPage = Int(round(rawCurrentPage))
-        } else {
-            // If velocity is strong to the right/left, respect direction
-            if velocity.x > velocityThreshold {
-                finalPage = Int(floor(rawCurrentPage + 1.0))
-            } else if velocity.x < -velocityThreshold {
-                finalPage = Int(ceil(rawCurrentPage - 1.0))
-            } else {
-                finalPage = Int(round(rawProposedPage))
-            }
-        }
-
-        // clamp within 0...weeksCount-1
-        finalPage = max(0, min(finalPage, weeksCount - 1))
-
-        // set the target content offset to the exact page
-        let newOffsetX = CGFloat(finalPage) * pageWidth
-        targetContentOffset.pointee.x = newOffsetX
-    }
-
-    // Prevent vertical scrolling — ensure content offset y stays 0
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView == weekCollectionView else { return }
-        if scrollView.contentOffset.y != 0 {
-            scrollView.contentOffset.y = 0
-        }
-    }
-}
