@@ -16,11 +16,12 @@ class PracTestCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        mainView.layer.cornerRadius = 17
+        mainView.applyCornerRadius()
+        [cellCardView, cellCardView1, cellCardView2].forEach {
+            $0?.applyCornerRadius()
+            $0?.applyShadow()
+        }
         
-        let allViews: [UIView] = [cellCardView, cellCardView1, cellCardView2]
-        setCornerRadius(allViews)
-        setShadows(allViews)
         
     }
 }

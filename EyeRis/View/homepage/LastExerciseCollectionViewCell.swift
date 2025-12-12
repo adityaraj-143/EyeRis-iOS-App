@@ -14,7 +14,9 @@ class LastExerciseCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setCornerRadius([mainView,commentView])
+        [mainView,commentView].forEach {
+            $0?.applyCornerRadius()
+        }
     }
     
     

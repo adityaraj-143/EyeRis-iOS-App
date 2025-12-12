@@ -14,7 +14,7 @@ class DailyTipCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setCornerRadius(mainView)
+        mainView.applyCornerRadius()
         headingLabel.font = .systemFont(ofSize: 15, weight: .semibold)
     }
 

@@ -13,7 +13,7 @@ class TodayExerciseCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setCornerRadius(mainView)
+        mainView.applyCornerRadius()
     }
 
 }

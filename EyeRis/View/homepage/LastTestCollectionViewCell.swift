@@ -17,11 +17,13 @@ class LastTestCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setCornerRadius([resultView, commentView, mainView, resultView1])
+        [resultView, commentView, mainView, resultView1].forEach {
+            $0?.applyCornerRadius()
+        }
         
-        setShadows([resultView, resultView1])
-
-
+        [resultView, resultView1].forEach {
+            $0?.applyShadow()
+        }
     }
         
     var onTapNavigation: (() -> Void)?
