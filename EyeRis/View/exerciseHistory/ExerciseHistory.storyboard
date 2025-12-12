@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1iF-0p-DJP">
-                                <rect key="frame" x="0.0" y="182" width="393" height="60"/>
+                                <rect key="frame" x="0.0" y="182" width="393" height="72"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="m6O-BO-6O4"/>
+                                    <constraint firstAttribute="height" constant="72" id="JE1-SB-b7e"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="yfQ-rW-cLq">
                                     <size key="itemSize" width="44" height="44"/>
@@ -31,7 +31,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCell" id="V5j-gD-HdM" customClass="WeekDayCollectionViewCell" customModule="EyeRis" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8" width="44" height="44"/>
+                                        <rect key="frame" x="0.0" y="14" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="61h-nO-jru">
                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -41,7 +41,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KbT-pK-z15">
-                                <rect key="frame" x="20" y="258" width="353" height="164"/>
+                                <rect key="frame" x="20" y="270" width="353" height="164"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="juH-l6-MvH">
                                         <rect key="frame" x="12" y="76" width="329" height="76"/>

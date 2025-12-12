@@ -104,8 +104,7 @@ extension ExerciseHistoryViewController: UICollectionViewDataSource, UICollectio
 
         // Make the day circle appear correctly — update corner radius once layout has been applied
         cell.contentView.layer.masksToBounds = true
-        cell.contentView.layer.cornerRadius = (cell.contentView.bounds.height / 2.0)
-
+        
         // (Optional) visually show which page (week) this belongs to — useful for debugging
         // let page = pageIndex(forItemAt: indexPath.item)
         // cell.backgroundColor = (page % 2 == 0) ? .clear : .clear
