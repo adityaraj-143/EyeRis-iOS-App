@@ -32,3 +32,5 @@ fastlane/test_output/
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+.DS_Store

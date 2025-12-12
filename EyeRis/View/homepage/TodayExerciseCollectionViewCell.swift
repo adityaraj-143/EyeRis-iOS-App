@@ -9,6 +9,9 @@ import UIKit
 
 class TodayExerciseCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var playButtonOutlet: UIButton!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var todayExerciseLabel: UILabel!
     @IBOutlet weak var mainView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,4 +19,6 @@ class TodayExerciseCollectionViewCell: UICollectionViewCell {
         mainView.applyCornerRadius()
     }
 
+    @IBAction func playButtonAction(_ sender: Any) {
+    }
 }

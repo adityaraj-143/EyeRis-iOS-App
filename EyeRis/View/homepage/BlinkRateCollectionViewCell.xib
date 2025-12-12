@@ -93,6 +93,7 @@
                 <outlet property="MainView" destination="3Xk-By-fK1" id="OG8-jx-5vX"/>
                 <outlet property="blinkRateSliderView" destination="Yxx-Kq-keV" id="651-hL-0Ho"/>
                 <outlet property="commentView" destination="GkJ-XN-6oN" id="aI4-HU-1Wq"/>
+                <outlet property="navigatorButton" destination="5UW-xG-TBo" id="ysl-Op-sJc"/>
             </connections>
             <point key="canvasLocation" x="473.28244274809157" y="222.18309859154931"/>
         </collectionViewCell>

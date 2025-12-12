@@ -9,6 +9,7 @@ import UIKit
 
 class BlinkRateCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var navigatorButton: UIButton!
     @IBOutlet weak var blinkRateSliderView: BlinkRateView!
     @IBOutlet weak var MainView: UIView!
     @IBOutlet weak var commentView: UIView!

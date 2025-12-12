@@ -9,6 +9,7 @@ import UIKit
 
 class LastTestCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var navigatorButton: UIButton!
     @IBOutlet weak var resultView: UIView!
     @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var mainView: UIView!
