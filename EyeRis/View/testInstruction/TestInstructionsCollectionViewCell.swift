@@ -9,14 +9,17 @@ import UIKit
 
 class TestInstructionsCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var instructionImage: UIView!
+    @IBOutlet weak var instructionImage: UIImageView!
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var instructionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         mainView.applyCornerRadius()
+        mainView.applyShadow()
     }
     
+    func configureCell(image: String) {        
+        instructionImage.image = UIImage(named: image)
+    }
 }
