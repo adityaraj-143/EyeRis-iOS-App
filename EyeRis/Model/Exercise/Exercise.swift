@@ -36,14 +36,16 @@ struct PerformedExerciseStat {
     var performedOn: Date
     var accuracy: Int
     var speed: Int
-    
-    func getFourWeekDateRange(from stats: [PerformedExerciseStat]) -> [Date] {
+
+    // MARK: - Date Helpers
+
+    static func getFourWeekDateRange(from stats: [PerformedExerciseStat]) -> [Date] {
         guard let latestDate = stats.map({ $0.performedOn }).max() else {
             return []
         }
 
-        var dates: [Date] = []
         let calendar = Calendar.current
+        var dates: [Date] = []
 
         for dayOffset in 0..<28 {
             if let date = calendar.date(byAdding: .day, value: -dayOffset, to: latestDate) {
@@ -51,10 +53,10 @@ struct PerformedExerciseStat {
             }
         }
 
-        return dates.reversed() // oldest → latest
+        return dates.reversed()
     }
-    
-    func getPerformedExerciseDates(from stats: [PerformedExerciseStat]) -> [Date] {
+
+    static func getPerformedExerciseDates(from stats: [PerformedExerciseStat]) -> [Date] {
         let calendar = Calendar.current
 
         let dates = stats.map {
@@ -64,16 +66,14 @@ struct PerformedExerciseStat {
         return Array(Set(dates)).sorted()
     }
 
-    func groupExercisesByDate(
+    static func groupExercisesByDate(
         stats: [PerformedExerciseStat]
     ) -> [Date: [PerformedExerciseStat]] {
 
         let calendar = Calendar.current
 
-        return Dictionary(grouping: stats) { stat in
-            calendar.startOfDay(for: stat.performedOn)
+        return Dictionary(grouping: stats) {
+            calendar.startOfDay(for: $0.performedOn)
         }
     }
-
 }
-

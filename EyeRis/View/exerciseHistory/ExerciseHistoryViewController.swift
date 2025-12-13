@@ -11,14 +11,27 @@ class ExerciseHistoryViewController: UIViewController {
     // Total cells = weeks × days
     private let totalItems = 28
 
+    // MARK: - Data
+    private let allStats: [PerformedExerciseStat] = mockPerformedExerciseStats
+    private var fourWeekDates: [Date] = []
+    private var performedDates: Set<Date> = []
+    private var exercisesByDate: [Date: [PerformedExerciseStat]] = [:]
+
+    private let calendar = Calendar.current
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         weekCollectionView.register(
             UINib(nibName: "WeekdayCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: "dayCell"
         )
-        
+
+        // MARK: - Data preparation
+        fourWeekDates = PerformedExerciseStat.getFourWeekDateRange(from: allStats)
+        performedDates = Set(PerformedExerciseStat.getPerformedExerciseDates(from: allStats))
+        exercisesByDate = PerformedExerciseStat.groupExercisesByDate(stats: allStats)
+
         weekCollectionView.dataSource = self
         weekCollectionView.delegate = self
 
@@ -34,7 +47,7 @@ class ExerciseHistoryViewController: UIViewController {
         // Apply compositional layout
         weekCollectionView.collectionViewLayout = makeWeekLayout()
     }
-    
+
     /**
      Scrolls to the last week once the collection view
      has completed its initial layout pass.
@@ -96,6 +109,14 @@ class ExerciseHistoryViewController: UIViewController {
     private func pageIndex(forItemAt index: Int) -> Int {
         return index / weekDays.count
     }
+
+    /**
+     Maps a collection-view index to its actual calendar date.
+     */
+    private func dateForIndexPath(_ indexPath: IndexPath) -> Date? {
+        guard indexPath.item < fourWeekDates.count else { return nil }
+        return fourWeekDates[indexPath.item]
+    }
 }
 
 // MARK: - UICollectionView DataSource & Delegate
@@ -119,8 +140,10 @@ extension ExerciseHistoryViewController: UICollectionViewDataSource, UICollectio
         let dayIndex = indexPath.item % weekDays.count
         let letter = weekDays[dayIndex]
 
-        // Using the new button-based configuration API
-        cell.configureCell(letter: letter, isSelected: false)
+        let date = dateForIndexPath(indexPath)
+        let hasExercise = date.map { performedDates.contains($0) } ?? false
+
+        cell.configureCell(letter: letter, isSelected: hasExercise)
 
         return cell
     }
@@ -128,17 +151,10 @@ extension ExerciseHistoryViewController: UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
 
-        let page = pageIndex(forItemAt: indexPath.item)
-        let targetIndexPath = IndexPath(
-            item: page * weekDays.count,
-            section: 0
-        )
+        guard let date = dateForIndexPath(indexPath) else { return }
 
-        collectionView.scrollToItem(
-            at: targetIndexPath,
-            at: .left,
-            animated: true
-        )
+        let exercisesForDate = exercisesByDate[date] ?? []
+        print("Exercises on \(date):", exercisesForDate)
     }
 
     /**
