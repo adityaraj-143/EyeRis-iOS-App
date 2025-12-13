@@ -4,6 +4,8 @@ class ExerciseHistoryViewController: UIViewController {
 
     @IBOutlet weak var weekCollectionView: UICollectionView!
 
+    // MARK: - Constants
+
     // Number of weeks shown (each week = 7 days)
     private let weeksCount: Int = 4
     private let weekDays = ["M", "T", "W", "T", "F", "S", "S"]
@@ -12,12 +14,24 @@ class ExerciseHistoryViewController: UIViewController {
     private let totalItems = 28
 
     // MARK: - Data
+
     private let allStats: [PerformedExerciseStat] = mockPerformedExerciseStats
+
+    /// Ordered list of 28 dates (oldest → latest)
     private var fourWeekDates: [Date] = []
+
+    /// Dates on which at least one exercise was performed
     private var performedDates: Set<Date> = []
+
+    /// Aggregated exercises per date
     private var exercisesByDate: [Date: [PerformedExerciseStat]] = [:]
 
+    /// Currently selected day (UI state, single selection)
+    private var selectedIndexPath: IndexPath?
+
     private let calendar = Calendar.current
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +41,7 @@ class ExerciseHistoryViewController: UIViewController {
             forCellWithReuseIdentifier: "dayCell"
         )
 
-        // MARK: - Data preparation
+        // Prepare data using model helpers
         fourWeekDates = PerformedExerciseStat.getFourWeekDateRange(from: allStats)
         performedDates = Set(PerformedExerciseStat.getPerformedExerciseDates(from: allStats))
         exercisesByDate = PerformedExerciseStat.groupExercisesByDate(stats: allStats)
@@ -44,17 +58,13 @@ class ExerciseHistoryViewController: UIViewController {
         weekCollectionView.decelerationRate = .fast
         weekCollectionView.isScrollEnabled = true
 
-        // Apply compositional layout
         weekCollectionView.collectionViewLayout = makeWeekLayout()
     }
 
-    /**
-     Scrolls to the last week once the collection view
-     has completed its initial layout pass.
-     */
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        // Start on the latest week
         let lastWeekFirstItem = (weeksCount - 1) * weekDays.count
         let indexPath = IndexPath(item: lastWeekFirstItem, section: 0)
 
@@ -67,10 +77,8 @@ class ExerciseHistoryViewController: UIViewController {
         }
     }
 
-    /**
-     Creates a horizontally paged layout where
-     one full group represents one week (7 days).
-     */
+    // MARK: - Layout
+
     private func makeWeekLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0 / 7.0),
@@ -81,15 +89,13 @@ class ExerciseHistoryViewController: UIViewController {
             top: 8, leading: 8, bottom: 8, trailing: 8
         )
 
-        let subitems = Array(repeating: item, count: 7)
-
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(72)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
-            subitems: subitems
+            subitems: Array(repeating: item, count: 7)
         )
 
         let section = NSCollectionLayoutSection(group: group)
@@ -102,17 +108,9 @@ class ExerciseHistoryViewController: UIViewController {
         return UICollectionViewCompositionalLayout(section: section)
     }
 
-    /**
-     Converts an item index into its corresponding
-     week index (0-based).
-     */
-    private func pageIndex(forItemAt index: Int) -> Int {
-        return index / weekDays.count
-    }
+    // MARK: - Helpers
 
-    /**
-     Maps a collection-view index to its actual calendar date.
-     */
+    /// Maps an indexPath to its actual calendar date
     private func dateForIndexPath(_ indexPath: IndexPath) -> Date? {
         guard indexPath.item < fourWeekDates.count else { return nil }
         return fourWeekDates[indexPath.item]
@@ -120,6 +118,7 @@ class ExerciseHistoryViewController: UIViewController {
 }
 
 // MARK: - UICollectionView DataSource & Delegate
+
 extension ExerciseHistoryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView,
@@ -142,8 +141,13 @@ extension ExerciseHistoryViewController: UICollectionViewDataSource, UICollectio
 
         let date = dateForIndexPath(indexPath)
         let hasExercise = date.map { performedDates.contains($0) } ?? false
+        let isSelected = indexPath == selectedIndexPath
 
-        cell.configureCell(letter: letter, isSelected: hasExercise)
+        cell.configureCell(
+            letter: letter,
+            hasExercise: hasExercise,
+            isSelected: isSelected
+        )
 
         return cell
     }
@@ -151,16 +155,25 @@ extension ExerciseHistoryViewController: UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
 
-        guard let date = dateForIndexPath(indexPath) else { return }
+        let previousSelection = selectedIndexPath
+        selectedIndexPath = indexPath
 
-        let exercisesForDate = exercisesByDate[date] ?? []
-        print("Exercises on \(date):", exercisesForDate)
+        // Reload only affected cells
+        var indexPathsToReload: [IndexPath] = [indexPath]
+        if let previous = previousSelection {
+            indexPathsToReload.append(previous)
+        }
+
+        collectionView.reloadItems(at: indexPathsToReload)
+
+        // Fetch detailed data for the selected date
+        if let date = dateForIndexPath(indexPath) {
+            let exercises = exercisesByDate[date] ?? []
+            print("Selected date:", date)
+            print("Exercises:", exercises)
+        }
     }
 
-    /**
-     Clamps scrolling to prevent moving beyond
-     available weeks.
-     */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageWidth = scrollView.bounds.width
         let maxX = CGFloat(weeksCount - 1) * pageWidth
