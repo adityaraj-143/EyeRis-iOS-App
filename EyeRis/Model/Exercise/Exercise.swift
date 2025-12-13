@@ -36,14 +36,44 @@ struct PerformedExerciseStat {
     var performedOn: Date
     var accuracy: Int
     var speed: Int
+    
+    func getFourWeekDateRange(from stats: [PerformedExerciseStat]) -> [Date] {
+        guard let latestDate = stats.map({ $0.performedOn }).max() else {
+            return []
+        }
+
+        var dates: [Date] = []
+        let calendar = Calendar.current
+
+        for dayOffset in 0..<28 {
+            if let date = calendar.date(byAdding: .day, value: -dayOffset, to: latestDate) {
+                dates.append(calendar.startOfDay(for: date))
+            }
+        }
+
+        return dates.reversed() // oldest → latest
+    }
+    
+    func getPerformedExerciseDates(from stats: [PerformedExerciseStat]) -> [Date] {
+        let calendar = Calendar.current
+
+        let dates = stats.map {
+            calendar.startOfDay(for: $0.performedOn)
+        }
+
+        return Array(Set(dates)).sorted()
+    }
+
+    func groupExercisesByDate(
+        stats: [PerformedExerciseStat]
+    ) -> [Date: [PerformedExerciseStat]] {
+
+        let calendar = Calendar.current
+
+        return Dictionary(grouping: stats) { stat in
+            calendar.startOfDay(for: stat.performedOn)
+        }
+    }
+
 }
 
-struct ExerciseHistory{
-//    func avgSpeed() -> Int {}
-//    func avgAccuracy() -> Int{}
-    var date: Date // these would be replaced by functions when the data is dynamic
-    var avgSpeed: Int
-    var avgAccuracy: Int
-    var comment: String = "Your eye coordination looks good. Regular exercise and care will maintain your eye health."
-    var exercisesDetails: [PerformedExerciseStat]
-}

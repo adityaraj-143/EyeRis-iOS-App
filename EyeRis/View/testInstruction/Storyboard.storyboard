@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Re0-AQ-F9T">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
@@ -17,9 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cva-je-OR0">
+                                <rect key="frame" x="40" y="163" width="313" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5rk-Q8-F8i">
-                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                                <rect key="frame" x="0.0" y="234" width="393" height="480"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="480" id="t11-7j-VF4"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cAQ-Hf-0eH">
                                     <size key="itemSize" width="244" height="234"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -42,13 +51,20 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5rk-Q8-F8i" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="3xh-qF-MCk"/>
-                            <constraint firstItem="5rk-Q8-F8i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="kjS-M5-ziF"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5rk-Q8-F8i" secondAttribute="bottom" id="qCw-wq-VJd"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5rk-Q8-F8i" secondAttribute="trailing" id="wD7-mw-7xa"/>
+                            <constraint firstItem="5rk-Q8-F8i" firstAttribute="centerX" secondItem="cva-je-OR0" secondAttribute="centerX" id="7Vq-Tj-aft"/>
+                            <constraint firstItem="5rk-Q8-F8i" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="CTd-at-jAR"/>
+                            <constraint firstItem="5rk-Q8-F8i" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-70" id="USy-Zv-Zce"/>
+                            <constraint firstItem="cva-je-OR0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="VBh-1N-QqF"/>
+                            <constraint firstItem="5rk-Q8-F8i" firstAttribute="top" secondItem="cva-je-OR0" secondAttribute="bottom" constant="20" id="ZM2-sr-Hhs"/>
+                            <constraint firstItem="cva-je-OR0" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="-9" id="ccg-5f-8Bv"/>
+                            <constraint firstAttribute="trailing" secondItem="5rk-Q8-F8i" secondAttribute="trailing" id="zx7-r8-rNk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Instructions" id="FQY-ZT-zgk"/>
+                    <connections>
+                        <outlet property="CollectionView" destination="5rk-Q8-F8i" id="Z7w-b0-uwY"/>
+                        <outlet property="instructionLabel" destination="cva-je-OR0" id="p7n-VW-xc6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
