@@ -128,10 +128,10 @@ let mockTest = AcuityTest(
             "If you feel that the distance or position is changed or there is some ambiguity, please recalibrate."
         ],
         images: [
-            "instruction1",
-            "instruction2",
-            "instruction3",
-            "instruction4"
+            "testInstruction1",
+            "testInstruction2",
+            "testInstruction3",
+            "testInstruction3"
         ]
     ),
     snellenChart: SnellenChart(
