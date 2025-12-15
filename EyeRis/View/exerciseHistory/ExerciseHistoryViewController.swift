@@ -14,6 +14,10 @@ class ExerciseHistoryViewController: UIViewController {
     private var selectedDate: Date?
     private var selectedDayExercises: [PerformedExerciseStat] = []
     
+    
+    @IBOutlet weak var summaryView: UIView!
+    @IBOutlet weak var commentView: UIView!
+    
     // MARK: - Constants
     private let weeksCount = 4
     private let weekDays = ["M", "T", "W", "T", "F", "S", "S"]
@@ -24,6 +28,13 @@ class ExerciseHistoryViewController: UIViewController {
     private var fourWeekDates: [Date] = []
     private var performedDates: Set<Date> = []
     private var exercisesByDate: [Date: [PerformedExerciseStat]] = [:]
+    
+    // Date formatter to formaat the date in the format to be displayed in the navigation bar
+    private let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "EEEE, d MMM"
+        return df
+    }()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -47,6 +58,11 @@ class ExerciseHistoryViewController: UIViewController {
         
         exerciseTableView.rowHeight = UITableView.automaticDimension
         exerciseTableView.estimatedRowHeight = 80
+        
+        // Adding corner radius and shadow to the cards
+        [summaryView, commentView].forEach {
+            $0?.applyCornerRadius()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,6 +116,8 @@ class ExerciseHistoryViewController: UIViewController {
     
     private func handleDateSelection(_ date: Date) {
         selectedDate = date
+        // Update title
+        navigationItem.title = dateFormatter.string(from: date)
         selectedDayExercises = exercisesByDate[date] ?? []
         updateSummary(for: selectedDayExercises)
         exerciseTableView.reloadData()
@@ -118,7 +136,7 @@ class ExerciseHistoryViewController: UIViewController {
         
         avgAccuracy.text = "\(avgAcc)%"
         avgSpeed.text = "\(avgSpd)%"
-        comment.text = avgAcc >= 75
+        comment.text = avgAcc >= 85 || avgSpd >= 85
         ? "Your eye coordination looks good. Regular exercise will maintain your eye health."
         : "Try to exercise more consistently to improve your eye coordination."
     }
