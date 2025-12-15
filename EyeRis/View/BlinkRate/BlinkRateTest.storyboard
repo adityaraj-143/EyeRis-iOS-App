@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3rw-Zh-n1z">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Blink Rate Test-->
+        <scene sceneID="hQ2-XL-1va">
+            <objects>
+                <viewController id="BBO-6O-vdk" customClass="BlinkRateViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lng-dh-dSh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZR-oK-crF">
+                                <rect key="frame" x="16" y="160" width="361" height="564"/>
+                                <string key="text">Arjun always took his eyesight for granted. He spent hours scrolling on his phone, studying on his laptop, and gaming late in the night. Slowly, his eyes began to ache, and everything looked slightly hazy. He ignored it at first, thinking it was just tiredness. But one day, while driving, he realized he couldn’t read a road sign clearly. That scared him enough to finally visit an eye specialist. The doctor told him his vision had weakened and warned him about screen strain. Arjun started following the 20-20-20 rule—every 20 minutes, look 20 feet away for 20 seconds. He reduced screen brightness, ate more greens, and even started wearing protective glasses. Within weeks, his eyes felt lighter and healthier. He learned that caring for your eyes isn’t optional—it’s essential.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jY-l7-xFR">
+                                <rect key="frame" x="305" y="86" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc4-nU-LWw">
+                                <rect key="frame" x="0.0" y="194" width="393" height="590"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="IjG-3i-e3b"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="N36-V1-R5o"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teb-NP-f7s">
+                                <rect key="frame" x="185" y="165.66666666666666" width="42" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="hourglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qZN-Ri-Ugm">
+                                <rect key="frame" x="165" y="161.66666666666666" width="20" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3Jz-9x-HN1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="bottom" secondItem="dc4-nU-LWw" secondAttribute="bottom" id="9Fl-Dp-f7z"/>
+                            <constraint firstItem="YZR-oK-crF" firstAttribute="top" secondItem="Lng-dh-dSh" secondAttribute="top" constant="160" id="Em3-FI-vCe"/>
+                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="trailing" secondItem="dc4-nU-LWw" secondAttribute="trailing" id="I2W-YR-zcN"/>
+                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="bottom" secondItem="YZR-oK-crF" secondAttribute="bottom" constant="60" id="JYY-fk-zlx"/>
+                            <constraint firstItem="YZR-oK-crF" firstAttribute="leading" secondItem="3Jz-9x-HN1" secondAttribute="leading" constant="16" id="WZG-LZ-VBe"/>
+                            <constraint firstItem="3Jz-9x-HN1" firstAttribute="trailing" secondItem="YZR-oK-crF" secondAttribute="trailing" constant="16" id="qUs-yH-b11"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Blink Rate Test" id="zk8-1X-Gfn">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="pause" catalog="system" id="AYQ-iG-NO0"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="Passage" destination="YZR-oK-crF" id="BkT-VQ-Tx1"/>
+                        <outlet property="timerLabel" destination="Teb-NP-f7s" id="mip-b1-0Db"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddR-aR-3j0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991.6030534351144" y="130.98591549295776"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="8yK-lc-GaB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3rw-Zh-n1z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="s1e-E2-ic1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fxb-ls-fbk">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BBO-6O-vdk" kind="relationship" relationship="rootViewController" id="Dp8-AR-ebN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6gp-OF-etB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064.885496183206" y="130.98591549295776"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hourglass" catalog="system" width="103" height="128"/>
+        <image name="pause" catalog="system" width="88" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

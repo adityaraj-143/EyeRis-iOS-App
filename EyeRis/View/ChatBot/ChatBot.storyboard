@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--EyeRis-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="ChatBotViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How can I help you today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" sizingRule="oversize" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dei-wG-h5J">
+                                <rect key="frame" x="38" y="220" width="314" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="23"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HL-UE-n21">
+                                <rect key="frame" x="175" y="386.33333333333331" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="stethoscope" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="REV-8i-IdK">
+                                <rect key="frame" x="165" y="298.33333333333331" width="60" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-cu-If9">
+                                <rect key="frame" x="67" y="394.33333333333331" width="257" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="I have irritation in my eyes"/>
+                                <connections>
+                                    <action selector="FAQTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gfJ-Iy-xwS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKK-9q-q9j">
+                                <rect key="frame" x="83" y="450.33333333333331" width="224" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Suggestions for dry eyes"/>
+                                <connections>
+                                    <action selector="FAQTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EZ8-9g-eth"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-lD-rnU">
+                                <rect key="frame" x="52" y="506.33333333333331" width="286" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Explain the result of my last test"/>
+                                <connections>
+                                    <action selector="FAQTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BwX-Qf-Aw9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gch-jH-FiX">
+                                <rect key="frame" x="75" y="566" width="241" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Healthy diet for my eyes"/>
+                                <connections>
+                                    <action selector="FAQTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="03V-Um-QSc"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKD-Lb-qQU">
+                                <rect key="frame" x="0.0" y="706" width="390" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvb-Hh-ow7">
+                                        <rect key="frame" x="331" y="15" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="1Wv-kV-BlC"/>
+                                            <constraint firstAttribute="height" constant="40" id="yd2-Hz-Cql"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="MessageButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3KC-ey-umL"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask EyeRis" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lrr-pw-RSF">
+                                        <rect key="frame" x="15" y="13" width="306" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="5Sp-Cc-kBL"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="K4U-99-h9w"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Vvb-Hh-ow7" firstAttribute="top" secondItem="DKD-Lb-qQU" secondAttribute="top" constant="15" id="NgN-dc-RD1"/>
+                                    <constraint firstItem="lrr-pw-RSF" firstAttribute="leading" secondItem="DKD-Lb-qQU" secondAttribute="leading" constant="15" id="WWd-sP-QCo"/>
+                                    <constraint firstAttribute="height" constant="70" id="cY2-xf-Ush"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vvb-Hh-ow7" secondAttribute="trailing" constant="19" id="cc5-TZ-0RR"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrr-pw-RSF" secondAttribute="trailing" constant="69" id="d7r-aW-ejB"/>
+                                    <constraint firstAttribute="bottom" secondItem="lrr-pw-RSF" secondAttribute="bottom" constant="12" id="jYC-kz-7zw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DKD-Lb-qQU" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="0up-BG-gWp"/>
+                            <constraint firstItem="DKD-Lb-qQU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="CaN-Vd-bWB"/>
+                            <constraint firstItem="DKD-Lb-qQU" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ZO1-w4-9gi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="EyeRis" id="ft7-kS-rs3"/>
+                    <connections>
+                        <outlet property="ChatBotIcon" destination="REV-8i-IdK" id="U63-WQ-J5d"/>
+                        <outlet property="GreetText" destination="dei-wG-h5J" id="Icj-uj-ElP"/>
+                        <outlet property="InputBarBottom" destination="0up-BG-gWp" id="kgt-PI-WJC"/>
+                        <outlet property="TextField" destination="lrr-pw-RSF" id="7f7-YF-nSo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1995.3846153846152" y="90.995260663507111"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="urA-0a-TDQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sQv-uQ-S86" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aEd-c4-SXQ">
+                        <rect key="frame" x="0.0" y="94" width="390" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVv-Ia-87G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066.1538461538462" y="90.995260663507111"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
+        <image name="stethoscope" catalog="system" width="128" height="101"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

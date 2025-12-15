@@ -1,92 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ABy-7j-0s0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MS3-bA-vJY">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="X5d-DP-XBA">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="6kH-6Q-10Q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AtL-AV-KWC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-cA-bfb">
-                                <rect key="frame" x="0.0" y="50" width="393" height="802"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WfI-FW-9rt">
-                                    <size key="itemSize" width="267" height="184"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YQ6-JS-vJy">
-                                        <rect key="frame" x="63" y="0.0" width="267" height="184"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Swp-Zb-BrN">
-                                            <rect key="frame" x="0.0" y="0.0" width="267" height="184"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="267" height="184"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2N6-7r-Bhb">
+                                <rect key="frame" x="131" y="324" width="132" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Open Chatbot"/>
+                                <connections>
+                                    <segue destination="MNn-Uc-nHA" kind="show" id="t61-w0-AGC"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.9609375" green="0.9609375" blue="0.9750976562" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="VdG-cA-bfb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="68" id="04a-Yt-6jR"/>
-                            <constraint firstItem="VdG-cA-bfb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="24P-yP-0fc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VdG-cA-bfb" secondAttribute="trailing" id="4Ux-Lf-SZQ"/>
-                            <constraint firstItem="VdG-cA-bfb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MPD-Fg-Gpo"/>
-                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N5a-zi-pPJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" style="editor" id="HVd-Vb-5xA"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="CollectionView" destination="VdG-cA-bfb" id="DWm-ZD-FSz"/>
-                        <segue destination="7Wc-Fy-gFn" kind="show" id="zoI-H2-spH"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="9ds-Xy-4DZ"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odl-U3-FPk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2864.8854961832062" y="132.3943661971831"/>
+            <point key="canvasLocation" x="724.4274809160305" y="145.77464788732394"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="hOh-dr-p3X">
+        <!--Chat Bot View Controller-->
+        <scene sceneID="JlW-RS-1uW">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="TestResultViewController" id="7Wc-Fy-gFn" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="rPi-r0-5mi"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Zd-gv-y65" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ChatBotViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MNn-Uc-nHA" customClass="ChatBotViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dNV-RJ-wP2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KXt-rj-9qy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ySB-Xq-fA1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ruz-ku-qP9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3940" y="149"/>
+            <point key="canvasLocation" x="1477" y="146"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="iyi-48-a1o">
+        <scene sceneID="GTV-po-jPn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ABy-7j-0s0" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MS3-bA-vJY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PST-JH-AES">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="faK-n4-R2n">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PBI-do-dtu"/>
+                        <segue destination="6kH-6Q-10Q" kind="relationship" relationship="rootViewController" id="tQi-fl-Z7a"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gaQ-ze-T5S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvD-kP-vmA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1938.1679389312976" y="132.3943661971831"/>
+            <point key="canvasLocation" x="-202.29007633587784" y="145.77464788732394"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
