@@ -39,24 +39,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="I have irritation in my eyes"/>
+                                <connections>
+                                    <action selector="FAQTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gfJ-Iy-xwS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKK-9q-q9j">
                                 <rect key="frame" x="83" y="450.33333333333331" width="224" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Suggestions for dry eyes"/>
+                                <connections>
+                                    <action selector="FAQTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EZ8-9g-eth"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-lD-rnU">
                                 <rect key="frame" x="52" y="506.33333333333331" width="286" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Explain the result of my last test"/>
+                                <connections>
+                                    <action selector="FAQTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BwX-Qf-Aw9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gch-jH-FiX">
                                 <rect key="frame" x="75" y="566" width="241" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Healthy diet for my eyes"/>
+                                <connections>
+                                    <action selector="FAQTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="03V-Um-QSc"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKD-Lb-qQU">
                                 <rect key="frame" x="0.0" y="706" width="390" height="70"/>
@@ -69,6 +81,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="MessageButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3KC-ey-umL"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask EyeRis" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lrr-pw-RSF">
                                         <rect key="frame" x="15" y="13" width="306" height="45"/>

@@ -6,7 +6,6 @@
 	<string>Used to recognize spoken letters during eye tests.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Used to record your voice for eye tests.</string>
-
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,7 +20,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Chart1</string>
+					<string>ChatBot</string>
 				</dict>
 			</array>
 		</dict>

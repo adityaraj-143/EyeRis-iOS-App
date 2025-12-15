@@ -10,6 +10,8 @@ import UIKit
 class ChatBotViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var GreetText: UILabel!
     
+
+    
     @IBOutlet weak var ChatBotIcon: UIImageView!
     
     
@@ -17,7 +19,10 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
         
     
     @IBOutlet weak var TextField: UITextField!
+    
+    var isFAQSelection = false
     override func viewDidLoad() {
+        super.viewDidLoad()
                TextField.borderStyle = .none
                TextField.backgroundColor = .white
                TextField.layer.borderWidth = 1
@@ -30,12 +35,12 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
                TextField.returnKeyType = .send
       
         
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
 
         
-        super.viewDidLoad()
+        
         
         TextField.delegate = self   // Imp
         TextField.returnKeyType = .send
@@ -92,35 +97,38 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
         self.view.layoutIfNeeded()
     }
 }
+    @IBAction func FAQTapped(_ sender: UIButton) {
+            print("Nigga")
+            print("FAQ tapped")
+            print("TextField outlet:", TextField as Any)
+            view.endEditing(true)
+            isFAQSelection = true
+               TextField.backgroundColor = .systemYellow
+               TextField.text = sender.title(for: .normal)
+        }
 
-    @IBAction func FAQ1(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func FAQ2(_ sender: UIButton) {
-    }
-    
-    @IBAction func FAQ3(_ sender: UIButton) {
-    }
    
      @IBAction func MessageButton(_ sender: UIButton) {
          sendMessage()
      }
     
-     @IBAction func FAQ4(_ sender: Any) {
-     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        sendMessage()
-        return true
+        return false
         
     }
     
     func sendMessage() {
         guard let text = TextField.text, !text.isEmpty else { return }
-        
-        print("User sent: \(text)")   // Later We need to send ts to our actual AI model
-        TextField.text = ""           // Clear after sending
+
+            print("User sent: \(text)")
+
+            if isFAQSelection {
+                isFAQSelection = false
+                return   // ❌ do NOT clear text
+            }
+
+            TextField.text = ""
     }
     
     //we are fucking done with this.
