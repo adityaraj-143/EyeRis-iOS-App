@@ -10,12 +10,15 @@ import UIKit
 class Chart1ViewController: UIViewController {
     
     
+    @IBOutlet weak var RecordingStatus: UILabel!
+    @IBOutlet weak var SnellenImg: UIImageView!
     @IBOutlet weak var Letter1: UILabel!
     @IBOutlet weak var TextField: UITextField!
     let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
+    var Recording = false
     
     override func viewDidLayoutSubviews() {
          super.viewDidLayoutSubviews()
@@ -24,6 +27,8 @@ class Chart1ViewController: UIViewController {
      }
     
     override func viewDidLoad() {
+        
+        
      
         super.viewDidLoad()
         
@@ -31,7 +36,6 @@ class Chart1ViewController: UIViewController {
             tapGesture.cancelsTouchesInView = false
             view.addGestureRecognizer(tapGesture)
         
-
 
         TextField.borderStyle = .none
         TextField.backgroundColor = .white
@@ -51,27 +55,48 @@ class Chart1ViewController: UIViewController {
     func startListening() {
         recognitionTask?.cancel()
         recognitionTask = nil
+        
+        Recording = true
+        
+        DispatchQueue.main.async {
+            self.RecordingStatus.text = "Recording Audio"
+            self.RecordingStatus.textColor = .systemGreen
+        }
+        
         print("recording started")
+        
         let audioSession = AVAudioSession.sharedInstance()
         try? audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
         try? audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-
+        
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         let inputNode = audioEngine.inputNode
-
+        
         guard let recognitionRequest = recognitionRequest else { return }
         recognitionRequest.shouldReportPartialResults = true
-
+        
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { result, error in
             if let result = result {
                 let spokenText = result.bestTranscription.formattedString
-
+                let normalized = spokenText
+                    .uppercased()
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
                 DispatchQueue.main.async {
+                    
                     print("🎙️ Final text:", spokenText)
                     self.TextField.text = spokenText
+                    if normalized == "NEXT" {
+                        let sb = UIStoryboard(name: "Chart2", bundle: nil)
+                        if let vc = sb.instantiateViewController(
+                            withIdentifier: "Chart2ViewController"
+                        ) as? Chart2ViewController {
+
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                    }
                 }
             }
-
+        
 
             if error != nil || (result?.isFinal ?? false) {
                 self.stopListening()
@@ -91,7 +116,15 @@ class Chart1ViewController: UIViewController {
         audioEngine.stop()
         recognitionRequest?.endAudio()
         audioEngine.inputNode.removeTap(onBus: 0)
+
+        Recording = false
+
+        DispatchQueue.main.async {
+            self.RecordingStatus.text = "Not Recording"
+            self.RecordingStatus.textColor = .systemGray
+        }
     }
+
     @objc func dismissKeyboard() {
     view.endEditing(true)
 }
