@@ -3,7 +3,7 @@ import UIKit
 class BlinkRateView: UIView {
 
     private let gradientLayer = CAGradientLayer()
-    private let pointer = CAShapeLayer()
+    private let pointerImageView = UIImageView()
     private let bpmLabel = UILabel()
     private let minLabel = UILabel()
     private let maxLabel = UILabel()
@@ -26,100 +26,151 @@ class BlinkRateView: UIView {
     }
 
     private func setup() {
-        // Gradient bar
+
+        // ---------- GRADIENT ----------
         gradientLayer.colors = [
-            UIColor.systemRed.cgColor,
-            UIColor.systemYellow.cgColor,
-            UIColor.systemGreen.cgColor
+            UIColor(hex: "FF383C").cgColor, // red
+            UIColor(hex: "FF8000").cgColor, // orange
+            UIColor(hex: "FFD400").cgColor, // yellow
+            UIColor(hex: "1AE62B").cgColor, // green
+            UIColor(hex: "1BEC2C").cgColor  // lime green
         ]
+
+        gradientLayer.locations = [
+            0.42,
+            0.48,
+            0.69,
+            0.82,
+            0.97
+        ]
+
+        // FORCE horizontal gradient — fixes your issue
+        gradientLayer.type = .axial
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint   = CGPoint(x: 1, y: 0.5)
-        gradientLayer.cornerRadius = 5
+
         layer.addSublayer(gradientLayer)
 
-        // Pointer (triangle)
-        pointer.fillColor = UIColor.systemRed.cgColor
-        layer.addSublayer(pointer)
 
-        // BPM Label
-        bpmLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        bpmLabel.textColor = .systemRed
+        // ---------- POINTER (SF SYMBOL) ----------
+        pointerImageView.image = UIImage(systemName: "triangle")?
+            .withRenderingMode(.alwaysTemplate)
+        pointerImageView.tintColor = UIColor(hex: "FF3B30")
+        pointerImageView.contentMode = .scaleAspectFit
+        pointerImageView.transform = CGAffineTransform(rotationAngle: .pi) // upside down
+        addSubview(pointerImageView)
+
+
+        // ---------- BPM LABEL ----------
         bpmLabel.textAlignment = .center
         addSubview(bpmLabel)
 
-        // Min
+
+        // ---------- MIN / MAX LABEL ----------
         minLabel.text = "0"
-        minLabel.font = UIFont.systemFont(ofSize: 13)
-        minLabel.textColor = .secondaryLabel
+        minLabel.font = .systemFont(ofSize: 13)
+        minLabel.textColor = UIColor.gray.withAlphaComponent(0.55)
         addSubview(minLabel)
 
-        // Max
         maxLabel.text = "22"
-        maxLabel.font = UIFont.systemFont(ofSize: 13)
-        maxLabel.textColor = .secondaryLabel
+        maxLabel.font = .systemFont(ofSize: 13)
+        maxLabel.textColor = UIColor.gray.withAlphaComponent(0.55)
         addSubview(maxLabel)
     }
+
 
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        let barHeight: CGFloat = 12
-        let pointerSize: CGFloat = 16
+        let barHeight: CGFloat = 8
+        let barWidth: CGFloat = bounds.width * 0.85
+        let barX = (bounds.width - barWidth) / 2
 
-        // -------- Gradient Bar --------
+        // Lowered as you requested
+        let barY = bounds.height - 25
+
         gradientLayer.frame = CGRect(
-            x: 0,
-            y: bounds.height - barHeight - 10,   // move bar UP
-            width: bounds.width,
+            x: barX,
+            y: barY,
+            width: barWidth,
             height: barHeight
         )
         gradientLayer.cornerRadius = barHeight / 2
 
-        // -------- Min / Max Labels --------
+        // MIN / MAX ABOVE BAR
         minLabel.frame = CGRect(
-            x: 0,
-            y: gradientLayer.frame.minY - 20,
+            x: barX - 6,
+            y: barY - 22,
             width: 30,
             height: 18
         )
 
         maxLabel.frame = CGRect(
-            x: bounds.width - 30,
-            y: gradientLayer.frame.minY - 20,
+            x: barX + barWidth,
+            y: barY - 22,
             width: 30,
             height: 18
         )
 
-        // -------- Pointer + BPM Label --------
-        updatePointer(pointerSize: pointerSize)
+        updatePointer()
     }
 
 
-    private func updatePointer(pointerSize: CGFloat = 14, labelSpacing: CGFloat = 2) {
+    private func updatePointer() {
 
+        let bar = gradientLayer.frame
         let pos = (value - minValue) / (maxValue - minValue)
-        let x = pos * bounds.width
+        let x = bar.minX + pos * bar.width
 
-        let barTop = gradientLayer.frame.minY
+        let triW: CGFloat = 16
+        let triH: CGFloat = 12
+        let topY = bar.minY - 2
 
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: x, y: barTop - 2))
-        path.addLine(to: CGPoint(x: x - pointerSize/2, y: barTop - pointerSize))
-        path.addLine(to: CGPoint(x: x + pointerSize/2, y: barTop - pointerSize))
-        path.close()
-        pointer.path = path.cgPath
+        // POINTER POSITION
+        pointerImageView.frame = CGRect(
+            x: x - triW / 2,
+            y: topY - triH,
+            width: triW,
+            height: triH
+        )
 
-        // --- BPM LABEL (just above the pointer) ---
-        bpmLabel.text = "\(Int(value)) bpm"
+        // -------- BPM LABEL WITH TWO FONT SIZES --------
+        let number = "\(Int(value))"
+        let unit = " bpm"
+
+        let attributed = NSMutableAttributedString(
+            string: number,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 28, weight: .regular),
+                .foregroundColor: UIColor(hex: "FF3B30")
+            ]
+        )
+
+        attributed.append(NSAttributedString(
+            string: unit,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 9, weight: .regular),
+                .foregroundColor: UIColor(hex: "FF3B30")
+            ]
+        ))
+
+        bpmLabel.attributedText = attributed
         bpmLabel.sizeToFit()
+        bpmLabel.center = CGPoint(x: x, y: topY - triH - 16)
+    }
+}
 
-        bpmLabel.frame = CGRect(
-            x: x - bpmLabel.frame.width / 2,
-            y: (barTop - pointerSize) - bpmLabel.frame.height - labelSpacing,
-            width: bpmLabel.frame.width,
-            height: bpmLabel.frame.height
+
+// ---------- HEX UTILITY ----------
+extension UIColor {
+    convenience init(hex: String) {
+        let hex = hex.trimmingCharacters(in: .alphanumerics.inverted)
+        var int: UInt64 = 0; Scanner(string: hex).scanHexInt64(&int)
+        self.init(
+            red: CGFloat((int >> 16) & 0xFF) / 255,
+            green: CGFloat((int >>  8) & 0xFF) / 255,
+            blue: CGFloat((int >>  0) & 0xFF) / 255,
+            alpha: 1
         )
     }
-
-
 }
