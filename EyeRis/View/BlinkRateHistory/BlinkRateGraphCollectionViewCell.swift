@@ -20,13 +20,52 @@ class BlinkRateGraphCollectionViewCell: UICollectionViewCell {
         mainView.applyCornerRadius()
     }
     
-    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        // Clear callbacks FIRST
+        graphView.onBarSelectionStarted = nil
+        graphView.onBarSelectionEnded = nil
+        
+        // Then reset the view
+        graphView.resetForReuse()
+    }
     func configure(with week: BlinkWeek) {
         graphView.configure(week: week)
 
+        graphView.onBarSelectionStarted = { [weak self] in
+            guard let self else { return }
+            self.weeklyBPM.isHidden = true
+            self.weekLabel.isHidden = true
+        }
+
+        graphView.onBarSelectionEnded = { [weak self] in
+            guard let self else { return }
+            self.weeklyBPM.isHidden = false
+            self.weekLabel.isHidden = false
+        }
+        
         let values = week.days.compactMap { $0?.bpm }
         let avg = values.isEmpty ? 0 : values.reduce(0, +) / values.count
-        weeklyBPM.text = "\(avg) bpm"
+        let avgString = "\(avg) "
+        let bpmString = "bpm"
+        
+        
+        let attributedText = NSMutableAttributedString(
+            string: avgString,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 28) // adjust to your main font size
+            ]
+        )
+
+        let bpmAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 12)
+        ]
+
+        attributedText.append(NSAttributedString(string: bpmString, attributes: bpmAttributes))
+
+        weeklyBPM.attributedText = attributedText
+        
 
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMM"

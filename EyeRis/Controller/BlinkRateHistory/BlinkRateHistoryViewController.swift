@@ -53,6 +53,12 @@ extension Date {
     }
 }
 
+extension UIColor {
+    static let myColor = UIColor(red: 242/255,
+                                 green: 240/255,
+                                 blue: 231/255,
+                                 alpha: 1.0)
+}
 
 class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate {
 
@@ -67,8 +73,6 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
         super.viewDidLoad()
         
         todayDataView.applyCornerRadius()
-        
-        
         todayDataComment.text = "That’s good! Anything above 20 is nice"
 
         prepareTodayData()
@@ -88,12 +92,29 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
     
 
     private func prepareTodayData() {
-        let today = Date()
         let todayResult = BlinkRateMockData.mockBlinkRateResults.first {
             Calendar.current.isDateInToday($0.performedOn)
         }
 
-        todayDataBPM.text = "\(todayResult?.bpm ?? 0) bpm"
+        let value = todayResult?.bpm ?? 0
+
+        let attributed = NSMutableAttributedString(
+            string: "\(value)",
+            attributes: [
+                .font: todayDataBPM.font as Any
+            ]
+        )
+
+        let bpmText = NSAttributedString(
+            string: " bpm",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 12)
+            ]
+        )
+
+        attributed.append(bpmText)
+        todayDataBPM.attributedText = attributed
+
     }
 
     
@@ -111,8 +132,8 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(220)
+            widthDimension: .fractionalWidth(0.9),
+            heightDimension: .absolute(248)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
@@ -122,9 +143,7 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         section.interGroupSpacing = 12
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0, leading: 20, bottom: 0, trailing: 20
-        )
+        section.contentInsets = .zero
 
         return UICollectionViewCompositionalLayout(section: section)
     }
