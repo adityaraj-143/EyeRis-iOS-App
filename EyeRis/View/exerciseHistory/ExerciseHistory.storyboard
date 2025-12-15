@@ -245,7 +245,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Date" id="xSG-0W-epd">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="calendar" catalog="system" id="gVK-34-jQi"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="calendar" catalog="system" id="gVK-34-jQi">
+                            <connections>
+                                <segue destination="J95-Z1-RDL" kind="presentation" id="uC2-GO-GY1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="avgAccuracy" destination="9ti-FX-iTa" id="iWf-aZ-0fC"/>
@@ -260,6 +264,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43l-Cx-U9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="801" y="-518"/>
+        </scene>
+        <!--Exercise History Calendar View Controller-->
+        <scene sceneID="PLR-gu-3it">
+            <objects>
+                <viewController id="5Mk-y7-i0R" customClass="ExerciseHistoryCalendarViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wDz-mo-oU9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="w07-hw-mEV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T1z-pS-0l2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Yuu-cF-Wze"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyf-TV-c1K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2312" y="-518"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nem-mg-6DD">
@@ -278,6 +300,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8w-ba-6Q4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-120" y="-511"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="edo-Qt-EIx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J95-Z1-RDL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TFL-ND-DCI">
+                        <rect key="frame" x="0.0" y="16" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Mk-y7-i0R" kind="relationship" relationship="rootViewController" id="8ss-za-tZE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdD-fP-q0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="-518"/>
         </scene>
     </scenes>
     <resources>
