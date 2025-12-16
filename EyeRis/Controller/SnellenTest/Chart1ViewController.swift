@@ -12,14 +12,24 @@ class Chart1ViewController: UIViewController {
     
     @IBOutlet weak var RecordingStatus: UILabel!
     @IBOutlet weak var SnellenImg: UIImageView!
-    @IBOutlet weak var Letter1: UILabel!
     @IBOutlet weak var TextField: UITextField!
+    
+    
     let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
+    
+    
     let audioEngine = AVAudioEngine()
     var Recording = false
     
+    
+ 
+    var capturedTexts: [String] = []
+    let totalImages = 7
+    var currentImageIndex = 0   // starts at Image 1
+
+
     override func viewDidLayoutSubviews() {
          super.viewDidLayoutSubviews()
          TextField.layer.cornerRadius = TextField.frame.height / 2
@@ -29,7 +39,7 @@ class Chart1ViewController: UIViewController {
     override func viewDidLoad() {
         
         
-     
+        SnellenImg.image = UIImage(named: "Image")
         super.viewDidLoad()
         
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -86,6 +96,9 @@ class Chart1ViewController: UIViewController {
                     print("🎙️ Final text:", spokenText)
                     self.TextField.text = spokenText
                     if normalized == "NEXT" {
+                        self.next()
+                        
+                        
                         print("text detected")
 //                        let sb = UIStoryboard(name: "Chart2", bundle: nil)
 //                        if let vc = sb.instantiateViewController(
@@ -125,10 +138,14 @@ class Chart1ViewController: UIViewController {
             self.RecordingStatus.textColor = .systemGray
         }
     }
+    
+    
 
     @objc func dismissKeyboard() {
     view.endEditing(true)
 }
+    
+    
 
     @IBAction func NextBtn(_ sender: UIButton) {
         
