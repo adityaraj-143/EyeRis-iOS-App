@@ -191,13 +191,24 @@ class Chart1ViewController: UIViewController {
     func next() {
         print("next is called")
 
-        // 📦 Save current speech chunk
+        // 📦 Save current speech chunk (WITHOUT "next")
         if !currentSpeechBuffer.isEmpty {
-            capturedTexts.append(currentSpeechBuffer)
-            print("📦 Stored chunk:", currentSpeechBuffer)
+
+            let cleaned = currentSpeechBuffer
+                .replacingOccurrences(
+                    of: "\\bnext\\b",
+                    with: "",
+                    options: [.regularExpression, .caseInsensitive]
+                )
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+
+            if !cleaned.isEmpty {
+                capturedTexts.append(cleaned)
+                print("📦 Stored chunk:", cleaned)
+            }
         }
 
-        // 🛑 HARD RESET speech recognition (this clears Apple’s internal result buffer)
+        // 🛑 HARD RESET speech recognition
         recognitionTask?.cancel()
         recognitionTask = nil
         recognitionRequest = nil
@@ -219,11 +230,12 @@ class Chart1ViewController: UIViewController {
 
         print("🖼️ Showing:", imageName)
 
-        // 🎧 Restart listening fresh (NEW result, NEW buffer)
+        // 🎧 Restart listening fresh
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
             self.startListening()
         }
     }
+
 
     @objc func dismissKeyboard() {
     view.endEditing(true)
