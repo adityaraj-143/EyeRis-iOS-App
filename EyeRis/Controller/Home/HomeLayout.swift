@@ -63,34 +63,12 @@ extension ViewController {
                 section.boundarySupplementaryItems = [headerItem]
                 return section
 
-            case 3:
-                let item = NSCollectionLayoutItem(
-                    layoutSize: .init(
-                        widthDimension: .fractionalWidth(1),
-                        heightDimension: .absolute(152)
-                    )
-                )
-
-                let group = NSCollectionLayoutGroup.horizontal(
-                    layoutSize: .init(
-                        widthDimension: .fractionalWidth(1), // ✅ full width
-                        heightDimension: .absolute(152)
-                    ),
-                    subitems: [item]
-                )
-
-                let section = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .continuous
-                section.interGroupSpacing = 12
-
-                section.contentInsets = .init(
+            case 3: // PracTest
+                return Self.makeFullWidthSection(
+                    height: 152,
                     top: 0,
-                    leading: 20,
-                    bottom: 10,
-                    trailing: 20
+                    bottom: 10
                 )
-
-                return section
 
                 
             case 4: // Blink Rate
