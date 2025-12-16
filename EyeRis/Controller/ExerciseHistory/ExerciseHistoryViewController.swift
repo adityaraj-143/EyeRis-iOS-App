@@ -63,6 +63,13 @@ class ExerciseHistoryViewController: UIViewController {
         [summaryView, commentView].forEach {
             $0?.applyCornerRadius()
         }
+        
+        exerciseTableView.applyCornerRadiusToTable()
+        
+        let spacer = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 4))
+        spacer.backgroundColor = .clear
+        exerciseTableView.tableHeaderView = spacer
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -128,6 +135,8 @@ class ExerciseHistoryViewController: UIViewController {
             avgAccuracy.text = "--"
             avgSpeed.text = "--"
             comment.text = "No exercises performed on this day."
+            avgSpeed.textColor = .black
+            avgAccuracy.textColor = .black
             return
         }
         
@@ -136,9 +145,30 @@ class ExerciseHistoryViewController: UIViewController {
         
         avgAccuracy.text = "\(avgAcc)%"
         avgSpeed.text = "\(avgSpd)%"
-        comment.text = avgAcc >= 85 || avgSpd >= 85
-        ? "Your eye coordination looks good. Regular exercise will maintain your eye health."
-        : "Try to exercise more consistently to improve your eye coordination."
+        if avgAcc >= 90 || avgSpd >= 90 {
+            comment.text = "Your eye coordination looks good. Regular exercise will maintain your eye health."
+        } else if avgAcc >= 80 || avgSpd >= 80 {
+            comment.text = "Your eye coordination is decent, but there’s room for improvement. Try to stay consistent with your exercises."
+        } else {
+            comment.text = "Your eye coordination needs improvement. Regular and focused practice can help strengthen your eye health."
+        }
+
+        
+        if avgAcc >= 85 {
+            avgAccuracy.textColor = .green
+        }else if avgAcc >= 75 {
+            avgAccuracy.textColor = .orange
+        }else{
+            avgAccuracy.textColor = .red
+        }
+        
+        if avgSpd >= 85 {
+            avgSpeed.textColor = .green
+        } else if avgSpd >= 75{
+            avgSpeed.textColor = .orange
+        } else{
+            avgSpeed.textColor = .red
+        }
     }
 }
 
