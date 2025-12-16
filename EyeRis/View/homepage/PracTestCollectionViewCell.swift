@@ -10,7 +10,6 @@ import UIKit
 class PracTestCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainView: UIView!
     
-    @IBOutlet weak var tempLabel: UIButton!
     @IBOutlet weak var cellCardView2: UIView!
     @IBOutlet weak var cellCardView1: UIView!
     @IBOutlet weak var cellCardView: UIView!
@@ -24,6 +23,8 @@ class PracTestCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         mainView.applyCornerRadius()
+        clipsToBounds = true
+        contentView.clipsToBounds = true
 
         [cellCardView, cellCardView1, cellCardView2].forEach {
             $0?.applyCornerRadius()
@@ -44,6 +45,19 @@ class PracTestCollectionViewCell: UICollectionViewCell {
             UITapGestureRecognizer(target: self, action: #selector(thirdTapped))
         )
     }
+    
+    override func preferredLayoutAttributesFitting(
+        _ layoutAttributes: UICollectionViewLayoutAttributes
+    ) -> UICollectionViewLayoutAttributes {
+
+        let attrs = super.preferredLayoutAttributesFitting(layoutAttributes)
+
+        // Force the cell to use the width decided by the layout
+        attrs.size.width = layoutAttributes.size.width
+
+        return attrs
+    }
+
 
     @objc private func firstTapped() {
         onFirstCardTap?()

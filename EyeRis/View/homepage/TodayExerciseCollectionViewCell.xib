@@ -38,10 +38,12 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyy-Ph-mnA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyy-Ph-mnA">
                                 <rect key="frame" x="294" y="15" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="yUN-vV-DtL"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system" cornerStyle="capsule"/>
                                 <connections>
@@ -51,12 +53,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Zyy-Ph-mnA" firstAttribute="top" secondItem="PWL-eH-1m5" secondAttribute="top" constant="15" id="5jO-0Q-eYw"/>
                             <constraint firstAttribute="bottom" secondItem="Gkp-fJ-dBJ" secondAttribute="bottom" constant="15" id="8fE-tM-YfB"/>
                             <constraint firstItem="1Rn-Ta-hrU" firstAttribute="top" secondItem="MI2-Bv-P7S" secondAttribute="bottom" constant="2" id="FhA-I0-PmP"/>
                             <constraint firstItem="MI2-Bv-P7S" firstAttribute="top" secondItem="PWL-eH-1m5" secondAttribute="top" constant="15" id="ROl-wB-W02"/>
                             <constraint firstItem="Gkp-fJ-dBJ" firstAttribute="leading" secondItem="1Rn-Ta-hrU" secondAttribute="trailing" constant="3" id="XTC-1B-P8S"/>
                             <constraint firstItem="MI2-Bv-P7S" firstAttribute="leading" secondItem="PWL-eH-1m5" secondAttribute="leading" constant="15" id="aQl-SC-RBG"/>
+                            <constraint firstAttribute="trailing" secondItem="Zyy-Ph-mnA" secondAttribute="trailing" constant="20" id="fR5-XI-8tI"/>
                             <constraint firstItem="Gkp-fJ-dBJ" firstAttribute="top" secondItem="MI2-Bv-P7S" secondAttribute="bottom" constant="2" id="vbz-wu-8wF"/>
+                            <constraint firstAttribute="bottom" secondItem="Zyy-Ph-mnA" secondAttribute="bottom" constant="15" id="zZt-Ms-rwg"/>
                         </constraints>
                     </view>
                 </subviews>
