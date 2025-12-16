@@ -12,14 +12,26 @@ class Chart1ViewController: UIViewController {
     
     @IBOutlet weak var RecordingStatus: UILabel!
     @IBOutlet weak var SnellenImg: UIImageView!
-    @IBOutlet weak var Letter1: UILabel!
     @IBOutlet weak var TextField: UITextField!
+    
+    
     let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
+    
+    
     let audioEngine = AVAudioEngine()
     var Recording = false
     
+    
+ 
+    var capturedTexts: [String] = []
+    var currentSpeechBuffer = ""
+
+    let totalImages = 7
+    var currentImageIndex = 0   // starts at Image 1
+
+
     override func viewDidLayoutSubviews() {
          super.viewDidLayoutSubviews()
          TextField.layer.cornerRadius = TextField.frame.height / 2
@@ -29,7 +41,7 @@ class Chart1ViewController: UIViewController {
     override func viewDidLoad() {
         
         
-     
+        SnellenImg.image = UIImage(named: "Image")
         super.viewDidLoad()
         
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -84,9 +96,14 @@ class Chart1ViewController: UIViewController {
                 DispatchQueue.main.async {
                     
                     print("🎙️ Final text:", spokenText)
+                    self.currentSpeechBuffer = spokenText
                     self.TextField.text = spokenText
-                    if normalized == "NEXT" {
+
+                    if normalized.hasSuffix("NEXT") {
+                    self.next()
                         print("text detected")
+                        
+                        
 //                        let sb = UIStoryboard(name: "Chart2", bundle: nil)
 //                        if let vc = sb.instantiateViewController(
 //                            withIdentifier: "Chart2ViewController"
@@ -94,6 +111,8 @@ class Chart1ViewController: UIViewController {
 //
 //                            self.navigationController?.pushViewController(vc, animated: true)
 //                        }
+                        
+                        
                     }
                 }
             }
@@ -125,10 +144,104 @@ class Chart1ViewController: UIViewController {
             self.RecordingStatus.textColor = .systemGray
         }
     }
+    
+
+    
+    func restartRecognitionSession() {
+        // Stop only the recognition task (NOT the mic)
+        recognitionTask?.cancel()
+        recognitionTask = nil
+
+        recognitionRequest?.endAudio()
+        recognitionRequest = nil
+
+        // Create a fresh request
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        recognitionRequest?.shouldReportPartialResults = true
+
+        guard let recognitionRequest = recognitionRequest else { return }
+
+        recognitionTask = speechRecognizer?.recognitionTask(
+            with: recognitionRequest
+        ) { result, error in
+            if let result = result {
+                let spokenText = result.bestTranscription.formattedString
+                let normalized = spokenText
+                    .uppercased()
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+
+                DispatchQueue.main.async {
+                    self.TextField.text = spokenText
+
+                    if normalized.hasSuffix("NEXT") {
+                        self.next()
+                    }
+                }
+            }
+        }
+
+        print("🔄 Recognition restarted (mic still running)")
+        
+    }
+
+
+    
+    
+    
+    func next() {
+        print("next is called")
+
+        // 📦 Save current speech chunk (WITHOUT "next")
+        if !currentSpeechBuffer.isEmpty {
+
+            let cleaned = currentSpeechBuffer
+                .replacingOccurrences(
+                    of: "\\bnext\\b",
+                    with: "",
+                    options: [.regularExpression, .caseInsensitive]
+                )
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+
+            if !cleaned.isEmpty {
+                capturedTexts.append(cleaned)
+                print("📦 Stored chunk:", cleaned)
+            }
+        }
+
+        // 🛑 HARD RESET speech recognition
+        recognitionTask?.cancel()
+        recognitionTask = nil
+        recognitionRequest = nil
+
+        // 🔄 Reset local buffers
+        currentSpeechBuffer = ""
+
+        // 🧹 Clear UI
+        TextField.text = ""
+
+        // 🖼️ Move to next image
+        currentImageIndex += 1
+        if currentImageIndex > totalImages {
+            currentImageIndex = 1
+        }
+
+        let imageName = "Image \(currentImageIndex)"
+        SnellenImg.image = UIImage(named: imageName)
+
+        print("🖼️ Showing:", imageName)
+
+        // 🎧 Restart listening fresh
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            self.startListening()
+        }
+    }
+
 
     @objc func dismissKeyboard() {
     view.endEditing(true)
 }
+    
+    
 
     @IBAction func NextBtn(_ sender: UIButton) {
         
