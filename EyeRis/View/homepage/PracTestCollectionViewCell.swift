@@ -45,6 +45,19 @@ class PracTestCollectionViewCell: UICollectionViewCell {
             UITapGestureRecognizer(target: self, action: #selector(thirdTapped))
         )
     }
+    
+    override func preferredLayoutAttributesFitting(
+        _ layoutAttributes: UICollectionViewLayoutAttributes
+    ) -> UICollectionViewLayoutAttributes {
+
+        let attrs = super.preferredLayoutAttributesFitting(layoutAttributes)
+
+        // Force the cell to use the width decided by the layout
+        attrs.size.width = layoutAttributes.size.width
+
+        return attrs
+    }
+
 
     @objc private func firstTapped() {
         onFirstCardTap?()
