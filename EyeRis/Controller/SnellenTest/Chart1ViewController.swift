@@ -141,9 +141,36 @@ class Chart1ViewController: UIViewController {
         }
     }
     
+    func hardStopSpeech() {
+        if audioEngine.isRunning {
+            audioEngine.stop()
+        }
+
+        recognitionRequest?.endAudio()
+        recognitionRequest = nil
+
+        recognitionTask?.cancel()
+        recognitionTask = nil
+
+        audioEngine.inputNode.removeTap(onBus: 0)
+
+        Recording = false
+
+        DispatchQueue.main.async {
+            self.RecordingStatus.text = "Not Recording"
+            self.RecordingStatus.textColor = .systemGray
+        }
+
+        print("🛑 Speech hard-stopped")
+    }
+
+    
+    
+    
     func next() {
         // 1️⃣ Store text
         print("next is called")
+        hardStopSpeech()
         if let text = TextField.text, !text.isEmpty {
             capturedTexts.append(text)
             print("📦 Stored:", text)
