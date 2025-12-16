@@ -163,6 +163,43 @@ class Chart1ViewController: UIViewController {
 
         print("🛑 Speech hard-stopped")
     }
+    
+    func restartRecognitionSession() {
+        // Stop only the recognition task (NOT the mic)
+        recognitionTask?.cancel()
+        recognitionTask = nil
+
+        recognitionRequest?.endAudio()
+        recognitionRequest = nil
+
+        // Create a fresh request
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        recognitionRequest?.shouldReportPartialResults = true
+
+        guard let recognitionRequest = recognitionRequest else { return }
+
+        recognitionTask = speechRecognizer?.recognitionTask(
+            with: recognitionRequest
+        ) { result, error in
+            if let result = result {
+                let spokenText = result.bestTranscription.formattedString
+                let normalized = spokenText
+                    .uppercased()
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+
+                DispatchQueue.main.async {
+                    self.TextField.text = spokenText
+
+                    if normalized.hasSuffix("NEXT") {
+                        self.next()
+                    }
+                }
+            }
+        }
+
+        print("🔄 Recognition restarted (mic still running)")
+    }
+
 
     
     
@@ -170,7 +207,7 @@ class Chart1ViewController: UIViewController {
     func next() {
         // 1️⃣ Store text
         print("next is called")
-        hardStopSpeech()
+        restartRecognitionSession()
         if let text = TextField.text, !text.isEmpty {
             capturedTexts.append(text)
             print("📦 Stored:", text)
@@ -181,10 +218,11 @@ class Chart1ViewController: UIViewController {
 
         // 3️⃣ Move to next image
         currentImageIndex += 1
-
+        
         // 4️⃣ Loop back if exceeded
         if currentImageIndex > totalImages {
             currentImageIndex = 1
+            hardStopSpeech()
         }
 
         // 5️⃣ Set image (WITH SPACE IN NAME)

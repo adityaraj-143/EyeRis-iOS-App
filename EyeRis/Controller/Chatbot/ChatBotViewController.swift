@@ -20,7 +20,12 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var TextField: UITextField!
     
+    
+    
+    var messages: [String] = []
     var isFAQSelection = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                TextField.borderStyle = .none
@@ -98,12 +103,12 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
     }
 }
     @IBAction func FAQTapped(_ sender: UIButton) {
-            print("FAQ tapped")
-            print("TextField outlet:", TextField as Any)
-            view.endEditing(true)
+        view.endEditing(true)
+
             isFAQSelection = true
-               TextField.backgroundColor = .systemYellow
-               TextField.text = sender.title(for: .normal)
+            TextField.backgroundColor = .systemYellow
+            TextField.text = sender.title(for: .normal)
+           // sendMessage()   // ✅ call ONCE, after text is set
         }
 
    
@@ -118,17 +123,22 @@ class ChatBotViewController: UIViewController, UITextFieldDelegate {
     }
     
     func sendMessage() {
+        print("we in here")
         guard let text = TextField.text, !text.isEmpty else { return }
 
-            print("User sent: \(text)")
+        // ✅ STORE message first
+        messages.append(text)
+        print("📦 Stored message:", text)
 
-            if isFAQSelection {
-                isFAQSelection = false
-                return   // ❌ do NOT clear text
-            }
+        if isFAQSelection {
+            isFAQSelection = false
+            return   // ❌ do NOT clear text (your original logic)
+        }
 
-            TextField.text = ""
+        // ✅ Clear AFTER storing
+        TextField.text = ""
     }
+
     
     //we are fucking done with this.
     
