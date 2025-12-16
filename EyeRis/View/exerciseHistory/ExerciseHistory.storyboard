@@ -265,23 +265,33 @@
             </objects>
             <point key="canvasLocation" x="801" y="-518"/>
         </scene>
-        <!--Exercise History Calendar View Controller-->
+        <!--Full Exercise History-->
         <scene sceneID="PLR-gu-3it">
             <objects>
                 <viewController id="5Mk-y7-i0R" customClass="ExerciseHistoryCalendarViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wDz-mo-oU9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="Wnp-0t-rU1">
+                                <rect key="frame" x="16" y="86" width="361" height="353"/>
+                            </datePicker>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="w07-hw-mEV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wnp-0t-rU1" firstAttribute="leading" secondItem="wDz-mo-oU9" secondAttribute="leading" constant="16" id="FWk-3d-hwe"/>
+                            <constraint firstItem="Wnp-0t-rU1" firstAttribute="top" secondItem="w07-hw-mEV" secondAttribute="top" constant="16" id="dXc-VN-jV4"/>
+                            <constraint firstAttribute="trailing" secondItem="Wnp-0t-rU1" secondAttribute="trailing" constant="16" id="rGd-4e-0sy"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="T1z-pS-0l2">
+                    <navigationItem key="navigationItem" title="Full Exercise History" id="T1z-pS-0l2">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Yuu-cF-Wze"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyf-TV-c1K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2312" y="-518"/>
+            <point key="canvasLocation" x="2310.6870229007632" y="-518.30985915492965"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nem-mg-6DD">
