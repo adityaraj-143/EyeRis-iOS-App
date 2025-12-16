@@ -20,3 +20,18 @@ extension UIView {
         self.layer.masksToBounds = false
     }
 }
+
+class CardStyling {
+    static func setCornerRadius(view: UIView, radius: CGFloat) {
+        view.layer.cornerRadius = radius
+        view.clipsToBounds = true
+    }
+    
+    static func setShadows(view: UIView) {
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 4
+    }
+}
