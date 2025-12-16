@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TestResultViewController: UIViewController {
+class TestHistoryViewController: UIViewController {
     
     struct AcuityTestsForADate {
         let date: Date
@@ -81,7 +81,7 @@ class TestResultViewController: UIViewController {
     
 }
 
-extension TestResultViewController{
+extension TestHistoryViewController{
     func groupTestsByDate(from results: [AcuityTestResult]) -> [AcuityTestsForADate] {
         // 1. Group every test result by its testDate
         let grouped = Dictionary(grouping: results, by: { $0.testDate })

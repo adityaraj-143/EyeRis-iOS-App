@@ -7,7 +7,7 @@
 import Speech
 import UIKit
 
-class Chart1ViewController: UIViewController {
+class AcuityTestViewController: UIViewController {
     
     
     @IBOutlet weak var RecordingStatus: UILabel!

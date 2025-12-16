@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TestResultCalendarViewController: UIViewController {
+class TestHistoryCalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

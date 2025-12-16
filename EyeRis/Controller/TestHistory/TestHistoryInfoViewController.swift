@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TestResultInfoViewController: UIViewController {
+class TestHistoryInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

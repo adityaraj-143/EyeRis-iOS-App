@@ -11,7 +11,7 @@
         <!--Test History-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="TestResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="TestResultViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="TestHistoryViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,7 +283,7 @@
         <!--Test Details-->
         <scene sceneID="x4A-sX-A5d">
             <objects>
-                <viewController storyboardIdentifier="TestResultFlowViewController" id="Vlc-LJ-xou" customClass="TestResultInfoViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestResultFlowViewController" id="Vlc-LJ-xou" customClass="TestHistoryInfoViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6rE-iR-akR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -379,7 +379,7 @@
         <!--All Previous Tests-->
         <scene sceneID="JSF-Yu-iFh">
             <objects>
-                <viewController storyboardIdentifier="Tes" id="JdJ-a4-2Ti" customClass="TestResultCalendarViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tes" id="JdJ-a4-2Ti" customClass="TestHistoryCalendarViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yD1-1c-vqe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

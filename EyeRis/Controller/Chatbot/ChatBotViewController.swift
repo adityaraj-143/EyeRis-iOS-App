@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatBotViewController: UIViewController, UITextFieldDelegate {
+class ChatbotViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var GreetText: UILabel!
     
 
