@@ -31,7 +31,6 @@ class ExerciseListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationBar()
         setupCardViews()
         setupTableViews()
         loadData()
@@ -39,20 +38,9 @@ class ExerciseListViewController: UIViewController {
     
     // MARK: - Setup Methods
     
-    private func setupNavigationBar() {
-        title = "Exercises"
-    }
-    
     private func setupCardViews() {
-        let cardViews = [recommendedCardView, allExercisesCardView]
-        let tableViews: [UITableView] = [recommendedTableView, allExercisesTableView]
-        for card in cardViews {
-            // Use the cardStyling helper functions from your project
-            card?.layer.cornerRadius = 17
-            CardStyling.setShadows(view: card!)
-        }
-        for tables in tableViews {
-            tables.layer.cornerRadius = 17
+        [recommendedCardView,allExercisesCardView].forEach {
+            $0?.applyCornerRadius()
         }
     }
     
