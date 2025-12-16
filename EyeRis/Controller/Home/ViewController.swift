@@ -65,17 +65,17 @@ extension ViewController: UICollectionViewDataSource {
 
             // First card → placeholder
             cell.onFirstCardTap = { [weak self] in
-                self?.goToPlaceholderPage()
+                self?.navigate(to: "TestInstructions", with: "TestInstructionViewController")
             }
 
             // Second card → TestInstructions
             cell.onSecondCardTap = { [weak self] in
-                self?.goToTestInstructions()
+                self?.navigate(to: "TestInstructions", with: "TestInstructionViewController")
             }
 
             // Third card → TestInstructions
             cell.onThirdCardTap = { [weak self] in
-                self?.goToTestInstructions()
+                self?.navigate(to: "TestInstructions", with: "TestInstructionViewController")
             }
 
             return cell
@@ -91,7 +91,12 @@ extension ViewController: UICollectionViewDataSource {
             return cell
 
         case 5:
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "lastExercise_cell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lastExercise_cell", for: indexPath) as! LastExerciseCollectionViewCell
+            
+            cell.onTapNavigation = { [weak self] in
+                self?.navigate(to: "ExerciseHistory", with: "ExerciseHistoryViewController")
+            }
+            return cell
 
         case 6:
             let cell = collectionView.dequeueReusableCell(
@@ -100,7 +105,7 @@ extension ViewController: UICollectionViewDataSource {
             ) as! LastTestCollectionViewCell
 
             cell.onTapNavigation = { [weak self] in
-                self?.goToTestResult()
+                self?.navigate(to: "TestResultFlow", with: "TestResultViewController")
             }
 
             return cell

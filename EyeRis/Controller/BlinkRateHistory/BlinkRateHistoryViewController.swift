@@ -53,13 +53,6 @@ extension Date {
     }
 }
 
-extension UIColor {
-    static let myColor = UIColor(red: 242/255,
-                                 green: 240/255,
-                                 blue: 231/255,
-                                 alpha: 1.0)
-}
-
 class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var CollectionView: UICollectionView!

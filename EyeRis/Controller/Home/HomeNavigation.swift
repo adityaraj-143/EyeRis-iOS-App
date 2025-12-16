@@ -9,42 +9,10 @@ import UIKit
 
 // MARK: - Navigation
 extension ViewController {
-
-    func goToPlaceholderPage() {
-        let storyboard = UIStoryboard(
-            name: "TestInstructions", // temporary
-            bundle: nil
-        )
-
-        let vc = storyboard.instantiateViewController(
-            withIdentifier: "TestInstructionViewController"
-        ) as! TestInstructionViewController
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
-    func goToTestInstructions() {
-        let storyboard = UIStoryboard(
-            name: "TestInstructions",
-            bundle: nil
-        )
-
-        let vc = storyboard.instantiateViewController(
-            withIdentifier: "TestInstructionViewController"
-        ) as! TestInstructionViewController
-
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
-    func goToTestResult() {
-        let storyboard = UIStoryboard(
-            name: "TestResultFlow",
-            bundle: nil
-        )
-
-        let vc = storyboard.instantiateViewController(
-            withIdentifier: "TestResultViewController"
-        ) as! TestResultViewController
-
+    
+    func navigate(to storyboardName: String, with storyboardId: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
