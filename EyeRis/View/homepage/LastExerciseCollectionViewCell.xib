@@ -43,7 +43,6 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ukQ-M3-9jD" secondAttribute="bottom" constant="15" id="9dl-oM-1OZ"/>
                                     <constraint firstItem="ukQ-M3-9jD" firstAttribute="leading" secondItem="wjP-6R-MmY" secondAttribute="leading" constant="15" id="QXr-Et-rKF"/>
-                                    <constraint firstAttribute="width" constant="324" id="SB0-Uf-Cjp"/>
                                     <constraint firstItem="cMY-5M-woY" firstAttribute="top" secondItem="wjP-6R-MmY" secondAttribute="top" constant="5" id="VRw-GZ-pC0"/>
                                     <constraint firstItem="ukQ-M3-9jD" firstAttribute="top" secondItem="wjP-6R-MmY" secondAttribute="top" constant="15" id="fmI-bz-hi8"/>
                                     <constraint firstItem="cMY-5M-woY" firstAttribute="leading" secondItem="ukQ-M3-9jD" secondAttribute="trailing" constant="8" symbolic="YES" id="hLM-FA-oZ3"/>
@@ -115,16 +114,17 @@
                                     <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="navbutton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ZjN-7C-gA8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hfK-Ig-x97" secondAttribute="trailing" constant="5" id="Dkw-Vr-XBs"/>
                             <constraint firstItem="wjP-6R-MmY" firstAttribute="leading" secondItem="YxL-gS-rXN" secondAttribute="leading" constant="15" id="HbY-G5-48B"/>
-                            <constraint firstAttribute="trailing" secondItem="wjP-6R-MmY" secondAttribute="trailing" constant="15" id="IPM-Cx-5NS"/>
                             <constraint firstAttribute="bottom" secondItem="wjP-6R-MmY" secondAttribute="bottom" constant="15" id="JS3-8A-kau"/>
-                            <constraint firstAttribute="height" constant="165" id="MT9-QX-yvE"/>
-                            <constraint firstAttribute="width" constant="354" id="MTA-t1-BCX"/>
+                            <constraint firstAttribute="trailing" secondItem="wjP-6R-MmY" secondAttribute="trailing" constant="15" id="LLk-o6-Xbc"/>
                             <constraint firstItem="hfK-Ig-x97" firstAttribute="top" secondItem="YxL-gS-rXN" secondAttribute="top" id="YRs-uI-Me2"/>
                             <constraint firstItem="hfK-Ig-x97" firstAttribute="leading" secondItem="YxL-gS-rXN" secondAttribute="leading" constant="5" id="ul9-MM-Q6b"/>
                         </constraints>
@@ -133,13 +133,15 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="YxL-gS-rXN" secondAttribute="bottom" id="GIv-bE-nUC"/>
                 <constraint firstItem="YxL-gS-rXN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Q4n-GH-xgh"/>
+                <constraint firstItem="YxL-gS-rXN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SCM-1h-Alo"/>
+                <constraint firstAttribute="trailing" secondItem="YxL-gS-rXN" secondAttribute="trailing" id="jhu-XS-nAw"/>
                 <constraint firstItem="YxL-gS-rXN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qxk-qu-W4H"/>
             </constraints>
             <connections>
                 <outlet property="commentView" destination="wjP-6R-MmY" id="68m-yQ-vac"/>
                 <outlet property="mainView" destination="YxL-gS-rXN" id="jPj-oO-Ghc"/>
-                <outlet property="navigatorButton" destination="hfK-Ig-x97" id="Pra-tz-4bC"/>
             </connections>
             <point key="canvasLocation" x="-195.41984732824426" y="153.16901408450704"/>
         </collectionViewCell>

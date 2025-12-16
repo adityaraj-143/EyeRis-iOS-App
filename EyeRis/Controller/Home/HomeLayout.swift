@@ -38,7 +38,7 @@ extension ViewController {
                 )
                 let group = NSCollectionLayoutGroup.horizontal(
                     layoutSize: .init(
-                        widthDimension: .absolute(348),
+                        widthDimension: .fractionalWidth(1),
                         heightDimension: .absolute(50)
                     ),
                     subitems: [item]
@@ -70,18 +70,28 @@ extension ViewController {
                         heightDimension: .absolute(152)
                     )
                 )
+
                 let group = NSCollectionLayoutGroup.horizontal(
                     layoutSize: .init(
-                        widthDimension: .absolute(354),
+                        widthDimension: .fractionalWidth(1), // ✅ full width
                         heightDimension: .absolute(152)
                     ),
                     subitems: [item]
                 )
+
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 12
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20)
+
+                section.contentInsets = .init(
+                    top: 0,
+                    leading: 20,
+                    bottom: 10,
+                    trailing: 20
+                )
+
                 return section
+
                 
             case 4: // Blink Rate
                 let section = Self.makeFullWidthSection(
@@ -112,7 +122,7 @@ extension ViewController {
         }
     }
 
-    static func makeFullWidthSection(height: CGFloat, top: CGFloat, bottom: CGFloat) -> NSCollectionLayoutSection {
+    static func makeFullWidthSection(height: CGFloat, top: CGFloat, bottom: CGFloat, width: CGFloat = 0) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1),
@@ -121,7 +131,7 @@ extension ViewController {
         )
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: .init(
-                widthDimension: .absolute(354),
+                widthDimension: width == 0 ? .fractionalWidth(1) : .absolute(width),
                 heightDimension: .absolute(height)
             ),
             subitems: [item]

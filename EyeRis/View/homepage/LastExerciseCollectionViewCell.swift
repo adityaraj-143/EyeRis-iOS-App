@@ -20,6 +20,10 @@ class LastExerciseCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var onTapNavigation: (() -> Void)?
     
+    @IBAction func navbutton(_ sender: Any) {
+        onTapNavigation?()
+    }
     
 }
