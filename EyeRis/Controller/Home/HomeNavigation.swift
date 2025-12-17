@@ -28,4 +28,18 @@ extension ViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
+    
+    func presentProfilePage() {
+        let storyboard = UIStoryboard(name: "ProfilePage", bundle: nil)
+        
+        let profileVC = storyboard.instantiateViewController(
+            withIdentifier: "profilePageViewController"
+        )
+
+        let navController = UINavigationController(rootViewController: profileVC)
+        navController.modalPresentationStyle = .pageSheet   // or .fullScreen
+
+        present(navController, animated: true)
+    }
+
 }

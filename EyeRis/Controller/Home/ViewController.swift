@@ -64,7 +64,13 @@ extension ViewController: UICollectionViewDataSource {
         switch indexPath.section {
 
         case 0:
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "greet_cell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "greet_cell", for: indexPath) as! GreetingCollectionViewCell
+            
+            cell.onTapNavigation = { [weak self] in
+                self?.presentProfilePage()
+            }
+            
+            return cell
 
         case 1:
             return collectionView.dequeueReusableCell(withReuseIdentifier: "tip_cell", for: indexPath)

@@ -18,4 +18,10 @@ class GreetingCollectionViewCell: UICollectionViewCell {
 
     }
     
+    var onTapNavigation: (() -> Void)?
+    
+    @IBAction func profileNav(_ sender: Any) {
+        onTapNavigation?()
+    }
+    
 }
