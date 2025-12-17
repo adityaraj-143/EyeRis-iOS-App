@@ -46,6 +46,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Proceed"/>
+                                <connections>
+                                    <action selector="proceedButtonTapped:" destination="rQT-bM-T5O" eventType="touchUpInside" id="Yw8-nu-RXu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="upu-yh-IKk"/>

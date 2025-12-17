@@ -11,7 +11,7 @@
         <!--Blink Rate Test-->
         <scene sceneID="hQ2-XL-1va">
             <objects>
-                <viewController id="BBO-6O-vdk" customClass="BlinkRateViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlinkRateTestViewController" id="BBO-6O-vdk" customClass="BlinkRateViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lng-dh-dSh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddR-aR-3j0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4830" y="169"/>
+            <point key="canvasLocation" x="2066" y="131"/>
         </scene>
         <!--Home-->
         <scene sceneID="8yK-lc-GaB">

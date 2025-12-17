@@ -74,12 +74,12 @@ extension ViewController: UICollectionViewDataSource {
 
             // Second card → TestInstructions
             cell.onSecondCardTap = { [weak self] in
-                self?.navigate(to: "TestInstructions", with: "TestInstructionViewController")
+                self?.navigate(to: "TestInstructions", with: "TestInstructionViewController", source: .acuityTest)
             }
 
             // Third card → TestInstructions
             cell.onThirdCardTap = { [weak self] in
-                self?.navigate(to: "TestInstructions", with: "TestInstructionViewController")
+                self?.navigate(to: "TestInstructions", with: "TestInstructionViewController", source: .blinkRateTest)
             }
 
             return cell

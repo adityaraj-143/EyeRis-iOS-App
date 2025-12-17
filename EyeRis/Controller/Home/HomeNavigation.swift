@@ -10,9 +10,22 @@ import UIKit
 // MARK: - Navigation
 extension ViewController {
     
-    func navigate(to storyboardName: String, with storyboardId: String) {
+    func navigate(
+        to storyboardName: String,
+        with identifier: String,
+        source: TestFlowSource? = nil
+    ) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
+        
+        let vc = storyboard.instantiateViewController(
+            withIdentifier: identifier
+        )
+
+        if let testVC = vc as? TestInstructionViewController {
+            testVC.source = source
+        }
+
         navigationController?.pushViewController(vc, animated: true)
     }
+
 }
