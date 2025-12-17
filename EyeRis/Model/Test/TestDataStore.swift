@@ -169,4 +169,3 @@ let blinkRateMockData: [BlinkRateTestResult] = {
 
     return results
 }()
-

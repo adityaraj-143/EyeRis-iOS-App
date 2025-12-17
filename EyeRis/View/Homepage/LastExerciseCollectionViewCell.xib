@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -112,6 +112,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Last Exercise">
                                     <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -140,9 +141,13 @@
                 <constraint firstItem="YxL-gS-rXN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qxk-qu-W4H"/>
             </constraints>
             <connections>
+                <outlet property="accPercentage" destination="Ug4-d0-WkC" id="4Tx-MW-8ZT"/>
+                <outlet property="accuracyLabel" destination="9YS-Ji-vGJ" id="u9w-ZP-eRQ"/>
                 <outlet property="commentView" destination="wjP-6R-MmY" id="68m-yQ-vac"/>
                 <outlet property="mainView" destination="YxL-gS-rXN" id="jPj-oO-Ghc"/>
                 <outlet property="navigatorButton" destination="hfK-Ig-x97" id="FQG-3s-x0d"/>
+                <outlet property="speedLabel" destination="OGu-fB-nqg" id="q3Z-a4-cFX"/>
+                <outlet property="speedPercentage" destination="zH5-ag-p6r" id="TZ5-f5-UFm"/>
             </connections>
             <point key="canvasLocation" x="-195.41984732824426" y="153.16901408450704"/>
         </collectionViewCell>
