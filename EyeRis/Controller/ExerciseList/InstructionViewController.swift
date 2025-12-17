@@ -11,11 +11,10 @@ import AVKit
 class InstructionViewController: UIViewController {
 
     @IBOutlet weak var mainInstructionLabel: UILabel!
-    @IBOutlet weak var videoContainerView: UIView!
-    @IBOutlet weak var videoPlayerView: UIView!
     @IBOutlet weak var subInstruction1Label: UILabel!
     @IBOutlet weak var subInstruction2Label: UILabel!
     @IBOutlet weak var subInstruction3Label: UILabel!
+    @IBOutlet weak var exerciseImage: UIImageView!
     
     
     var exercise: Exercise?
@@ -69,6 +68,18 @@ class InstructionViewController: UIViewController {
         
         if subInstructions.count > 2 {
             subInstruction3Label.text = "•" + subInstructions[2]
+        }
+        
+        //setting image
+        let exerciseName = exercise.instructions.title
+        
+        switch exerciseName {
+        case "Focus Shifting" :
+            exerciseImage.image = UIImage(named: "focus-shifting")
+        case "Figure-8" :
+            exerciseImage.image = UIImage(named: "figure8")
+        default :
+            exerciseImage.image = UIImage(named: "not available")
         }
     }
 }
