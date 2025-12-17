@@ -126,6 +126,69 @@
             </objects>
             <point key="canvasLocation" x="1995.3846153846152" y="90.995260663507111"/>
         </scene>
+        <!--Chatbot Convo View Controller-->
+        <scene sceneID="G3B-03-JEA">
+            <objects>
+                <viewController storyboardIdentifier="ChatbotConvoViewController" id="lbv-LT-atT" customClass="ChatbotConvoViewController" customModule="EyeRis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KGI-7W-kHr">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gpy-Ge-nA9">
+                                <rect key="frame" x="0.0" y="94" width="390" height="682"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" id="M7Y-82-0WA" customClass="ChatCell" customModule="EyeRis" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="61"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M7Y-82-0WA" id="Gp5-Y0-2Nm">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blp-gx-jxy">
+                                                    <rect key="frame" x="16" y="8" width="358" height="45"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yut-cy-Q51">
+                                                            <rect key="frame" x="12" y="12" width="334" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="yut-cy-Q51" secondAttribute="trailing" constant="12" id="V2h-6L-wZ8"/>
+                                                        <constraint firstItem="yut-cy-Q51" firstAttribute="leading" secondItem="blp-gx-jxy" secondAttribute="leading" constant="12" id="Xdz-of-H2D"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yut-cy-Q51" secondAttribute="bottom" constant="12" id="gQ7-a3-G23"/>
+                                                        <constraint firstItem="yut-cy-Q51" firstAttribute="top" secondItem="blp-gx-jxy" secondAttribute="top" constant="12" id="uAx-yS-7om"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="blp-gx-jxy" firstAttribute="leading" secondItem="Gp5-Y0-2Nm" secondAttribute="leading" constant="16" id="1Db-4Z-8gG"/>
+                                                <constraint firstItem="blp-gx-jxy" firstAttribute="top" secondItem="Gp5-Y0-2Nm" secondAttribute="top" constant="8" id="88U-wH-IU6"/>
+                                                <constraint firstAttribute="trailing" secondItem="blp-gx-jxy" secondAttribute="trailing" constant="16" id="js7-ir-Pvk"/>
+                                                <constraint firstAttribute="bottom" secondItem="blp-gx-jxy" secondAttribute="bottom" constant="8" id="luF-iB-P7q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1fb-zj-K1H"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gpy-Ge-nA9" firstAttribute="top" secondItem="1fb-zj-K1H" secondAttribute="top" id="0Vt-6z-hEH"/>
+                            <constraint firstItem="gpy-Ge-nA9" firstAttribute="leading" secondItem="1fb-zj-K1H" secondAttribute="leading" id="Ek8-Sk-qWp"/>
+                            <constraint firstItem="gpy-Ge-nA9" firstAttribute="bottom" secondItem="1fb-zj-K1H" secondAttribute="bottom" id="cdm-u7-fHQ"/>
+                            <constraint firstItem="1fb-zj-K1H" firstAttribute="trailing" secondItem="gpy-Ge-nA9" secondAttribute="trailing" id="qNG-6l-tbs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ntx-o2-DDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2847.6923076923076" y="90.995260663507111"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="urA-0a-TDQ">
             <objects>
