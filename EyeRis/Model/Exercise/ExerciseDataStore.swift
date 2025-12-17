@@ -279,10 +279,7 @@ class ExerciseData {
         )
     ]
     
-    // MARK: - Helper function to get recommended exercises
-    /// Filters exercises based on user's eye conditions
-    /// - Parameter user: The User object
-    /// - Returns: Array of exercises recommended for the user
+    // MARK: function to get recommended exercises
     static func getRecommendedExercises(for user: User) -> [Exercise] {
         return allExercises.filter { exercise in
             exercise.isRecommended(for: user)
