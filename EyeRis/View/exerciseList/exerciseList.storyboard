@@ -124,10 +124,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvp-UG-GTa">
-                                                <rect key="frame" x="32" y="54" width="329" height="180"/>
+                                                <rect key="frame" x="32" y="54" width="329" height="196"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="enn-VN-7jY">
-                                                        <rect key="frame" x="2" y="2" width="325" height="176"/>
+                                                        <rect key="frame" x="2" y="2" width="325" height="192"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </tableView>
                                                 </subviews>
@@ -135,22 +135,22 @@
                                                 <constraints>
                                                     <constraint firstItem="enn-VN-7jY" firstAttribute="top" secondItem="Hvp-UG-GTa" secondAttribute="top" constant="2" id="036-i5-NQs"/>
                                                     <constraint firstAttribute="bottom" secondItem="enn-VN-7jY" secondAttribute="bottom" constant="2" id="I9w-YW-lGZ"/>
-                                                    <constraint firstAttribute="height" constant="180" id="SjD-fF-Uob"/>
+                                                    <constraint firstAttribute="height" constant="196" id="SjD-fF-Uob"/>
                                                     <constraint firstItem="enn-VN-7jY" firstAttribute="leading" secondItem="Hvp-UG-GTa" secondAttribute="leading" constant="2" id="rIX-iT-5c9"/>
                                                     <constraint firstAttribute="trailing" secondItem="enn-VN-7jY" secondAttribute="trailing" constant="2" id="yc5-9X-ih9"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Exercises" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvk-gE-vbE">
-                                                <rect key="frame" x="32" y="254" width="329" height="24"/>
+                                                <rect key="frame" x="32" y="270" width="329" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHl-9R-O2N">
-                                                <rect key="frame" x="32" y="287.99999999999994" width="329" height="718.66666666666652"/>
+                                                <rect key="frame" x="32" y="304" width="329" height="777"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kds-hc-Afc">
-                                                        <rect key="frame" x="2" y="2" width="325" height="714.66666666666663"/>
+                                                        <rect key="frame" x="2" y="2" width="325" height="773"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </tableView>
                                                 </subviews>
@@ -158,7 +158,7 @@
                                                 <constraints>
                                                     <constraint firstItem="Kds-hc-Afc" firstAttribute="leading" secondItem="kHl-9R-O2N" secondAttribute="leading" constant="2" id="DVj-Ss-L0q"/>
                                                     <constraint firstItem="Kds-hc-Afc" firstAttribute="top" secondItem="kHl-9R-O2N" secondAttribute="top" constant="2" id="STs-d1-xmH"/>
-                                                    <constraint firstAttribute="height" constant="718.69000000000005" id="SoQ-cX-t2Z"/>
+                                                    <constraint firstAttribute="height" constant="777" id="SoQ-cX-t2Z"/>
                                                     <constraint firstAttribute="bottom" secondItem="Kds-hc-Afc" secondAttribute="bottom" constant="2" id="bAk-Xa-Vb6"/>
                                                     <constraint firstAttribute="trailing" secondItem="Kds-hc-Afc" secondAttribute="trailing" constant="2" id="f7L-Om-Ynm"/>
                                                 </constraints>

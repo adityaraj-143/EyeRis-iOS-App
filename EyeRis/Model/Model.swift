@@ -7,33 +7,23 @@
 
 import Foundation
 
-
-// MARK: USER DETAILS
-struct User{
-    var firstName: String
-    var lastName: String
-    var gender: String
-    var dob: Date
-    var eyeHealthData: UserEyeHealthData
-}
-
-struct UserEyeHealthData{
-    // Store all the onboarding data
-    // the eye conditions that the user is facing
-    var condition: [Conditions] // think about this, if this has to be here on in userdata
-    
-    func getUserEyeConditions() -> [Conditions]{
-        var conditions: [Conditions] = []
-        return conditions
-    }
-}
-
-enum Conditions{ // more conditions to be added, research needed
+enum Conditions {
     case dryEyes
     case eyeFatigue
     case blurredVision
     case wateryEyes
+
+    /// Human-readable text for UI
+    var displayText: String {
+        switch self {
+        case .dryEyes: return "Dry Eyes"
+        case .eyeFatigue: return "Eye Fatigue"
+        case .blurredVision: return "Blurred Vision"
+        case .wateryEyes: return "Watery Eyes"
+        }
+    }
 }
+
 
 //MARK: COMMENT & TIP
 // to get the comment for either test or exercise based on the details passed as params

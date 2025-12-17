@@ -22,7 +22,6 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
         super.viewDidLoad()
         
         todayDataView.applyCornerRadius()
-        todayDataComment.text = "That’s good! Anything above 20 is nice"
 
         prepareTodayData()
         prepareWeeklyData()
@@ -42,8 +41,21 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
 
     private func prepareTodayData() {
         let todayResult = response.todayResult()
-
+        
         let value = todayResult?.bpm ?? 0
+        if value <= 10 {
+            todayDataComment.text = "That is concerning. You need to blink significantly more"
+            todayDataBPM.textColor = .red
+        }
+        if value > 10 && value < 20 {
+            todayDataComment.text = "Decent, but try to keep it above 20"
+            todayDataBPM.textColor = .orange
+        }
+        if value >= 20 {
+            todayDataComment.text = "Excellent! Anything above 20 is healthy"
+            todayDataBPM.textColor = .green
+        }
+    
 
         let attributed = NSMutableAttributedString(
             string: "\(value)",

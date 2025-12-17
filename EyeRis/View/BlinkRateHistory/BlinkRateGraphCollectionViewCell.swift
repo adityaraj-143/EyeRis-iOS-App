@@ -50,6 +50,16 @@ class BlinkRateGraphCollectionViewCell: UICollectionViewCell {
         let avgString = "\(avg) "
         let bpmString = "bpm"
         
+        if avg <= 10 {
+            weeklyBPM.textColor = .red
+        }
+        if avg > 10 {
+            weeklyBPM.textColor = .orange
+        }
+        if avg >= 20 {
+            weeklyBPM.textColor = .green
+        }
+        
         
         let attributedText = NSMutableAttributedString(
             string: avgString,
@@ -74,8 +84,8 @@ class BlinkRateGraphCollectionViewCell: UICollectionViewCell {
         let end = formatter.string(
             from: Calendar.current.date(byAdding: .day, value: 6, to: week.startDate)!
         )
-
-        weekLabel.text = "\(start) – \(end)"
+        weekLabel.font = .systemFont(ofSize: 12)
+        weekLabel.text = "Weekly Average • \(start) – \(end)"
     }
 
 }

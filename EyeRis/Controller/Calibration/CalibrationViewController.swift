@@ -195,7 +195,7 @@ class CalibrationViewController: UIViewController {
     }
 }
 
-// MARK: - AR Session Delegate
+// MARK: AR Session Delegate
 
 extension CalibrationViewController: ARSessionDelegate {
     

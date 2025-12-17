@@ -108,7 +108,6 @@ class ChatbotViewController: UIViewController, UITextFieldDelegate {
             isFAQSelection = true
             TextField.backgroundColor = .systemYellow
             TextField.text = sender.title(for: .normal)
-           // sendMessage()   // ✅ call ONCE, after text is set
         }
 
    
@@ -126,24 +125,19 @@ class ChatbotViewController: UIViewController, UITextFieldDelegate {
         print("we in here")
         guard let text = TextField.text, !text.isEmpty else { return }
 
-        // ✅ STORE message first
         messages.append(text)
         print("📦 Stored message:", text)
 
         if isFAQSelection {
             isFAQSelection = false
-            return   // ❌ do NOT clear text (your original logic)
         }
-
-        // ✅ Clear AFTER storing
         TextField.text = ""
     }
 
-    
     //we are fucking done with this.
     
     
-    // MARK: - Navigation
+
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

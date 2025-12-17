@@ -9,25 +9,15 @@ import UIKit
 
 class ExerciseListViewController: UIViewController {
     
-    // MARK: - Properties
-
-    private var currentUser: User?  // Store the current user
-
-    // MARK: - Outlets
-    
-    @IBOutlet weak var recommendedCardView: UIView!
-    @IBOutlet weak var recommendedTableView: UITableView!
-    
-    @IBOutlet weak var allExercisesCardView: UIView!
-    @IBOutlet weak var allExercisesTableView: UITableView!
-    
-    // MARK: - Data Sources
-    
+    private var currentUser: User?
     private var recommendedExercises: [Exercise] = []
     private var allExercises: [Exercise] = []
-    
-    // MARK: - Lifecycle
-    
+
+    @IBOutlet weak var recommendedCardView: UIView!
+    @IBOutlet weak var recommendedTableView: UITableView!
+    @IBOutlet weak var allExercisesCardView: UIView!
+    @IBOutlet weak var allExercisesTableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,15 +26,11 @@ class ExerciseListViewController: UIViewController {
         loadData()
     }
     
-    // MARK: - Setup Methods
-    
+    // MARK: - Setup
     private func setupCardViews() {
         [recommendedCardView,allExercisesCardView].forEach {
             $0?.applyCornerRadius()
             $0?.applyShadow()
-        }
-        [recommendedTableView,allExercisesTableView].forEach {
-            $0?.applyCornerRadiusToTable()
         }
     }
     
@@ -55,16 +41,18 @@ class ExerciseListViewController: UIViewController {
         allExercisesTableView.delegate = self
         allExercisesTableView.dataSource = self
         
+        [recommendedTableView,allExercisesTableView].forEach {
+            $0?.applyCornerRadiusToTable()
+        }
+        
         // Register XIB for cell
         let nib = UINib(nibName: "ExerciseTableViewCell", bundle: nil)
         recommendedTableView.register(nib, forCellReuseIdentifier: "ExerciseTableViewCell")
         allExercisesTableView.register(nib, forCellReuseIdentifier: "ExerciseTableViewCell")
     }
 
-    
     private func loadData() {
-        // Create a temporary user with some conditions for testing
-        // In real app, this would come from your saved user data
+        //temporary user with some conditions for testing
         currentUser = User(
             firstName: "John",
             lastName: "Doe",
@@ -77,22 +65,19 @@ class ExerciseListViewController: UIViewController {
         
         guard let user = currentUser else { return }
         
-        // Fetch recommended and all exercises
+        //fetch recommended & all exercises
         recommendedExercises = ExerciseFetcher.getRecommendedExercises(for: user)
         allExercises = ExerciseFetcher.getAllExercises()
         
         recommendedTableView.reloadData()
         allExercisesTableView.reloadData()
     }
-
-    
 }
-// MARK: - UITableViewDataSource & UITableViewDelegate
 
+// MARK: - Extensions
 extension ExerciseListViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - DataSource Methods
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == recommendedTableView {
             return recommendedExercises.count
@@ -103,8 +88,7 @@ extension ExerciseListViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseTableViewCell", for: indexPath) as! ExerciseTableViewCell
-        
-        // Get the exercise for this row
+
         let exercise: Exercise
         if tableView == recommendedTableView {
             exercise = recommendedExercises[indexPath.row]
@@ -120,11 +104,7 @@ extension ExerciseListViewController: UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
-    // MARK: - Delegate Methods
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60 // Height for each cell
-    }
+    // MARK: Delegate Methods
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -136,15 +116,12 @@ extension ExerciseListViewController: UITableViewDataSource, UITableViewDelegate
             exercise = allExercises[indexPath.row]
         }
         
-        // Show instruction modal
         showInstructionModal(for: exercise)
     }
 
-    
-    // MARK: - User Actions
+    // MARK: Actions
     private func playButtonTapped(for exercise: Exercise) {
         
-        // Get calibration VC from storyboard
         let storyboard = UIStoryboard(name: "CalibrationScreen", bundle: nil)
         let calibrationVC = storyboard.instantiateViewController(withIdentifier: "CalibrationViewController") as! CalibrationViewController
         calibrationVC.exercise = exercise
@@ -153,12 +130,12 @@ extension ExerciseListViewController: UITableViewDataSource, UITableViewDelegate
     }
 
     private func showInstructionModal(for exercise: Exercise) {
-        // Get instruction VC from storyboard
+
         let storyboard = UIStoryboard(name: "exerciseList", bundle: nil)
         let instructionVC = storyboard.instantiateViewController(withIdentifier: "InstructionViewController") as! InstructionViewController
         instructionVC.exercise = exercise
         
-        // Embed in navigation controller for back button
+        //to embed in navigtion controller
         let navController = UINavigationController(rootViewController: instructionVC)
         navController.modalPresentationStyle = .pageSheet
         
