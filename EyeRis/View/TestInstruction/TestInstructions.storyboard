@@ -59,6 +59,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Calibrate"/>
+                                <connections>
+                                    <action selector="navToCalibrate:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CR5-Q8-ohY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

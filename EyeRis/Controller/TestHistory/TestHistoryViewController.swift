@@ -71,10 +71,10 @@ class TestHistoryViewController: UIViewController {
         // 3. Update the labels and buttons for this starting date
         updateUIForCurrentDate()
         
-        [NVAView, DVAView].forEach {
+        [NVAView, DVAView, mainView, commentView].forEach {
             $0?.applyCornerRadius()
         }
-        [NVAView, DVAView, commentView, mainView].forEach {
+        [NVAView, DVAView].forEach {
             $0?.applyShadow()
         }
     }

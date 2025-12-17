@@ -18,6 +18,8 @@ class LastExerciseCollectionViewCell: UICollectionViewCell {
         [mainView,commentView].forEach {
             $0?.applyCornerRadius()
         }
+        
+        navigatorButton.titleLabel?.font  = .systemFont(ofSize: 15, weight: .semibold)
     }
     
     var onTapNavigation: (() -> Void)?

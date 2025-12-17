@@ -142,6 +142,7 @@
             <connections>
                 <outlet property="commentView" destination="wjP-6R-MmY" id="68m-yQ-vac"/>
                 <outlet property="mainView" destination="YxL-gS-rXN" id="jPj-oO-Ghc"/>
+                <outlet property="navigatorButton" destination="hfK-Ig-x97" id="FQG-3s-x0d"/>
             </connections>
             <point key="canvasLocation" x="-195.41984732824426" y="153.16901408450704"/>
         </collectionViewCell>

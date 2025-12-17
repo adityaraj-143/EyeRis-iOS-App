@@ -51,6 +51,49 @@ struct AcuityTestResult{
     var comment: String = "Overall, your vision is fairly good, but a routine eye check-up or corrective lens may help improve clarity, especially for distance vision."
 }
 
+struct AcuityTestsForADate {
+    let date: Date
+    let distant: AcuityTestResult
+    let near: AcuityTestResult
+}
+
+struct AcuityTestResultResponse {
+    var results : [AcuityTestResult]
+    
+    init() {
+        results = dummyAcuityResults
+    }
+    
+    func groupTestsByDate() -> [AcuityTestsForADate] {
+        // 1. Group every test result by its testDate
+        let grouped = Dictionary(grouping: results, by: { $0.testDate })
+        
+        // 2. Sort dates in ascending order
+        let sortedDates = grouped.keys.sorted()
+        
+        var dailyTests: [AcuityTestsForADate] = []
+        
+        // 3. Build a DailyAcuityTests object for each date
+        for date in sortedDates {
+            guard let items = grouped[date] else { continue }
+            
+            // Must have BOTH tests for that date
+            guard
+                let distant = items.first(where: { $0.testType == .DistantVision }),
+                let near    = items.first(where: { $0.testType == .NearVision })
+            else {
+                continue
+            }
+            
+            dailyTests.append(
+                AcuityTestsForADate(date: date, distant: distant, near: near)
+            )
+        }
+        
+        return dailyTests
+    }
+}
+
 struct BlinkRateTest{
     var instructions: TestInstruction
     var passages: [String]
@@ -65,3 +108,4 @@ struct BlinkRateTestResult {
     }
     var performedOn: Date
 }
+

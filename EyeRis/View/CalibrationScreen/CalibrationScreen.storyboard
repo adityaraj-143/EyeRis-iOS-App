@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 cm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjs-vn-ubC">
-                                <rect key="frame" x="16" y="138" width="361" height="40"/>
+                                <rect key="frame" x="16" y="182" width="361" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="uDR-fj-s9k"/>
                                 </constraints>
@@ -26,10 +26,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="svI-0L-a6C">
-                                <rect key="frame" x="19" y="197" width="355" height="445"/>
+                                <rect key="frame" x="19" y="251" width="355" height="391"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDq-EV-SLG">
-                                <rect key="frame" x="20" y="198" width="353" height="443"/>
+                                <rect key="frame" x="20" y="242" width="353" height="399"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep the phone 40 cm away from your face" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDq-pm-Wfd">
@@ -51,25 +51,26 @@
                         <viewLayoutGuide key="safeArea" id="upu-yh-IKk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="cDq-EV-SLG" firstAttribute="top" secondItem="Zjs-vn-ubC" secondAttribute="bottom" constant="20" id="0Dm-g1-ra4"/>
                             <constraint firstItem="upu-yh-IKk" firstAttribute="trailing" secondItem="Zjs-vn-ubC" secondAttribute="trailing" constant="16" id="1E2-NB-AMi"/>
                             <constraint firstItem="Zjs-vn-ubC" firstAttribute="leading" secondItem="upu-yh-IKk" secondAttribute="leading" constant="16" id="8yf-pi-tGK"/>
                             <constraint firstAttribute="trailing" secondItem="cDq-pm-Wfd" secondAttribute="trailing" constant="16" id="9dF-sb-ZJE"/>
                             <constraint firstItem="Zjs-vn-ubC" firstAttribute="centerX" secondItem="IkB-Dr-ECt" secondAttribute="centerX" id="9pH-uF-LgG"/>
                             <constraint firstItem="upu-yh-IKk" firstAttribute="bottom" secondItem="pzJ-Ru-uLm" secondAttribute="bottom" constant="50" id="BV3-hw-wkD"/>
                             <constraint firstItem="cDq-EV-SLG" firstAttribute="leading" secondItem="upu-yh-IKk" secondAttribute="leading" constant="20" id="GUG-sZ-Gk6"/>
+                            <constraint firstItem="cDq-pm-Wfd" firstAttribute="top" secondItem="svI-0L-a6C" secondAttribute="bottom" constant="15" id="NxJ-Ey-P1d"/>
                             <constraint firstItem="upu-yh-IKk" firstAttribute="trailing" secondItem="cDq-EV-SLG" secondAttribute="trailing" constant="20" id="PKR-OT-OE9"/>
-                            <constraint firstItem="cDq-EV-SLG" firstAttribute="top" secondItem="Zjs-vn-ubC" secondAttribute="bottom" constant="20" id="ZEO-g3-qHs"/>
-                            <constraint firstItem="svI-0L-a6C" firstAttribute="top" secondItem="Zjs-vn-ubC" secondAttribute="bottom" constant="19" id="Ztv-5W-qM1"/>
                             <constraint firstItem="pzJ-Ru-uLm" firstAttribute="centerX" secondItem="IkB-Dr-ECt" secondAttribute="centerX" id="eEp-2B-vP2"/>
                             <constraint firstItem="cDq-pm-Wfd" firstAttribute="top" secondItem="cDq-EV-SLG" secondAttribute="bottom" constant="16" id="g6L-1V-q9V"/>
+                            <constraint firstItem="svI-0L-a6C" firstAttribute="top" secondItem="Zjs-vn-ubC" secondAttribute="bottom" constant="29" id="gqL-3h-QJc"/>
                             <constraint firstItem="cDq-pm-Wfd" firstAttribute="leading" secondItem="upu-yh-IKk" secondAttribute="leading" constant="16" id="hUE-QZ-9Km"/>
-                            <constraint firstItem="cDq-pm-Wfd" firstAttribute="top" secondItem="svI-0L-a6C" secondAttribute="bottom" constant="15" id="ji4-1x-2PB"/>
-                            <constraint firstItem="Zjs-vn-ubC" firstAttribute="top" secondItem="upu-yh-IKk" secondAttribute="top" constant="20" id="oor-Mk-8C8"/>
+                            <constraint firstItem="Zjs-vn-ubC" firstAttribute="top" secondItem="upu-yh-IKk" secondAttribute="top" constant="10" id="oor-Mk-8C8"/>
                             <constraint firstItem="svI-0L-a6C" firstAttribute="leading" secondItem="upu-yh-IKk" secondAttribute="leading" constant="19" id="wks-eV-hnF"/>
                             <constraint firstItem="upu-yh-IKk" firstAttribute="trailing" secondItem="svI-0L-a6C" secondAttribute="trailing" constant="19" id="wzd-cj-86x"/>
                             <constraint firstItem="pzJ-Ru-uLm" firstAttribute="top" secondItem="cDq-pm-Wfd" secondAttribute="bottom" constant="20" id="xlY-f9-VVn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Jd9-ks-2bY"/>
                     <connections>
                         <outlet property="cameraContainer" destination="cDq-EV-SLG" id="00Y-de-Bii"/>
                         <outlet property="cameraFeedBorderView" destination="svI-0L-a6C" id="lOv-Qe-UVx"/>
@@ -80,7 +81,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Odj-XF-YUb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="494"/>
+            <point key="canvasLocation" x="1985.4961832061067" y="493.66197183098592"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="by3-Pe-oMG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3oz-jb-Zgu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t0A-Tu-Hqe">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rQT-bM-T5O" kind="relationship" relationship="rootViewController" id="91c-Mw-FXz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YqQ-0V-7on" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1058.7786259541983" y="493.66197183098592"/>
         </scene>
     </scenes>
     <resources>

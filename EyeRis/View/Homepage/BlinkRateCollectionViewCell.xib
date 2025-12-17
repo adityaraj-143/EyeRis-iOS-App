@@ -63,6 +63,9 @@
                                     <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="navButtonTapped:" destination="4it-cm-Ufa" eventType="touchUpInside" id="2WY-1a-WFN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

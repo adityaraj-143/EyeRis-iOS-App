@@ -25,6 +25,8 @@ class LastTestCollectionViewCell: UICollectionViewCell {
         [resultView, resultView1].forEach {
             $0?.applyShadow()
         }
+        
+        navigatorButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
     }
         
     var onTapNavigation: (() -> Void)?

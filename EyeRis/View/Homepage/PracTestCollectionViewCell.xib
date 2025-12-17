@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="354" height="152"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PracTest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQF-kV-xIb">
-                                <rect key="frame" x="20" y="9.9999999999999982" width="65.666666666666671" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="10" width="62" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -106,7 +106,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.94509803920000002" green="0.91764705879999997" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90980392156862744" green="0.90196078431372551" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="9As-nf-YLT" secondAttribute="trailing" constant="5" id="Iyz-2g-478"/>
                                             <constraint firstItem="9As-nf-YLT" firstAttribute="top" secondItem="wcB-rW-u3A" secondAttribute="top" constant="5" id="J7q-To-dyq"/>
@@ -148,7 +148,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.94509803920000002" green="0.91764705879999997" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.85882352941176465" green="0.93333333333333335" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="9Jd-gd-iEg" firstAttribute="top" secondItem="6cu-2s-mEL" secondAttribute="top" constant="5" id="6z3-ci-HdB"/>
                                             <constraint firstAttribute="trailing" secondItem="fpT-X2-uH3" secondAttribute="trailing" constant="5" id="Cqo-Su-SoZ"/>

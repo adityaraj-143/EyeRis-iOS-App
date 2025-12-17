@@ -39,6 +39,13 @@
 
         }
 
+        @IBAction func navToCalibrate(_ sender: Any) {
+            let storyboard = UIStoryboard(name: "CalibrationScreen", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "CalibrationViewController")
+            
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+        
         private func registerCell() {
             CollectionView.register(
                 UINib(nibName: "TestInstructionsCollectionViewCell", bundle: nil),

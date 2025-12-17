@@ -21,4 +21,9 @@ class BlinkRateCollectionViewCell: UICollectionViewCell {
         }
     }
 
+    var onTapNavigation: (() -> Void)?
+    
+    @IBAction func navButtonTapped(_ sender: Any) {
+        onTapNavigation?()
+    }
 }
