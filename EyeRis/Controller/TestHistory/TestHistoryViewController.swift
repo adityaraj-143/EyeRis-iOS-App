@@ -9,19 +9,12 @@ import UIKit
 
 class TestHistoryViewController: UIViewController {
     
-    struct AcuityTestsForADate {
-        let date: Date
-        let distant: AcuityTestResult
-        let near: AcuityTestResult
-    }
-    
-    
     @IBOutlet weak var NVAView: UIView!
     @IBOutlet weak var DVAView: UIView!
     @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var mainView: UIView!
     
-    // MARK: - outlets for this screen
+    // Outlets for this screen
     @IBOutlet weak var nextTest: UIButton!
     @IBOutlet weak var prevTest: UIButton!
     @IBOutlet weak var testDate: UILabel!
@@ -39,8 +32,6 @@ class TestHistoryViewController: UIViewController {
     
     
     // MARK: - Data for this screen
-    /// All raw results (coming from your dummy data file for now)
-    private var allResults: [AcuityTestResult] = dummyAcuityResults
     
     /// Same results, but grouped so that each item = one date (near + distant together)
     private var groupedResultsByDate: [AcuityTestsForADate] = []
@@ -61,7 +52,8 @@ class TestHistoryViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        groupedResultsByDate = groupTestsByDate(from: allResults)
+        var response = AcuityTestResultResponse()
+        groupedResultsByDate = response.groupTestsByDate()
         
         // 2. Start from the most recent date (last in the sorted array)
         if !groupedResultsByDate.isEmpty {
@@ -82,34 +74,6 @@ class TestHistoryViewController: UIViewController {
 }
 
 extension TestHistoryViewController{
-    func groupTestsByDate(from results: [AcuityTestResult]) -> [AcuityTestsForADate] {
-        // 1. Group every test result by its testDate
-        let grouped = Dictionary(grouping: results, by: { $0.testDate })
-        
-        // 2. Sort dates in ascending order
-        let sortedDates = grouped.keys.sorted()
-        
-        var dailyTests: [AcuityTestsForADate] = []
-        
-        // 3. Build a DailyAcuityTests object for each date
-        for date in sortedDates {
-            guard let items = grouped[date] else { continue }
-            
-            // Must have BOTH tests for that date
-            guard
-                let distant = items.first(where: { $0.testType == .DistantVision }),
-                let near    = items.first(where: { $0.testType == .NearVision })
-            else {
-                continue
-            }
-            
-            dailyTests.append(
-                AcuityTestsForADate(date: date, distant: distant, near: near)
-            )
-        }
-        
-        return dailyTests
-    }
     
     func updateUIForCurrentDate() {
         // 1. Safety check – if no data, do nothing

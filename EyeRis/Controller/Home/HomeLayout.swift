@@ -22,7 +22,7 @@ extension ViewController {
                 )
                 return NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: size,
-                    elementKind: self.headerKind,
+                    elementKind: "header-kind",
                     alignment: .top
                 )
             }()

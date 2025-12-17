@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MS3-bA-vJY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MS3-bA-vJY">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,13 +37,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71K-IC-o5z">
+                                <rect key="frame" x="326" y="679" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="D9m-PT-NTn"/>
+                                    <constraint firstAttribute="width" constant="55" id="EHm-eK-8C9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="chatbotIcon"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N5a-zi-pPJ"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0mW-8B-dfu" secondAttribute="trailing" id="4xZ-gv-jvp"/>
+                            <constraint firstItem="N5a-zi-pPJ" firstAttribute="bottom" secondItem="71K-IC-o5z" secondAttribute="bottom" constant="50" id="9nj-eK-bgb"/>
                             <constraint firstItem="0mW-8B-dfu" firstAttribute="leading" secondItem="AtL-AV-KWC" secondAttribute="leading" id="UWk-Eq-6vw"/>
                             <constraint firstItem="N5a-zi-pPJ" firstAttribute="bottom" secondItem="0mW-8B-dfu" secondAttribute="bottom" constant="-68" id="bQw-dt-KZT"/>
+                            <constraint firstItem="N5a-zi-pPJ" firstAttribute="trailing" secondItem="71K-IC-o5z" secondAttribute="trailing" constant="12" id="kTE-r5-603"/>
                             <constraint firstItem="0mW-8B-dfu" firstAttribute="top" secondItem="AtL-AV-KWC" secondAttribute="top" constant="50" id="njR-a7-SPR"/>
                         </constraints>
                     </view>
@@ -75,4 +87,7 @@
             <point key="canvasLocation" x="-202.29007633587784" y="145.77464788732394"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chatbotIcon" width="150" height="150"/>
+    </resources>
 </document>

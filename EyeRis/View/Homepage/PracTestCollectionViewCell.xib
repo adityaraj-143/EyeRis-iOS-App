@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -34,7 +34,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="97"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yEW-tV-31J">
-                                                <rect key="frame" x="8" y="6.9999999999999982" width="22" height="18"/>
+                                                <rect key="frame" x="10" y="9.9999999999999982" width="22" height="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="Hhr-Vx-GJg"/>
@@ -56,9 +56,8 @@
                                                     <action selector="firstChevronTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="duZ-Bp-hDc"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All Eye Exercise" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r90-zf-ao4">
-                                                <rect key="frame" x="8" y="40" width="82" height="52"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Eye Exercise" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r90-zf-ao4">
+                                                <rect key="frame" x="10" y="46" width="77.666666666666671" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -66,17 +65,20 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.94509803921568625" green="0.91764705882352937" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="yEW-tV-31J" firstAttribute="top" secondItem="mCd-Cd-ret" secondAttribute="top" constant="5" id="7UD-FA-vPv"/>
+                                            <constraint firstItem="yEW-tV-31J" firstAttribute="top" secondItem="mCd-Cd-ret" secondAttribute="top" constant="8" id="7UD-FA-vPv"/>
+                                            <constraint firstItem="r90-zf-ao4" firstAttribute="leading" secondItem="mCd-Cd-ret" secondAttribute="leading" constant="10" id="8Ue-ap-LSP"/>
+                                            <constraint firstAttribute="bottom" secondItem="r90-zf-ao4" secondAttribute="bottom" constant="15" id="Cs6-Va-6af"/>
                                             <constraint firstItem="J39-NL-5JD" firstAttribute="top" secondItem="mCd-Cd-ret" secondAttribute="top" constant="5" id="Srw-Ih-y7p"/>
-                                            <constraint firstItem="yEW-tV-31J" firstAttribute="leading" secondItem="mCd-Cd-ret" secondAttribute="leading" constant="8" id="XHD-Tg-hwu"/>
+                                            <constraint firstItem="yEW-tV-31J" firstAttribute="leading" secondItem="mCd-Cd-ret" secondAttribute="leading" constant="10" id="XHD-Tg-hwu"/>
                                             <constraint firstAttribute="trailing" secondItem="J39-NL-5JD" secondAttribute="trailing" constant="5" id="vGL-iY-o1v"/>
+                                            <constraint firstAttribute="trailing" secondItem="r90-zf-ao4" secondAttribute="trailing" constant="15" id="wlT-YY-tRJ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcB-rW-u3A">
                                         <rect key="frame" x="110.66666666666666" y="0.0" width="102.66666666666666" height="97"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zyN-7l-VXM">
-                                                <rect key="frame" x="7.9999999999999858" y="6.9999999999999982" width="22" height="18"/>
+                                                <rect key="frame" x="9.9999999999999858" y="9.9999999999999982" width="22" height="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="O6t-rc-zbq"/>
@@ -98,9 +100,8 @@
                                                     <action selector="secondChevronTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6jH-MJ-Vor"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All Eye Exercise" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2M-6K-5VS">
-                                                <rect key="frame" x="8" y="40" width="82" height="52"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vision Acuity Test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2M-6K-5VS">
+                                                <rect key="frame" x="9.9999999999999858" y="46" width="77.666666666666671" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -108,17 +109,20 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.90980392156862744" green="0.90196078431372551" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="k2M-6K-5VS" firstAttribute="leading" secondItem="wcB-rW-u3A" secondAttribute="leading" constant="10" id="BQl-LX-xLh"/>
                                             <constraint firstAttribute="trailing" secondItem="9As-nf-YLT" secondAttribute="trailing" constant="5" id="Iyz-2g-478"/>
                                             <constraint firstItem="9As-nf-YLT" firstAttribute="top" secondItem="wcB-rW-u3A" secondAttribute="top" constant="5" id="J7q-To-dyq"/>
-                                            <constraint firstItem="zyN-7l-VXM" firstAttribute="leading" secondItem="wcB-rW-u3A" secondAttribute="leading" constant="8" id="uJF-PM-XGG"/>
-                                            <constraint firstItem="zyN-7l-VXM" firstAttribute="top" secondItem="wcB-rW-u3A" secondAttribute="top" constant="5" id="zf9-0H-z8e"/>
+                                            <constraint firstAttribute="bottom" secondItem="k2M-6K-5VS" secondAttribute="bottom" constant="15" id="pJQ-yc-6zo"/>
+                                            <constraint firstItem="zyN-7l-VXM" firstAttribute="leading" secondItem="wcB-rW-u3A" secondAttribute="leading" constant="10" id="uJF-PM-XGG"/>
+                                            <constraint firstAttribute="trailing" secondItem="k2M-6K-5VS" secondAttribute="trailing" constant="15" id="y7F-Df-bMo"/>
+                                            <constraint firstItem="zyN-7l-VXM" firstAttribute="top" secondItem="wcB-rW-u3A" secondAttribute="top" constant="8" id="zf9-0H-z8e"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cu-2s-mEL">
                                         <rect key="frame" x="221.33333333333334" y="0.0" width="102.66666666666666" height="97"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Jd-gd-iEg">
-                                                <rect key="frame" x="8" y="6.9999999999999982" width="22" height="18"/>
+                                                <rect key="frame" x="10" y="9.9999999999999982" width="22" height="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="N9F-uB-7mP"/>
@@ -140,9 +144,8 @@
                                                     <action selector="thirdChevronTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ev3-42-mE4"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All Eye Exercise" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqQ-1x-DgZ">
-                                                <rect key="frame" x="8" y="40" width="82" height="52"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blink Rate Test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqQ-1x-DgZ">
+                                                <rect key="frame" x="10" y="46" width="66" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -150,9 +153,12 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.85882352941176465" green="0.93333333333333335" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="9Jd-gd-iEg" firstAttribute="top" secondItem="6cu-2s-mEL" secondAttribute="top" constant="5" id="6z3-ci-HdB"/>
+                                            <constraint firstAttribute="trailing" secondItem="JqQ-1x-DgZ" secondAttribute="trailing" constant="26.699999999999999" id="2Al-vL-qfR"/>
+                                            <constraint firstItem="9Jd-gd-iEg" firstAttribute="top" secondItem="6cu-2s-mEL" secondAttribute="top" constant="8" id="6z3-ci-HdB"/>
                                             <constraint firstAttribute="trailing" secondItem="fpT-X2-uH3" secondAttribute="trailing" constant="5" id="Cqo-Su-SoZ"/>
-                                            <constraint firstItem="9Jd-gd-iEg" firstAttribute="leading" secondItem="6cu-2s-mEL" secondAttribute="leading" constant="8" id="UUN-6X-ric"/>
+                                            <constraint firstAttribute="bottom" secondItem="JqQ-1x-DgZ" secondAttribute="bottom" constant="15" id="NAv-I4-mbK"/>
+                                            <constraint firstItem="JqQ-1x-DgZ" firstAttribute="leading" secondItem="6cu-2s-mEL" secondAttribute="leading" constant="10" id="SLC-qH-9l2"/>
+                                            <constraint firstItem="9Jd-gd-iEg" firstAttribute="leading" secondItem="6cu-2s-mEL" secondAttribute="leading" constant="10" id="UUN-6X-ric"/>
                                             <constraint firstItem="fpT-X2-uH3" firstAttribute="top" secondItem="6cu-2s-mEL" secondAttribute="top" constant="5" id="tK8-Du-0D0"/>
                                         </constraints>
                                     </view>

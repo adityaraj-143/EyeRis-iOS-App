@@ -23,11 +23,11 @@ class ExerciseHistoryViewController: UIViewController {
     private let weekDays = ["M", "T", "W", "T", "F", "S", "S"]
     private let totalItems = 28
     
-    // MARK: - Data
-    private let allStats: [PerformedExerciseStat] = mockPerformedExerciseStats
+    private let response = PerformedExerciseStatResponse()
+
     private var fourWeekDates: [Date] = []
     private var performedDates: Set<Date> = []
-    private var exercisesByDate: [Date: [PerformedExerciseStat]] = [:]
+
     
     // Date formatter to formaat the date in the format to be displayed in the navigation bar
     private let dateFormatter: DateFormatter = {
@@ -45,9 +45,9 @@ class ExerciseHistoryViewController: UIViewController {
             forCellWithReuseIdentifier: "dayCell"
         )
         
-        fourWeekDates = PerformedExerciseStat.getFourWeekDateRange(from: allStats)
-        performedDates = Set(PerformedExerciseStat.getPerformedExerciseDates(from: allStats))
-        exercisesByDate = PerformedExerciseStat.groupExercisesByDate(stats: allStats)
+        fourWeekDates = response.getFourWeekDateRange()
+        performedDates = response.getPerformedExerciseDates()
+
         
         weekCollectionView.dataSource = self
         weekCollectionView.delegate = self
@@ -125,7 +125,7 @@ class ExerciseHistoryViewController: UIViewController {
         selectedDate = date
         // Update title
         navigationItem.title = dateFormatter.string(from: date)
-        selectedDayExercises = exercisesByDate[date] ?? []
+        selectedDayExercises = response.exercises(for: date)
         updateSummary(for: selectedDayExercises)
         exerciseTableView.reloadData()
     }

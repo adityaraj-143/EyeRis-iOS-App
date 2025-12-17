@@ -36,15 +36,26 @@ struct PerformedExerciseStat {
     var performedOn: Date
     var accuracy: Int
     var speed: Int
+}
 
-    // MARK: - Date Helpers
+struct PerformedExerciseStatResponse {
 
-    static func getFourWeekDateRange(from stats: [PerformedExerciseStat]) -> [Date] {
+    private let stats: [PerformedExerciseStat]
+    private let calendar = Calendar.current
+
+    // MARK: - Init
+
+    init(stats: [PerformedExerciseStat] = mockPerformedExerciseStats) {
+        self.stats = stats
+    }
+
+    // MARK: - Four Week Dates (28 days)
+
+    func getFourWeekDateRange() -> [Date] {
         guard let latestDate = stats.map({ $0.performedOn }).max() else {
             return []
         }
 
-        let calendar = Calendar.current
         var dates: [Date] = []
 
         for dayOffset in 0..<28 {
@@ -56,24 +67,27 @@ struct PerformedExerciseStat {
         return dates.reversed()
     }
 
-    static func getPerformedExerciseDates(from stats: [PerformedExerciseStat]) -> [Date] {
-        let calendar = Calendar.current
+    // MARK: - Performed Dates
 
+    func getPerformedExerciseDates() -> Set<Date> {
         let dates = stats.map {
             calendar.startOfDay(for: $0.performedOn)
         }
-
-        return Array(Set(dates)).sorted()
+        return Set(dates)
     }
 
-    static func groupExercisesByDate(
-        stats: [PerformedExerciseStat]
-    ) -> [Date: [PerformedExerciseStat]] {
+    // MARK: - Grouped Exercises
 
-        let calendar = Calendar.current
-
-        return Dictionary(grouping: stats) {
+    func groupExercisesByDate() -> [Date: [PerformedExerciseStat]] {
+        Dictionary(grouping: stats) {
             calendar.startOfDay(for: $0.performedOn)
         }
+    }
+
+    // MARK: - Exercises for Day
+
+    func exercises(for date: Date) -> [PerformedExerciseStat] {
+        let grouped = groupExercisesByDate()
+        return grouped[calendar.startOfDay(for: date)] ?? []
     }
 }

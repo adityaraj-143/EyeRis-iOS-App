@@ -145,30 +145,28 @@ let mockTest = AcuityTest(
 )
 
 
-struct BlinkRateMockData {
+let calendar = Calendar.current
 
-    static let calendar = Calendar.current
+let blinkRateMockData: [BlinkRateTestResult] = {
+    let today = Date()
+    var results: [BlinkRateTestResult] = []
 
-    static let mockBlinkRateResults: [BlinkRateTestResult] = {
-        let today = Date()
-        var results: [BlinkRateTestResult] = []
-
-        // last 28 days (4 weeks)
-        for i in 0..<28 {
-            guard let date = calendar.date(byAdding: .day, value: -i, to: today) else {
-                continue
-            }
-
-            let blinks = Int.random(in: 28...50) // bpm ~ 14–25
-            results.append(
-                BlinkRateTestResult(
-                    id: i,
-                    blinks: blinks,
-                    performedOn: date
-                )
-            )
+    // last 28 days (4 weeks)
+    for i in 0..<28 {
+        guard let date = calendar.date(byAdding: .day, value: -i, to: today) else {
+            continue
         }
 
-        return results
-    }()
-}
+        let blinks = Int.random(in: 28...50) // bpm ~ 14–25
+        results.append(
+            BlinkRateTestResult(
+                id: i,
+                blinks: blinks,
+                performedOn: date
+            )
+        )
+    }
+
+    return results
+}()
+

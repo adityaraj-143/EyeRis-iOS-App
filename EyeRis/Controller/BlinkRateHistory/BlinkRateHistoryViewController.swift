@@ -7,51 +7,6 @@
 
 import UIKit
 
-struct BlinkWeek {
-    let startDate: Date
-    let days: [BlinkRateTestResult?] // count = 7
-}
-
-func makeLast4Weeks(from data: [BlinkRateTestResult]) -> [BlinkWeek] {
-    let calendar = Calendar.current
-    let today = calendar.startOfDay(for: Date())
-
-    let byDate = Dictionary(
-        uniqueKeysWithValues: data.map {
-            (calendar.startOfDay(for: $0.performedOn), $0)
-        }
-    )
-
-    var weeks: [BlinkWeek] = []
-
-    for offset in (0..<4).reversed() {
-        guard let weekStart = calendar.date(
-            byAdding: .weekOfYear,
-            value: -offset,
-            to: today
-        )?.startOfWeek else { continue }
-
-        let days = (0..<7).map { day -> BlinkRateTestResult? in
-            let date = calendar.date(byAdding: .day, value: day, to: weekStart)!
-            return byDate[date]
-        }
-
-        weeks.append(BlinkWeek(startDate: weekStart, days: days))
-    }
-
-    return weeks
-}
-
-extension Date {
-    var startOfWeek: Date {
-        Calendar.current.date(
-            from: Calendar.current.dateComponents(
-                [.yearForWeekOfYear, .weekOfYear],
-                from: self
-            )
-        )!
-    }
-}
 
 class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate {
 
@@ -61,6 +16,7 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
     @IBOutlet weak var todayDataView: UIView!
     
     private var weeks: [BlinkWeek] = []
+    private let response = BlinkRateTestResultResponse()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,9 +41,7 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
     
 
     private func prepareTodayData() {
-        let todayResult = BlinkRateMockData.mockBlinkRateResults.first {
-            Calendar.current.isDateInToday($0.performedOn)
-        }
+        let todayResult = response.todayResult()
 
         let value = todayResult?.bpm ?? 0
 
@@ -112,7 +66,7 @@ class BlinkRateHistoryViewController: UIViewController, UICollectionViewDelegate
 
     
     private func prepareWeeklyData() {
-        weeks = makeLast4Weeks(from: BlinkRateMockData.mockBlinkRateResults)
+        weeks = response.makeLast4Weeks()
     }
 
     
