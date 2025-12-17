@@ -141,9 +141,13 @@
                 <constraint firstItem="YxL-gS-rXN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qxk-qu-W4H"/>
             </constraints>
             <connections>
+                <outlet property="accPercentage" destination="Ug4-d0-WkC" id="4Tx-MW-8ZT"/>
+                <outlet property="accuracyLabel" destination="9YS-Ji-vGJ" id="u9w-ZP-eRQ"/>
                 <outlet property="commentView" destination="wjP-6R-MmY" id="68m-yQ-vac"/>
                 <outlet property="mainView" destination="YxL-gS-rXN" id="jPj-oO-Ghc"/>
                 <outlet property="navigatorButton" destination="hfK-Ig-x97" id="FQG-3s-x0d"/>
+                <outlet property="speedLabel" destination="OGu-fB-nqg" id="q3Z-a4-cFX"/>
+                <outlet property="speedPercentage" destination="zH5-ag-p6r" id="TZ5-f5-UFm"/>
             </connections>
             <point key="canvasLocation" x="-195.41984732824426" y="153.16901408450704"/>
         </collectionViewCell>

@@ -18,7 +18,7 @@ struct Exercise{
         // Convert both arrays to Sets for fast intersection
         let userConditions = Set(user.eyeHealthData.condition)
         let exerciseConditions = Set(targetedConditions)
-
+        
         // If intersection is not empty → recommended
         return !userConditions.intersection(exerciseConditions).isEmpty
     }
@@ -38,56 +38,92 @@ struct PerformedExerciseStat {
     var speed: Int
 }
 
-struct PerformedExerciseStatResponse {
 
+struct ExerciseSummary {
+    let accuracy: Int
+    let speed: Int
+}
+
+struct PerformedExerciseStatResponse {
+    
     private let stats: [PerformedExerciseStat]
     private let calendar = Calendar.current
-
+    
     // MARK: - Init
-
+    
     init(stats: [PerformedExerciseStat] = mockPerformedExerciseStats) {
         self.stats = stats
     }
-
+    
     // MARK: - Four Week Dates (28 days)
-
+    
     func getFourWeekDateRange() -> [Date] {
         guard let latestDate = stats.map({ $0.performedOn }).max() else {
             return []
         }
-
+        
         var dates: [Date] = []
-
+        
         for dayOffset in 0..<28 {
             if let date = calendar.date(byAdding: .day, value: -dayOffset, to: latestDate) {
                 dates.append(calendar.startOfDay(for: date))
             }
         }
-
+        
         return dates.reversed()
     }
-
+    
     // MARK: - Performed Dates
-
+    
     func getPerformedExerciseDates() -> Set<Date> {
         let dates = stats.map {
             calendar.startOfDay(for: $0.performedOn)
         }
         return Set(dates)
     }
-
+    
     // MARK: - Grouped Exercises
-
+    
     func groupExercisesByDate() -> [Date: [PerformedExerciseStat]] {
         Dictionary(grouping: stats) {
             calendar.startOfDay(for: $0.performedOn)
         }
     }
-
+    
     // MARK: - Exercises for Day
-
+    
     func exercises(for date: Date) -> [PerformedExerciseStat] {
         let grouped = groupExercisesByDate()
         return grouped[calendar.startOfDay(for: date)] ?? []
+    }
+    
+    func getLastExercise() -> PerformedExerciseStat {
+        stats.max { $0.performedOn < $1.performedOn }!
+    }
+    
+    func getLastExercise() -> ExerciseSummary {
+        
+        let calendar = Calendar.current
+        
+        let grouped = Dictionary(grouping: stats) {
+            calendar.startOfDay(for: $0.performedOn)
+        }
+        
+        guard let latestDate = grouped.keys.max(),
+              let dayExercises = grouped[latestDate]
+        else {
+            return ExerciseSummary(accuracy: 0, speed: 0)
+        }
+        
+        let avgAccuracy =
+        dayExercises.map { $0.accuracy }.reduce(0, +) / dayExercises.count
+        
+        let avgSpeed =
+        dayExercises.map { $0.speed }.reduce(0, +) / dayExercises.count
+        
+        return ExerciseSummary(
+            accuracy: avgAccuracy,
+            speed: avgSpeed
+        )
     }
 }

@@ -39,11 +39,8 @@
 
         }
 
-        @IBAction func navToCalibrate(_ sender: Any) {
-            let storyboard = UIStoryboard(name: "CalibrationScreen", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "CalibrationViewController")
-            
-            navigationController?.pushViewController(viewController, animated: true)
+        @IBAction func navToCalibrate(_ sender: Any) {            
+            navigate(to: "CalibrationScreen", with: "CalibrationViewController")
         }
         
         private func registerCell() {
@@ -149,3 +146,11 @@
 
     }
 
+
+extension TestInstructionViewController {
+    func navigate(to storyboardName: String, with storyboardId: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}

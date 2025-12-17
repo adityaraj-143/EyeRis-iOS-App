@@ -4,15 +4,26 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var CollectionView: UICollectionView!
     @IBOutlet weak var profileIconView: UIView!
-
-    var lastAcuityTest = dummyAcuityResults
     
+
+    var lastNVA: AcuityTestResult = AcuityTestResultResponse().getLastTestNVA()!
+    
+    var lastDVA: AcuityTestResult = AcuityTestResultResponse().getLastTestDVA()!
+    
+    var lastExercise: ExerciseSummary =
+        PerformedExerciseStatResponse().getLastExercise()
+
+    let blinkRateResponse = BlinkRateTestResultResponse()
+    var todayBlinkResult: BlinkRateTestResult?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         CollectionView.setCollectionViewLayout(generateLayout(), animated: false)
         CollectionView.dataSource = self
+        
+        todayBlinkResult = blinkRateResponse.todayResult()
 
         registerCells()
     }
@@ -57,6 +68,8 @@ extension ViewController: UICollectionViewDataSource {
 
         case 1:
             return collectionView.dequeueReusableCell(withReuseIdentifier: "tip_cell", for: indexPath)
+            
+           
 
         case 2:
             return collectionView.dequeueReusableCell(withReuseIdentifier: "todayExercise_cell", for: indexPath)
@@ -90,23 +103,37 @@ extension ViewController: UICollectionViewDataSource {
                 withReuseIdentifier: "blinkRate_cell",
                 for: indexPath
             ) as! BlinkRateCollectionViewCell
-            cell.blinkRateSliderView.value = 9
-            cell.blinkRateSliderView.maxValue = 22
             
-            cell.onTapNavigation = { [weak self] in
-                    self?.navigate(to: "BlinkRateHistory", with: "BlinkRateHistoryViewController")
+            if let result = todayBlinkResult {
+                cell.blinkRateSliderView.value = CGFloat(result.bpm)
+                cell.blinkRateSliderView.maxValue = 30
+            } else {
+                cell.blinkRateSliderView.value = 0
+                cell.blinkRateSliderView.maxValue = 30
             }
-            
+
+            cell.onTapNavigation = { [weak self] in
+                self?.navigate(to: "BlinkRateHistory", with: "BlinkRateHistoryViewController")
+            }
+
             return cell
 
         case 5:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lastExercise_cell", for: indexPath) as! LastExerciseCollectionViewCell
-            
-            cell.onTapNavigation = { [weak self] in
-                self?.navigate(to: "ExerciseHistory", with: "ExerciseHistoryViewController")
-            }
-            return cell
+            let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "lastExercise_cell",
+                    for: indexPath
+                ) as! LastExerciseCollectionViewCell
 
+                cell.onTapNavigation = { [weak self] in
+                    self?.navigate(to: "ExerciseHistory", with: "ExerciseHistoryViewController")
+                }
+
+                cell.configure(
+                    acc: lastExercise.accuracy,
+                    speed: lastExercise.speed
+                )
+
+                return cell
         case 6:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "lastTest_cell",
@@ -116,6 +143,8 @@ extension ViewController: UICollectionViewDataSource {
             cell.onTapNavigation = { [weak self] in
                 self?.navigate(to: "TestHistory", with: "TestHistoryViewController")
             }
+            
+            cell.configure(nvaLE: lastNVA.leftEyeScore, nvaRE: lastNVA.rightEyeScore, dvaLE: lastDVA.leftEyeScore, dvaRE: lastDVA.rightEyeScore)
 
             return cell
 

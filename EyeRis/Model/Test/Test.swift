@@ -92,7 +92,29 @@ struct AcuityTestResultResponse {
         
         return dailyTests
     }
+    
+    func getLastTestDVA() -> AcuityTestResult {
+        results.max { $0.testDate < $1.testDate }!
+    }
 }
+
+extension AcuityTestResultResponse {
+
+    private func latestTest(of type: AcuityTestType) -> AcuityTestResult? {
+        results
+            .filter { $0.testType == type }
+            .max { $0.testDate < $1.testDate }
+    }
+
+    func getLastTestDVA() -> AcuityTestResult? {
+        latestTest(of: .DistantVision)
+    }
+
+    func getLastTestNVA() -> AcuityTestResult? {
+        latestTest(of: .NearVision)
+    }
+}
+
 
 struct BlinkRateTest{
     var instructions: TestInstruction
@@ -161,3 +183,4 @@ struct BlinkRateTestResultResponse {
         return weeks
     }
 }
+
