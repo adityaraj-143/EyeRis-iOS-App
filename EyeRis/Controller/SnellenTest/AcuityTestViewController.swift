@@ -29,7 +29,7 @@ class AcuityTestViewController: UIViewController {
     var currentSpeechBuffer = ""
 
     let totalImages = 7
-    var currentImageIndex = 0   // starts at Image 1
+    var currentImageIndex = 0   // starts at Image 
 
 
     override func viewDidLayoutSubviews() {

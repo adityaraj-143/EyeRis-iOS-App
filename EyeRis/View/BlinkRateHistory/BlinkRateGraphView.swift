@@ -16,6 +16,7 @@ final class BlinkRateGraphView: UIView {
     // MARK: - State
     private var barFrames: [CGRect] = []
     private var selectedBarIndex: Int?
+    private var currentBarIndex: Int?
     private var currentWeek: BlinkWeek?
     private var isBeingReused = false
 
@@ -69,6 +70,7 @@ final class BlinkRateGraphView: UIView {
         connectorLineLayer?.removeFromSuperlayer()
         connectorLineLayer = nil
         
+
         longPressGesture?.isEnabled = false
         selectedBarIndex = nil
         longPressGesture?.isEnabled = true
@@ -86,7 +88,7 @@ final class BlinkRateGraphView: UIView {
             guard let date = $0?.performedOn else { return false }
             return Calendar.current.isDateInToday(date)
         }
-
+        currentBarIndex = todayIndex
         drawGrid()
         drawBars(values: values, highlightIndex: todayIndex)
         drawReferenceLine(at: 20)
@@ -276,7 +278,7 @@ final class BlinkRateGraphView: UIView {
             guard !isBeingReused else { return }
             
             selectedBarIndex = nil
-            updateBarSelection(selectedIndex: nil)
+            updateBarSelection(selectedIndex: currentBarIndex)
             tooltipView?.hide()
             
             UIView.animate(withDuration: 0.15) { [weak self] in
