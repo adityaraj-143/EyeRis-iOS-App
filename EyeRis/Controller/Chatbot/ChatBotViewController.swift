@@ -112,6 +112,7 @@ class ChatbotViewController: UIViewController, UITextFieldDelegate {
             }
 
             TextField.text = title
+            TextField.text = "I have irritation in my eyes"
             
         }
 
