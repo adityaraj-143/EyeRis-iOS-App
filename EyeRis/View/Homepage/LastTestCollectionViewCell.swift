@@ -15,6 +15,12 @@ class LastTestCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var resultView1: UIView!
 
+    @IBOutlet weak var nvaLeftEye: UILabel!
+    @IBOutlet weak var nvaRightEye: UILabel!
+    
+    @IBOutlet weak var dvaLeftEye: UILabel!
+    @IBOutlet weak var dvaRightEye: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,13 +31,18 @@ class LastTestCollectionViewCell: UICollectionViewCell {
         [resultView, resultView1].forEach {
             $0?.applyShadow()
         }
-        
-        navigatorButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
     }
         
     var onTapNavigation: (() -> Void)?
     
     @IBAction func buttonToNavAction(_ sender: Any) {
         onTapNavigation?()
+    }
+    
+    func configure (nvaLE: String, nvaRE: String, dvaLE: String, dvaRE: String) {
+        nvaLeftEye.text = nvaLE
+        nvaRightEye.text = nvaRE
+        dvaLeftEye.text = dvaLE
+        dvaRightEye.text = dvaRE
     }
 }

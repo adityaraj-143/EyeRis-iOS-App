@@ -4,14 +4,12 @@ import RealityKit
 
 class CalibrationViewController: UIViewController {
     
+    var source: TestFlowSource?
+    
     @IBOutlet weak var distanceLabel: UILabel!
-    
     @IBOutlet weak var statusLabel: UILabel!
-    
     @IBOutlet weak var cameraFeedBorderView: UIView!
-    
     @IBOutlet weak var proceedButton: UIButton!
-    
     @IBOutlet weak var cameraContainer: UIView!
     
     private var currentDistance: Int = 0
@@ -29,6 +27,17 @@ class CalibrationViewController: UIViewController {
         setupBorderView()
         setupARView()
         setupARKit()
+        
+        switch source {
+        case .acuityTest:
+            print("Calibration for Acuity Test")
+
+        case .blinkRateTest:
+            print("Calibration for Blink Rate Test")
+
+        case .none:
+            break
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,22 +163,22 @@ class CalibrationViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func proceedButtonTapped(_ sender: UIButton) {
-        guard let exercise = exercise else { return }
-        
         let alert = UIAlertController(
             title: "Ready?",
-            message: "Start \(exercise.name)?",
+            message: "Start the test?",
             preferredStyle: .alert
         )
-        
+
         alert.addAction(UIAlertAction(title: "Start", style: .default) { [weak self] _ in
-            self?.navigationController?.popViewController(animated: true)
+            print("CALLED")
+            self?.navigateBasedOnSource()
         })
-        
+
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
+
         present(alert, animated: true)
     }
+
     
     private func showARNotSupportedAlert() {
         let alert = UIAlertController(
@@ -202,3 +211,25 @@ extension CalibrationViewController: ARSessionDelegate {
         print("AR resumed")
     }
 }
+
+extension CalibrationViewController {
+
+    func navigateBasedOnSource() {
+        guard let source else { return }
+
+        switch source {
+        case .acuityTest:
+            navigate(to: "AcuityTest", with: "AcuityTestViewController")
+
+        case .blinkRateTest:
+            navigate(to: "BlinkRateTest", with: "BlinkRateTestViewController")
+        }
+    }
+
+    private func navigate(to storyboardName: String, with identifier: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: identifier)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
