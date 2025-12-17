@@ -332,7 +332,7 @@
                     <navigationItem key="navigationItem" id="ZJx-to-YCU">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OSn-WU-Shf">
                             <connections>
-                                <action selector="cancelButtonTapped:" destination="Cgp-fo-Ksg" id="n3j-sB-8mi"/>
+                                <action selector="cancelButtonTapped:" destination="Cgp-fo-Ksg" id="xA9-NG-gAW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="m95-Tm-4B0">
@@ -343,6 +343,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="DOBButton" destination="FnR-R3-tFl" id="TDw-8c-AXA"/>
+                        <outlet property="conditionsLabel" destination="hN7-WK-nZ7" id="5Bs-LX-NVi"/>
                         <outlet property="editButton" destination="m95-Tm-4B0" id="CUA-LI-trG"/>
                         <outlet property="eyeSightButton" destination="Mou-td-Tvt" id="RWm-PD-qvU"/>
                         <outlet property="firstNameField" destination="cIF-hp-DsT" id="CLI-Vp-G0T"/>
