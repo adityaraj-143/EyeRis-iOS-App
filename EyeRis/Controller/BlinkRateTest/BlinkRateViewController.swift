@@ -19,17 +19,12 @@ class BlinkRateViewController: UIViewController, ARSessionDelegate {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var Passage: UILabel!
     
-    
-    
-    
+ 
     // Blink state variables
     var isBlinking = false
     var blinkCount = 0
-    
     var timer: Timer?
-    var timeRemaining = 120
-//    BlinkRateTest.duration
-//    2 minutes = 120 seconds
+    var timeRemaining = 120 //duratio 2 mins
 
     
 
@@ -77,7 +72,7 @@ class BlinkRateViewController: UIViewController, ARSessionDelegate {
     }
 
 
-    // MARK: - CAMERA PERMISSION
+    // MARK: CAMERA PERMISSION
     func requestCameraPermission(completion: @escaping (Bool) -> Void) {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
 
@@ -120,7 +115,7 @@ class BlinkRateViewController: UIViewController, ARSessionDelegate {
         present(alert, animated: true)
     }
 
-    // MARK: - START FACE TRACKING
+    // MARK: START FACE TRACKING
     func startFaceTracking() {
 
         guard ARFaceTrackingConfiguration.isSupported else {
@@ -135,7 +130,7 @@ class BlinkRateViewController: UIViewController, ARSessionDelegate {
         session.run(config, options: [])
     }
 
-    // MARK: - AR SESSION DELEGATE
+    // MARK: AR SESSION DELEGATE
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
 
         guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
@@ -146,7 +141,7 @@ class BlinkRateViewController: UIViewController, ARSessionDelegate {
         detectBlink(left: leftBlink, right: rightBlink)
     }
 
-    // MARK: - BLINK DETECTION
+    // MARK: BLINK DETECTION
     func detectBlink(left: Float, right: Float) {
 
         let threshold: Float = 0.65
